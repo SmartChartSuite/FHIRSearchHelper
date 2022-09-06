@@ -7,7 +7,7 @@ from fhir.resources.capabilitystatement import CapabilityStatementRestResourceSe
 class SupportedSearchParams(BaseModel):
 
     resourceType: str
-    searchParams: CapabilityStatementRestResourceSearchParam
+    searchParams: list[CapabilityStatementRestResourceSearchParam]
 
 class QuerySearchParamsSearchParams(BaseModel):
 
