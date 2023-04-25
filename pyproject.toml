@@ -1,6 +1,56 @@
+[project]
+name = "fhirsearchhelper"  # Required
+version = "0.0.1"  # Required
+description = "A package to help FHIR searching with needed search parameters are not available"  # Optional
+readme = "README.md" # Optional
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+keywords = ["fhir", "fhirsearching"]  # Optional
+authors = [
+  {name = "Andrew Stevens", email = "andrew.stevens@gtri.gatech.edu" } # Optional
+]
+
+# This should be your name or the names of the organization who currently
+# maintains the project, and a valid email address corresponding to the name
+# listed.
+maintainers = [
+    {name = "Andrew Stevens", email = "andrew.stevens@gtri.gatech.edu" } # Optional
+]
+
+# Classifiers help users find your project by categorizing it.
+#
+# For a list of valid classifiers, see https://pypi.org/classifiers/
+classifiers = [  # Optional
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Operating System :: OS Independent"
+]
+
+# This field lists other packages that your project depends on to run.
+# Any package you put here will be installed by pip when your project is
+# installed, so they must be valid existing projects.
+#
+# For an analysis of this field vs pip's requirements files see:
+# https://packaging.python.org/discussions/install-requires-vs-requirements/
+dependencies = [ # Optional
+  "fhir.resources==7.0.0",
+  "requests==2.28.2",
+]
+[project.optional-dependencies] # Optional
+dev = ["ruff==0.0.252"]
+
+[project.urls]  # Optional
+"Homepage" = "https://github.com/SmartChartSuite/FHIRSearchHelper"
+"Bug Reports" = "https://github.com/SmartChartSuite/FHIRSearchHelper/issues"
+"Source" = "https://github.com/SmartChartSuite/FHIRSearchHelper"
+
 [build-system]
-# Minimum requirements for the build system to execute.
-requires = ["setuptools", "wheel"]  # PEP 508 specifications.
+# These are the assumed default build requirements from pip:
+# https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [tool.ruff]
 line-length = 200
