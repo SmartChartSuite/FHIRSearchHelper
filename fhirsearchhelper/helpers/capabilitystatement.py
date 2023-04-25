@@ -1,11 +1,14 @@
 '''File to handle all operations around a CapabilityStatement'''
 
-from fhir.resources.capabilitystatement import CapabilityStatement
+from fhir.resources.R4B.capabilitystatement import CapabilityStatement
+import requests
+from pathlib import Path
+import os
 
-from ..models.models import SupportedSearchParams
+from models.models import SupportedSearchParams
 
 
-def load_capability_statement(url: str = None, file_path: str  = None) -> CapabilityStatement:
+def load_capability_statement(url: str = None, file_path: str  = None) -> CapabilityStatement: # type: ignore
     '''Function to load a CapabilityStatement into memory'''
 
     if not url and not file_path:
@@ -14,12 +17,28 @@ def load_capability_statement(url: str = None, file_path: str  = None) -> Capabi
     if url and file_path:
         print('Defaulting to url...')
 
-    # TODO
+    if url:
+        try:
+            cap_statement: dict = requests.get(url, headers={'Accept': 'application/json'}).json()
+        except Exception as exc:
+            print('Something went wrong trying to access the CapabilityStatement via URL')
+            raise exc
 
-    return CapabilityStatement()
+        try:
+            cap_statement_object: CapabilityStatement = CapabilityStatement.parse_obj(cap_statement)
+        except Exception as exc:
+            print('Something went wrong when trying to turn the retrieved cap statement into a CapabilityStatement object')
+            raise exc
+    else:
+        if os.path.isfile(f'{Path(__file__).parents[1]}/capabilitystatements/{file_path}'):
+            print(f'Found file {file_path} in the CapabilityStatements folder')
+            file_path = f'{Path(__file__).parents[1]}/capabilitystatements/{file_path}'
+        cap_statement_object = CapabilityStatement.parse_file(file_path)
+
+    return cap_statement_object
 
 
-def get_supported_search_params(cs: CapabilityStatement) -> SupportedSearchParams:
+def get_supported_search_params(cs: CapabilityStatement) -> list[SupportedSearchParams]:
     '''Function to pull out supported search parameters from a capability statement'''
 
-    # TODO
+    return [SupportedSearchParams(resourceType=resource.type, searchParams=resource.searchParam) for resource in cs.rest[0].resource if resource.searchParam] # type: ignore
