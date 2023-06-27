@@ -1,9 +1,12 @@
 '''File to perform filtering of returned FHIR resources using output from gap analysis'''
 
+from copy import deepcopy
+
 from fhir.resources.R4B.bundle import Bundle
 from fhir.resources.R4B.fhirtypes import BundleEntryType
-from models.models import QuerySearchParams
-from copy import deepcopy
+
+from ..models.models import QuerySearchParams
+
 
 def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_analysis_output: list[str]) -> Bundle:
     '''Function that takes an input bundle, the original search params, and the output from the gap analysis to filter a Bundle'''

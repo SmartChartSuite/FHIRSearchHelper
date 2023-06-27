@@ -1,8 +1,7 @@
 '''File for custom models'''
 
-from pydantic import BaseModel
-
 from fhir.resources.R4B.capabilitystatement import CapabilityStatementRestResourceSearchParam
+from pydantic import BaseModel
 
 
 class SupportedSearchParams(BaseModel):

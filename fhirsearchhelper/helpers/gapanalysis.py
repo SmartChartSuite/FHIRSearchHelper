@@ -1,8 +1,9 @@
 '''File to perform the search parameter gap analysis'''
 
-from models.models import SupportedSearchParams, QuerySearchParams
-
 from fhir.resources.R4B.capabilitystatement import CapabilityStatementRestResourceSearchParam
+
+from ..models.models import QuerySearchParams, SupportedSearchParams
+
 
 def run_gap_analysis(supported_search_params: list[SupportedSearchParams], query_search_params: QuerySearchParams) -> list[str]:
     resource_type = query_search_params.resourceType

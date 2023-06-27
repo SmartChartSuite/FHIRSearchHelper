@@ -1,1 +1,1 @@
-from main import run_fhir_query
+from .main import run_fhir_query

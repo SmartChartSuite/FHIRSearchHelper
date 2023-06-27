@@ -1,14 +1,13 @@
 '''Main file for entrypoint to package'''
 
-from fhir.resources.R4B.capabilitystatement import CapabilityStatement
-from fhir.resources.R4B.bundle import Bundle
 import requests
+from fhir.resources.R4B.bundle import Bundle
+from fhir.resources.R4B.capabilitystatement import CapabilityStatement
 
-from helpers.capabilitystatement import load_capability_statement, get_supported_search_params
-
-from models.models import QuerySearchParams, SupportedSearchParams
-from helpers.gapanalysis import run_gap_analysis
-from helpers.fhirfilter import filter_bundle
+from .helpers.capabilitystatement import get_supported_search_params, load_capability_statement
+from .helpers.fhirfilter import filter_bundle
+from .helpers.gapanalysis import run_gap_analysis
+from .models.models import QuerySearchParams, SupportedSearchParams
 
 
 def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, resource_type: str = None, search_params: QuerySearchParams = None, query: str = None, # type: ignore

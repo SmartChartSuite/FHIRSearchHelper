@@ -1,11 +1,12 @@
 '''File to handle all operations around a CapabilityStatement'''
 
-from fhir.resources.R4B.capabilitystatement import CapabilityStatement
-import requests
-from pathlib import Path
 import os
+from pathlib import Path
 
-from models.models import SupportedSearchParams
+import requests
+from fhir.resources.R4B.capabilitystatement import CapabilityStatement
+
+from ..models.models import SupportedSearchParams
 
 
 def load_capability_statement(url: str = None, file_path: str  = None) -> CapabilityStatement: # type: ignore
