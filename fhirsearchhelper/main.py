@@ -10,7 +10,7 @@ from .helpers.gapanalysis import run_gap_analysis
 from .models.models import QuerySearchParams, SupportedSearchParams
 
 
-def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, resource_type: str = None, search_params: QuerySearchParams = None, query: str = None, # type: ignore
+def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, search_params: QuerySearchParams = None, query: str = None, # type: ignore
                    capability_statement_file: str = None, capability_statement_url: str = None) -> Bundle | None: # type: ignore
     '''
     Entry function to run FHIR query using a CapabilityStatement and returning filtered resources
@@ -18,11 +18,8 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, r
     '''
 
     # Error handling
-    if not base_url and not resource_type and not search_params and not query:
-        raise ValueError('You must provide either a base_url, resource_type, and a dictionary of search parameters or the full query string'
-                         'in the form of <baseUrl>/<resourceType>?<param1>=<value1>&...')
-    if not query and not all([resource_type, search_params]):
-        raise ValueError('You must provide both a resourceType and a dictionary of search parameters if you do not pass a full query string.')
+    if not base_url and not search_params and not query:
+        raise ValueError('You must provide either a base_url and a dictionary of search parameters or the full query string in the form of <baseUrl>/<resourceType>?<param1>=<value1>&...')
 
     cap_state: CapabilityStatement = load_capability_statement(url=capability_statement_url, file_path=capability_statement_file)
     supported_search_params: list[SupportedSearchParams] = get_supported_search_params(cap_state)
