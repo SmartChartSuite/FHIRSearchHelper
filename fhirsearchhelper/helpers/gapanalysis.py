@@ -1,8 +1,12 @@
 '''File to perform the search parameter gap analysis'''
 
+import logging
+
 from fhir.resources.R4B.capabilitystatement import CapabilityStatementRestResourceSearchParam
 
 from ..models.models import QuerySearchParams, SupportedSearchParams
+
+logger: logging.Logger = logging.getLogger('fhirsearchhelper.gapanalysis')
 
 
 def run_gap_analysis(supported_search_params: list[SupportedSearchParams], query_search_params: QuerySearchParams) -> list[str]:
@@ -26,6 +30,11 @@ def run_gap_analysis(supported_search_params: list[SupportedSearchParams], query
                 elif ' in ' in filtered_ext_list[0].valueString:
                     field, values = filtered_ext_list[0].valueString.split(' in ')
                     values = [value.strip() for value in  values.strip('[').strip(']').split(',')]
+                    if (field in query_params_names
+                        and len(query_search_params.searchParams[field].split(',')) > 1
+                        and all([sp_value in values for sp_value in query_search_params.searchParams[field].split(',')])):
+                        supported_params_names.append(name)
+                        continue
                     if field in query_params_names and query_search_params.searchParams[field] in values:
                         supported_params_names.append(name)
         else:
