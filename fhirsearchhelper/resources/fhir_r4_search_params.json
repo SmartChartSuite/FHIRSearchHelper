@@ -1,0 +1,3329 @@
+{
+    "Account": {
+        "identifier": {
+            "fhirpath": "Account.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "name": {
+            "fhirpath": "Account.name",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "owner": {
+            "fhirpath": "Account.owner",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "patient": {
+            "fhirpath": "Account.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "period": {
+            "fhirpath": "Account.servicePeriod",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "status": {
+            "fhirpath": "Account.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "subject": {
+            "fhirpath": "Account.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "type": {
+            "fhirpath": "Account.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        }
+    },
+    "AdverseEvent": {
+        "actuality": {
+            "fhirpath": "AdverseEvent.actuality",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "category": {
+            "fhirpath": "AdverseEvent.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "date": {
+            "fhirpath": "AdverseEvent.date",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "event": {
+            "fhirpath": "AdverseEvent.event",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "location": {
+            "fhirpath": "AdverseEvent.location",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "recorder": {
+            "fhirpath": "AdverseEvent.recorder",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "resultingcondition": {
+            "fhirpath": "AdverseEvent.resultingCondition",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "seriousness": {
+            "fhirpath": "AdverseEvent.seriousness",
+            "exampleValue": "",
+            "exampleTestEpicValue": "serious"
+        },
+        "severity": {
+            "fhirpath": "AdverseEvent.severity",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "study": {
+            "fhirpath": "AdverseEvent.study",
+            "exampleValue": "",
+            "exampleTestEpicValue": "enJ3eMmu-jFFkkT9sTH9Avw3"
+        },
+        "subject": {
+            "fhirpath": "AdverseEvent.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": "exXRmhbBlDmkQs7JHPE37Yw3"
+        },
+        "substance": {
+            "fhirpath": "AdverseEvent.suspectEntity.instance",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        }
+    },
+    "AllergyIntolerance": {
+        "asserter": {
+            "fhirpath": "AllergyIntolerance.asserter",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "category": {
+            "fhirpath": "AllergyIntolerance.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "clinical-status": {
+            "fhirpath": "AllergyIntolerance.clinicalStatus",
+            "exampleValue": "",
+            "exampleTestEpicValue": "active"
+        },
+        "code": {
+            "fhirpath": "AllergyIntolerance.code | AllergyIntolerance.reaction.substance",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "criticality": {
+            "fhirpath": "AllergyIntolerance.criticality",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "date": {
+            "fhirpath": "AllergyIntolerance.recordedDate",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "identifier": {
+            "fhirpath": "AllergyIntolerance.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "last-date": {
+            "fhirpath": "AllergyIntolerance.lastOccurrence",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "manifestation": {
+            "fhirpath": "AllergyIntolerance.reaction.manifestation",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "onset": {
+            "fhirpath": "AllergyIntolerance.reaction.onset",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "patient": {
+            "fhirpath": "AllergyIntolerance.patient",
+            "exampleValue": "",
+            "exampleTestEpicValue": "e63wRTbPfr1p8UW81d8Seiw3"
+        },
+        "recorder": {
+            "fhirpath": "AllergyIntolerance.recorder",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "route": {
+            "fhirpath": "AllergyIntolerance.reaction.exposureRoute",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "severity": {
+            "fhirpath": "AllergyIntolerance.reaction.severity",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "type": {
+            "fhirpath": "AllergyIntolerance.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "verification-status": {
+            "fhirpath": "AllergyIntolerance.verificationStatus",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        }
+    },
+    "Appointment": {
+        "actor": {
+            "fhirpath": "Appointment.participant.actor",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "appointment-type": {
+            "fhirpath": "Appointment.appointmentType",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "based-on": {
+            "fhirpath": "Appointment.basedOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "date": {
+            "fhirpath": "Appointment.start",
+            "exampleValue": "",
+            "exampleTestEpicValue": "2017-10-06"
+        },
+        "identifier": {
+            "fhirpath": "Appointment.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": "27633"
+        },
+        "location": {
+            "fhirpath": "Appointment.participant.actor.where(resolve() is Location)",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "part-status": {
+            "fhirpath": "Appointment.participant.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "patient": {
+            "fhirpath": "Appointment.participant.actor.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": "erXuFYUfucBZaryVksYEcMg3"
+        },
+        "practitioner": {
+            "fhirpath": "Appointment.participant.actor.where(resolve() is Practitioner)",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "reason-code": {
+            "fhirpath": "Appointment.reasonCode",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "reason-reference": {
+            "fhirpath": "Appointment.reasonReference",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "service-category": {
+            "fhirpath": "Appointment.serviceCategory",
+            "exampleValue": "",
+            "exampleTestEpicValue": "appointment"
+        },
+        "service-type": {
+            "fhirpath": "Appointment.serviceType",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "slot": {
+            "fhirpath": "Appointment.slot",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "specialty": {
+            "fhirpath": "Appointment.specialty",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "status": {
+            "fhirpath": "Appointment.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": "booked"
+        },
+        "supporting-info": {
+            "fhirpath": "Appointment.supportingInformation",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        }
+    },
+    "BodyStructure": {
+        "identifier": {
+            "fhirpath": "BodyStructure.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": null
+        },
+        "location": {
+            "fhirpath": "BodyStructure.location",
+            "exampleValue": "",
+            "exampleTestEpicValue": "http://snomed.info/sct|18639004"
+        },
+        "morphology": {
+            "fhirpath": "BodyStructure.morphology",
+            "exampleValue": "",
+            "exampleTestEpicValue": "http://snomed.info/sct|280115004"
+        },
+        "patient": {
+            "fhirpath": "BodyStructure.patient",
+            "exampleValue": "",
+            "exampleTestEpicValue": "eM0bcoitty9qE1EF3-a1Awg3"
+        }
+    },
+    "CarePlan": {
+        "activity-code": {
+            "fhirpath": "CarePlan.activity.detail.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "activity-date": {
+            "fhirpath": "CarePlan.activity.detail.scheduled",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "activity-reference": {
+            "fhirpath": "CarePlan.activity.reference",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "based-on": {
+            "fhirpath": "CarePlan.basedOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "care-team": {
+            "fhirpath": "CarePlan.careTeam",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "category": {
+            "fhirpath": "CarePlan.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "condition": {
+            "fhirpath": "CarePlan.addresses",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "CarePlan.period",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "CarePlan.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "goal": {
+            "fhirpath": "CarePlan.goal",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "CarePlan.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-canonical": {
+            "fhirpath": "CarePlan.instantiatesCanonical",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-uri": {
+            "fhirpath": "CarePlan.instantiatesUri",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "intent": {
+            "fhirpath": "CarePlan.intent",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "part-of": {
+            "fhirpath": "CarePlan.partOf",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "CarePlan.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "performer": {
+            "fhirpath": "CarePlan.activity.detail.performer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "replaces": {
+            "fhirpath": "CarePlan.replaces",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "CarePlan.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "CarePlan.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "CareTeam": {
+        "category": {
+            "fhirpath": "CareTeam.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "CareTeam.period",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "CareTeam.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "CareTeam.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "participant": {
+            "fhirpath": "CareTeam.participant.member",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "CareTeam.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "CareTeam.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "CareTeam.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Communication": {
+        "based-on": {
+            "fhirpath": "Communication.basedOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "category": {
+            "fhirpath": "Communication.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "Communication.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Communication.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-canonical": {
+            "fhirpath": "Communication.instantiatesCanonical",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-uri": {
+            "fhirpath": "Communication.instantiatesUri",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "medium": {
+            "fhirpath": "Communication.medium",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "part-of": {
+            "fhirpath": "Communication.partOf",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Communication.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "received": {
+            "fhirpath": "Communication.received",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "recipient": {
+            "fhirpath": "Communication.recipient",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "sender": {
+            "fhirpath": "Communication.sender",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "sent": {
+            "fhirpath": "Communication.sent",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Communication.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "Communication.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Condition": {
+        "abatement-age": {
+            "fhirpath": "Condition.abatement.as(Age) | Condition.abatement.as(Range)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "abatement-date": {
+            "fhirpath": "Condition.abatement.as(dateTime) | Condition.abatement.as(Period)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "abatement-string": {
+            "fhirpath": "Condition.abatement.as(string)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "asserter": {
+            "fhirpath": "Condition.asserter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "body-site": {
+            "fhirpath": "Condition.bodySite",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "category": {
+            "fhirpath": "Condition.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "clinical-status": {
+            "fhirpath": "Condition.clinicalStatus",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code": {
+            "fhirpath": "Condition.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "Condition.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "evidence": {
+            "fhirpath": "Condition.evidence.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "evidence-detail": {
+            "fhirpath": "Condition.evidence.detail",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Condition.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "onset-age": {
+            "fhirpath": "Condition.onset.as(Age) | Condition.onset.as(Range)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "onset-date": {
+            "fhirpath": "Condition.onset.as(dateTime) | Condition.onset.as(Period)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "onset-info": {
+            "fhirpath": "Condition.onset.as(string)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Condition.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "recorded-date": {
+            "fhirpath": "Condition.recordedDate",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "severity": {
+            "fhirpath": "Condition.severity",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "stage": {
+            "fhirpath": "Condition.stage.summary",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "Condition.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "verification-status": {
+            "fhirpath": "Condition.verificationStatus",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Consent": {
+        "action": {
+            "fhirpath": "Consent.provision.action",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "actor": {
+            "fhirpath": "Consent.provision.actor.reference",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "category": {
+            "fhirpath": "Consent.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "consentor": {
+            "fhirpath": "Consent.performer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "data": {
+            "fhirpath": "Consent.provision.data.reference",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "Consent.dateTime",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Consent.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "organization": {
+            "fhirpath": "Consent.organization",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Consent.patient",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "period": {
+            "fhirpath": "Consent.provision.period",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "purpose": {
+            "fhirpath": "Consent.provision.purpose",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "scope": {
+            "fhirpath": "Consent.scope",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "security-label": {
+            "fhirpath": "Consent.provision.securityLabel",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "source-reference": {
+            "fhirpath": "Consent.source",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Consent.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Coverage": {
+        "beneficiary": {
+            "fhirpath": "Coverage.beneficiary",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "class-type": {
+            "fhirpath": "Coverage.class.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "class-value": {
+            "fhirpath": "Coverage.class.value",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "dependent": {
+            "fhirpath": "Coverage.dependent",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Coverage.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Coverage.beneficiary",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "payor": {
+            "fhirpath": "Coverage.payor",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "policy-holder": {
+            "fhirpath": "Coverage.policyHolder",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Coverage.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subscriber": {
+            "fhirpath": "Coverage.subscriber",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "type": {
+            "fhirpath": "Coverage.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Device": {
+        "device-name": {
+            "fhirpath": "Device.deviceName.name | Device.type.coding.display | Device.type.text",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Device.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "location": {
+            "fhirpath": "Device.location",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "manufacturer": {
+            "fhirpath": "Device.manufacturer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "model": {
+            "fhirpath": "Device.modelNumber",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "organization": {
+            "fhirpath": "Device.owner",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Device.patient",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Device.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "type": {
+            "fhirpath": "Device.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "udi-carrier": {
+            "fhirpath": "Device.udiCarrier.carrierHRF",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "udi-di": {
+            "fhirpath": "Device.udiCarrier.deviceIdentifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "url": {
+            "fhirpath": "Device.url",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "DeviceRequest": {
+        "authored-on": {
+            "fhirpath": "DeviceRequest.authoredOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "based-on": {
+            "fhirpath": "DeviceRequest.basedOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code": {
+            "fhirpath": "(DeviceRequest.code as CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "device": {
+            "fhirpath": "(DeviceRequest.code as Reference)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "DeviceRequest.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "event-date": {
+            "fhirpath": "(DeviceRequest.occurrence as dateTime) | (DeviceRequest.occurrence as Period)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "group-identifier": {
+            "fhirpath": "DeviceRequest.groupIdentifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "DeviceRequest.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-canonical": {
+            "fhirpath": "DeviceRequest.instantiatesCanonical",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-uri": {
+            "fhirpath": "DeviceRequest.instantiatesUri",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "insurance": {
+            "fhirpath": "DeviceRequest.insurance",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "intent": {
+            "fhirpath": "DeviceRequest.intent",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "DeviceRequest.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "performer": {
+            "fhirpath": "DeviceRequest.performer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "prior-request": {
+            "fhirpath": "DeviceRequest.priorRequest",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "requester": {
+            "fhirpath": "DeviceRequest.requester",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "DeviceRequest.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "DeviceRequest.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "DeviceUseStatement": {
+        "device": {
+            "fhirpath": "DeviceUseStatement.device",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "DeviceUseStatement.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "DeviceUseStatement.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "DeviceUseStatement.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "DiagnosticReport": {
+        "based-on": {
+            "fhirpath": "DiagnosticReport.basedOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "category": {
+            "fhirpath": "DiagnosticReport.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code": {
+            "fhirpath": "DiagnosticReport.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "conclusion": {
+            "fhirpath": "DiagnosticReport.conclusionCode",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "DiagnosticReport.effective",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "DiagnosticReport.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "DiagnosticReport.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "issued": {
+            "fhirpath": "DiagnosticReport.issued",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "media": {
+            "fhirpath": "DiagnosticReport.media.link",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "DiagnosticReport.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "performer": {
+            "fhirpath": "DiagnosticReport.performer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "result": {
+            "fhirpath": "DiagnosticReport.result",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "results-interpreter": {
+            "fhirpath": "DiagnosticReport.resultsInterpreter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "specimen": {
+            "fhirpath": "DiagnosticReport.specimen",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "DiagnosticReport.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "DiagnosticReport.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "DocumentReference": {
+        "authenticator": {
+            "fhirpath": "DocumentReference.authenticator",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "author": {
+            "fhirpath": "DocumentReference.author",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "category": {
+            "fhirpath": "DocumentReference.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "contenttype": {
+            "fhirpath": "DocumentReference.content.attachment.contentType",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "custodian": {
+            "fhirpath": "DocumentReference.custodian",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "DocumentReference.date",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "description": {
+            "fhirpath": "DocumentReference.description",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "DocumentReference.context.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "event": {
+            "fhirpath": "DocumentReference.context.event",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "facility": {
+            "fhirpath": "DocumentReference.context.facilityType",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "format": {
+            "fhirpath": "DocumentReference.content.format",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "DocumentReference.masterIdentifier | DocumentReference.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "language": {
+            "fhirpath": "DocumentReference.content.attachment.language",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "location": {
+            "fhirpath": "DocumentReference.content.attachment.url",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "DocumentReference.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "period": {
+            "fhirpath": "DocumentReference.context.period",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "related": {
+            "fhirpath": "DocumentReference.context.related",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "relatesto": {
+            "fhirpath": "DocumentReference.relatesTo.target",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "relation": {
+            "fhirpath": "DocumentReference.relatesTo.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "relationship": {
+            "fhirpath": "On DocumentReference.relatesTo:\nrelatesto: code\nrelation: target",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "security-label": {
+            "fhirpath": "DocumentReference.securityLabel",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "setting": {
+            "fhirpath": "DocumentReference.context.practiceSetting",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "DocumentReference.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "DocumentReference.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "type": {
+            "fhirpath": "DocumentReference.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Encounter": {
+        "account": {
+            "fhirpath": "Encounter.account",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "appointment": {
+            "fhirpath": "Encounter.appointment",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "based-on": {
+            "fhirpath": "Encounter.basedOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "class": {
+            "fhirpath": "Encounter.class",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "Encounter.period",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "diagnosis": {
+            "fhirpath": "Encounter.diagnosis.condition",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "episode-of-care": {
+            "fhirpath": "Encounter.episodeOfCare",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Encounter.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "length": {
+            "fhirpath": "Encounter.length",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "location": {
+            "fhirpath": "Encounter.location.location",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "location-period": {
+            "fhirpath": "Encounter.location.period",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "part-of": {
+            "fhirpath": "Encounter.partOf",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "participant": {
+            "fhirpath": "Encounter.participant.individual",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "participant-type": {
+            "fhirpath": "Encounter.participant.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Encounter.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "pracitioner": {
+            "fhirpath": "Encounter.participant.individual.where(resolve() is Practitioner)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "reason-code": {
+            "fhirpath": "Encounter.reasonCode",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "reason-reference": {
+            "fhirpath": "Encounter.reasonReference",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "service-provider": {
+            "fhirpath": "Encounter.serviceProvider",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "special-arrangement": {
+            "fhirpath": "Encounter.hospitalization.specialArrangement",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Encounter.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "Encounter.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "type": {
+            "fhirpath": "Encounter.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "EpisodeOfCare": {
+        "care-manager": {
+            "fhirpath": "EpisodeOfCare.careManager.where(resolve() is Practitioner)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "condition": {
+            "fhirpath": "EpisodeOfCare.diagnosis.condition",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "EpisodeOfCare.period",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "EpisodeOfCare.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "incoming-referral": {
+            "fhirpath": "EpisodeOfCare.referralRequest",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "organization": {
+            "fhirpath": "EpisodeOfCare.managingOrganization",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "EpisodeOfCare.patient",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "EpisodeOfCare.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "type": {
+            "fhirpath": "EpisodeOfCare.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "ExplanationOfBenefit": {
+        "care-team": {
+            "fhirpath": "ExplanationOfBenefit.careTeam.provider",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "claim": {
+            "fhirpath": "ExplanationOfBenefit.claim",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "coverage": {
+            "fhirpath": "ExplanationOfBenefit.insurance.coverage",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "created": {
+            "fhirpath": "ExplanationOfBenefit.created",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "detail-udi": {
+            "fhirpath": "ExplanationOfBenefit.item.detail.udi",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "disposition": {
+            "fhirpath": "ExplanationOfBenefit.disposition",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "ExplanationOfBenefit.item.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "enterer": {
+            "fhirpath": "ExplanationOfBenefit.enterer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "facility": {
+            "fhirpath": "ExplanationOfBenefit.facility",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "ExplanationOfBenefit.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "item-udi": {
+            "fhirpath": "ExplanationOfBenefit.item.udi",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "ExplanationOfBenefit.patient",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "payee": {
+            "fhirpath": "ExplanationOfBenefit.payee.party",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "procedure-udi": {
+            "fhirpath": "ExplanationOfBenefit.procedure.udi",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "provider": {
+            "fhirpath": "ExplanationOfBenefit.provider",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "ExplanationOfBenefit.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subdetail-udi": {
+            "fhirpath": "ExplanationOfBenefit.item.detail.subDetail.udi",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "FamilyMemberHistory": {
+        "code": {
+            "fhirpath": "FamilyMemberHistory.condition.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "FamilyMemberHistory.date",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "FamilyMemberHistory.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-canonical": {
+            "fhirpath": "FamilyMemberHistory.instantiatesCanonical",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-uri": {
+            "fhirpath": "FamilyMemberHistory.instantiatesUri",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "FamilyMemberHistory.patient",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "relationship": {
+            "fhirpath": "FamilyMemberHistory.relationship",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "sex": {
+            "fhirpath": "FamilyMemberHistory.sex",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "FamilyMemberHistory.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Flag": {
+        "author": {
+            "fhirpath": "Flag.author",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "Flag.period",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "Flag.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Flag.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Flag.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "Flag.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Goal": {
+        "achievement-status": {
+            "fhirpath": "Goal.achievementStatus",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "category": {
+            "fhirpath": "Goal.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Goal.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "lifecycle-status": {
+            "fhirpath": "Goal.lifecycleStatus",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Goal.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "start-date": {
+            "fhirpath": "(Goal.start as date)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "Goal.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "target-date": {
+            "fhirpath": "(Goal.target.due as date)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Group": {
+        "actual": {
+            "fhirpath": "Group.actual",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "characteristic": {
+            "fhirpath": "Group.characteristic.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "characteristic-value": {
+            "fhirpath": "On Group.characteristic\ncharacteristic: code\nvalue: value",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code": {
+            "fhirpath": "Group.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "exclude": {
+            "fhirpath": "Group.characteristic.exclude",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Group.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "managing-entity": {
+            "fhirpath": "Group.managingEntity",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "member": {
+            "fhirpath": "Group.member.entity",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "type": {
+            "fhirpath": "Group.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "value": {
+            "fhirpath": "(Group.characteristic.value as CodeableConcept) | (Group.characteristic.value as boolean)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Immunization": {
+        "date": {
+            "fhirpath": "Immunization.occurrence",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Immunization.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "location": {
+            "fhirpath": "Immunization.location",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "lot-number": {
+            "fhirpath": "Immunization.lotNumber",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "manufacturer": {
+            "fhirpath": "Immunization.manufacturer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Immunization.patient",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "performer": {
+            "fhirpath": "Immunization.performer.actor",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "reaction": {
+            "fhirpath": "Immunization.reaction.detail",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "reaction-date": {
+            "fhirpath": "Immunization.reaction.date",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "reason-code": {
+            "fhirpath": "Immunization.reasonCode",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "reason-reference": {
+            "fhirpath": "Immunization.reasonReference",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "series": {
+            "fhirpath": "Immunization.protocolApplied.series",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Immunization.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status-reason": {
+            "fhirpath": "Immunization.statusReason",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "target-disease": {
+            "fhirpath": "Immunization.protocolApplied.targetDisease",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "vaccine-code": {
+            "fhirpath": "Immunization.vaccineCode",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "ImmunizationRecommendation": {
+        "date": {
+            "fhirpath": "ImmunizationRecommendation.date",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "ImmunizationRecommendation.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "information": {
+            "fhirpath": "ImmunizationRecommendation.recommendation.supportingPatientInformation",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "ImmunizationRecommendation.patient",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "ImmunizationRecommendation.recommendation.forecastStatus",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "support": {
+            "fhirpath": "ImmunizationRecommendation.recommendation.supportingImmunization",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "target-disease": {
+            "fhirpath": "ImmunizationRecommendation.recommendation.targetDisease",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "vaccine-type": {
+            "fhirpath": "ImmunizationRecommendation.recommendation.vaccineCode",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "List": {
+        "code": {
+            "fhirpath": "List.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "List.date",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "empty-reason": {
+            "fhirpath": "List.emptyReason",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "List.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "List.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "item": {
+            "fhirpath": "List.entry.item",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "notes": {
+            "fhirpath": "List.note.text",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "List.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "source": {
+            "fhirpath": "List.source",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "List.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "List.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "title": {
+            "fhirpath": "List.title",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Location": {
+        "address": {
+            "fhirpath": "Location.address",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-city": {
+            "fhirpath": "Location.address.city",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-county": {
+            "fhirpath": "Location.address.country",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-postalcode": {
+            "fhirpath": "Location.address.postalCode",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-state": {
+            "fhirpath": "Location.address.state",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-use": {
+            "fhirpath": "Location.address.use",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "endpoint": {
+            "fhirpath": "Location.endpoint",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Location.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "name": {
+            "fhirpath": "Location.name | Location.alias",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "near": {
+            "fhirpath": "Location.position",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "operational-status": {
+            "fhirpath": "Location.operationalStatus",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "organization": {
+            "fhirpath": "Location.managingOrganization",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "partof": {
+            "fhirpath": "Location.partOf",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Location.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "type": {
+            "fhirpath": "Location.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Medication": {
+        "code": {
+            "fhirpath": "Medication.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "expiration-date": {
+            "fhirpath": "Medication.batch.expirationDate",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "form": {
+            "fhirpath": "Medication.form",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Medication.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "ingredient": {
+            "fhirpath": "(Medication.ingredient.item as Reference)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "ingredient-code": {
+            "fhirpath": "(Medication.ingredient.item as CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "lot-number": {
+            "fhirpath": "Medication.batch.lotNumber",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "manufacturer": {
+            "fhirpath": "Medication.manufacturer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Medication.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "MedicationAdministration": {
+        "code": {
+            "fhirpath": "(MedicationAdministration.medication as CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "context": {
+            "fhirpath": "MedicationAdministration.context",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "device": {
+            "fhirpath": "MedicationAdministration.device",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "effective-time": {
+            "fhirpath": "MedicationAdministration.effective",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "MedicationAdministration.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "medication": {
+            "fhirpath": "(MedicationAdministration.medication as Reference)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "MedicationAdministration.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "performer": {
+            "fhirpath": "MedicationAdministration.performer.actor",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "reason-given": {
+            "fhirpath": "MedicationAdministration.reasonCode",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "reason-not-given": {
+            "fhirpath": "MedicationAdministration.statusReason",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "request": {
+            "fhirpath": "MedicationAdministration.request",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "MedicationAdministration.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "MedicationAdministration.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "MedicationDispense": {
+        "code": {
+            "fhirpath": "(MedicationDispense.medication as CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "context": {
+            "fhirpath": "MedicationDispense.context",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "destination": {
+            "fhirpath": "MedicationDispense.destination",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "MedicationDispense.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "medication": {
+            "fhirpath": "(MedicationDispense.medication as Reference)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "MedicationDispense.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "performer": {
+            "fhirpath": "MedicationDispense.performer.actor",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "prescription": {
+            "fhirpath": "MedicationDispense.authorizingPrescription",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "receiver": {
+            "fhirpath": "MedicationDispense.receiver",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "responsibleparty": {
+            "fhirpath": "MedicationDispense.substitution.responsibleParty",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "MedicationDispense.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "MedicationDispense.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "type": {
+            "fhirpath": "MedicationDispense.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "whenhandedover": {
+            "fhirpath": "MedicationDispense.whenHandedOver",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "whenprepared": {
+            "fhirpath": "MedicationDispense.whenPrepared",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "MedicationRequest": {
+        "authoredon": {
+            "fhirpath": "MedicationRequest.authoredOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "category": {
+            "fhirpath": "MedicationRequest.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code": {
+            "fhirpath": "(MedicationRequest.medication as CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "MedicationRequest.dosageInstruction.timing.event",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "MedicationRequest.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "MedicationRequest.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "intended-dispenser": {
+            "fhirpath": "MedicationRequest.dispenseRequest.performer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "intended-performer": {
+            "fhirpath": "MedicationRequest.performer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "intended-performertype": {
+            "fhirpath": "MedicationRequest.performerType",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "intent": {
+            "fhirpath": "MedicationRequest.intent",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "medication": {
+            "fhirpath": "(MedicationRequest.medication as Reference)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "MedicationRequest.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "priority": {
+            "fhirpath": "MedicationRequest.priority",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "requester": {
+            "fhirpath": "MedicationRequest.requester",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "MedicationRequest.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "MedicationRequest.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "NutritionOrder": {
+        "additive": {
+            "fhirpath": "NutritionOrder.enteralFormula.additiveType",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "datetime": {
+            "fhirpath": "NutritionOrder.dateTime",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "NutritionOrder.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "formula": {
+            "fhirpath": "NutritionOrder.enteralFormula.baseFormulaType",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "NutritionOrder.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-canonical": {
+            "fhirpath": "NutritionOrder.instantiatesCanonical",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-uri": {
+            "fhirpath": "NutritionOrder.instantiatesUri",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "oraldiet": {
+            "fhirpath": "NutritionOrder.oralDiet.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "NutritionOrder.patient",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "provider": {
+            "fhirpath": "NutritionOrder.orderer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "NutritionOrder.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "supplement": {
+            "fhirpath": "NutritionOrder.supplement.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Observation": {
+        "based-on": {
+            "fhirpath": "Observation.basedOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "category": {
+            "fhirpath": "Observation.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code": {
+            "fhirpath": "Observation.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code-value-concept": {
+            "fhirpath": "On Observation:\ncode: code\nvalue-concept: value.as(CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code-value-date": {
+            "fhirpath": "On Observation:\ncode: code\nvalue-date: value.as(DateTime) | value.as(Period)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code-value-quantity": {
+            "fhirpath": "On Observation:\ncode: code\nvalue-quantity: value.as(Quantity)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code-value-string": {
+            "fhirpath": "On Observation:\ncode: code\nvalue-string: value.as(string)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "combo-code": {
+            "fhirpath": "Observation.code | Observation.component.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "combo-code-value-concept": {
+            "fhirpath": "On Observation | Observation.component:\ncombo-code: code\ncombo-value-concept: value.as(CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "combo-code-value-quantity": {
+            "fhirpath": "On Observation | Observation.component:\ncombo-code: code\ncombo-value-quantity: value.as(Quantity",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "combo-data-absent-reason": {
+            "fhirpath": "Observation.dataAbsentReason | Observation.component.dataAbsentReason",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "combo-value-concept": {
+            "fhirpath": "(Observation.value as CodeableConcept) | (Observation.component.value as CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "combo-value-quantity": {
+            "fhirpath": "(Observation.value as Quantity) | (Observation.value as SampledData) | (Observation.component.value as Quantity) | (Observation.component.value as SampledData)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "component-code": {
+            "fhirpath": "Observation.component.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "component-code-value-concept": {
+            "fhirpath": "On Observation.component:\ncomponent-code: code\ncomponent-value-concept: value.as(CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "component-code-value-quantity": {
+            "fhirpath": "On Observation.component:\ncomponent-code: code\ncomponent-value-quantity: value.as(Quantity)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "component-data-absent-reason": {
+            "fhirpath": "Observation.component.dataAbsentReason",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "component-value-concept": {
+            "fhirpath": "(Observation.component.value as CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "component-value-quantity": {
+            "fhirpath": "(Observation.component.value as Quantity) | (Observation.component.value as SampledData)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "data-absent-reason": {
+            "fhirpath": "Observation.dataAbsentReason",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "Observation.effective",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "derived-from": {
+            "fhirpath": "Observation.derivedFrom",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "device": {
+            "fhirpath": "Observation.device",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "Observation.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "focus": {
+            "fhirpath": "Observation.focus",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "has-member": {
+            "fhirpath": "Observation.hasMember",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Observation.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "method": {
+            "fhirpath": "Observation.method",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "part-of": {
+            "fhirpath": "Observation.partOf",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Observation.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "performer": {
+            "fhirpath": "Observation.performer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "specimen": {
+            "fhirpath": "Observation.specimen",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Observation.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "Observation.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "value-concept": {
+            "fhirpath": "(Observation.value as CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "value-date": {
+            "fhirpath": "(Observation.value as dateTime) | (Observation.value as Period)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "value-quantity": {
+            "fhirpath": "(Observation.value as Quantity) | (Observation.value as SampledData)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "value-string": {
+            "fhirpath": "(Observation.value as string) | (Observation.value as CodeableConcept).text",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Patient": {
+        "active": {
+            "fhirpath": "Patient.active",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address": {
+            "fhirpath": "Patient.address",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-city": {
+            "fhirpath": "Patient.address.city",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-country": {
+            "fhirpath": "Patient.address.country",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-postalcode": {
+            "fhirpath": "Patient.address.postalCode",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-state": {
+            "fhirpath": "Patient.address.state",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-use": {
+            "fhirpath": "Patient.address.use",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "birthdate": {
+            "fhirpath": "Patient.birthDate",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "death-date": {
+            "fhirpath": "(Patient.deceased as dateTime)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "deceased": {
+            "fhirpath": "Patient.deceased.exists() and Patient.deceased != false",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "email": {
+            "fhirpath": "Patient.telecom.where(system='email')",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "family": {
+            "fhirpath": "Patient.name.family",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "gender": {
+            "fhirpath": "Patient.gender",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "general-practitioner": {
+            "fhirpath": "Patient.generalPractitioner",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "given": {
+            "fhirpath": "Patient.name.given",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Patient.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "language": {
+            "fhirpath": "Patient.communication.language",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "link": {
+            "fhirpath": "Patient.link.other",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "name": {
+            "fhirpath": "Patient.name",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "organization": {
+            "fhirpath": "Patient.managingOrganization",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "phone": {
+            "fhirpath": "Patient.telecom.where(system='phone')",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "phonetic": {
+            "fhirpath": "Patient.name",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "telecom": {
+            "fhirpath": "Patient.telecom",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Practitioner": {
+        "active": {
+            "fhirpath": "Practitioner.active",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address": {
+            "fhirpath": "Practitioner.address",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-city": {
+            "fhirpath": "Practitioner.address.city",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-country": {
+            "fhirpath": "Practitioner.address.country",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-postalcode": {
+            "fhirpath": "Practitioner.address.postalCode",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-state": {
+            "fhirpath": "Practitioner.address.state",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "address-use": {
+            "fhirpath": "Practitioner.address.use",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "communication": {
+            "fhirpath": "Practitioner.communication",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "email": {
+            "fhirpath": "Practitioner.telecom.where(system='email')",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "family": {
+            "fhirpath": "Practitioner.name.family",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "gender": {
+            "fhirpath": "Practitioner.gender",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "given": {
+            "fhirpath": "Practitioner.name.given",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Practitioner.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "name": {
+            "fhirpath": "Practitioner.name",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "phone": {
+            "fhirpath": "Practitioner.telecom.where(system='phone')",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "phonetic": {
+            "fhirpath": "Practitioner.name",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "telecom": {
+            "fhirpath": "Practitioner.telecom",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Procedure": {
+        "based-on": {
+            "fhirpath": "Procedure.basedOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "category": {
+            "fhirpath": "Procedure.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code": {
+            "fhirpath": "Procedure.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "Procedure.performed",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "Procedure.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Procedure.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-canonical": {
+            "fhirpath": "Procedure.instantiatesCanonical",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-uri": {
+            "fhirpath": "Procedure.instantiatesUri",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "location": {
+            "fhirpath": "Procedure.location",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "part-of": {
+            "fhirpath": "Procedure.partOf",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Procedure.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "performer": {
+            "fhirpath": "Procedure.performer.actor",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "reason-code": {
+            "fhirpath": "Procedure.reasonCode",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "reason-reference": {
+            "fhirpath": "Procedure.reasonReference",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Procedure.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "Procedure.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Questionnaire": {
+        "code": {
+            "fhirpath": "Questionnaire.item.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "context": {
+            "fhirpath": "(Questionnaire.useContext.value as CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "context-quantity": {
+            "fhirpath": "(Questionnaire.useContext.value as Quantity) | (Questionnaire.useContext.value as Range)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "context-type": {
+            "fhirpath": "Questionnaire.useContext.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "context-type-quantity": {
+            "fhirpath": "On Questionnaire.useContext:\ncontext-type: code\ncontext-quantity: value.as(Quantity) | value.as(Range)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "context-type-value": {
+            "fhirpath": "On Questionnaire.useContext:\ncontext-type: code\ncontext: value.as(CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "Questionnaire.date",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "definition": {
+            "fhirpath": "Questionnaire.item.definition",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "description": {
+            "fhirpath": "Questionnaire.description",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "effective": {
+            "fhirpath": "Questionnaire.effectivePeriod",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Questionnaire.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "jurisdiction": {
+            "fhirpath": "Questionnaire.jurisdiction",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "name": {
+            "fhirpath": "Questionnaire.name",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "publisher": {
+            "fhirpath": "Questionnaire.publisher",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Questionnaire.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject-type": {
+            "fhirpath": "Questionnaire.subjectType",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "title": {
+            "fhirpath": "Questionnaire.title",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "url": {
+            "fhirpath": "Questionnaire.url",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "version": {
+            "fhirpath": "Questionnaire.version",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "QuestionnaireResponse": {
+        "author": {
+            "fhirpath": "QuestionnaireResponse.author",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "authored": {
+            "fhirpath": "QuestionnaireResponse.authored",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "based-on": {
+            "fhirpath": "QuestionnaireResponse.basedOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "QuestionnaireResponse.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "QuestionnaireResponse.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "part-of": {
+            "fhirpath": "QuestionnaireResponse.partOf",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "QuestionnaireResponse.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "questionnaire": {
+            "fhirpath": "QuestionnaireResponse.questionnaire",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "source": {
+            "fhirpath": "QuestionnaireResponse.source",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "QuestionnaireResponse.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "QuestionnaireResponse.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "RequestGroup": {
+        "author": {
+            "fhirpath": "RequestGroup.author",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "authored": {
+            "fhirpath": "RequestGroup.authoredOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code": {
+            "fhirpath": "RequestGroup.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "RequestGroup.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "group-identifier": {
+            "fhirpath": "RequestGroup.groupIdentifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "RequestGroup.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-canonical": {
+            "fhirpath": "RequestGroup.instantiatesCanonical",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-uri": {
+            "fhirpath": "RequestGroup.instantiatesUri",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "intent": {
+            "fhirpath": "RequestGroup.intent",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "participant": {
+            "fhirpath": "RequestGroup.action.participant",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "RequestGroup.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "priority": {
+            "fhirpath": "RequestGroup.priority",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "RequestGroup.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "RequestGroup.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "ResearchStudy": {
+        "category": {
+            "fhirpath": "ResearchStudy.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "date": {
+            "fhirpath": "ResearchStudy.period",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "focus": {
+            "fhirpath": "ResearchStudy.focus",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "ResearchStudy.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "keyword": {
+            "fhirpath": "ResearchStudy.keyword",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "location": {
+            "fhirpath": "ResearchStudy.location",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "partof": {
+            "fhirpath": "ResearchStudy.partOf",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "principalinvestigator": {
+            "fhirpath": "ResearchStudy.principalInvestigator",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "protocol": {
+            "fhirpath": "ResearchStudy.protocol",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "site": {
+            "fhirpath": "ResearchStudy.site",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "sponsor": {
+            "fhirpath": "ResearchStudy.sponsor",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "ResearchStudy.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "title": {
+            "fhirpath": "ResearchStudy.title",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "ResearchSubject": {
+        "date": {
+            "fhirpath": "ResearchSubject.period",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "ResearchSubject.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "individual": {
+            "fhirpath": "ResearchSubject.individual",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "ResearchSubject.individual",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "ResearchSubject.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "study": {
+            "fhirpath": "ResearchSubject.study",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Resource": {
+        "_id": {
+            "fhirpath": "Resource.id",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "_lastUpdated": {
+            "fhirpath": "Resource.meta.lastUpdated",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "_tag": {
+            "fhirpath": "Resource.meta.tag",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "_profile": {
+            "fhirpath": "Resource.meta.profile",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "_security": {
+            "fhirpath": "Resource.meta.security",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "_text": {
+            "fhirpath": "Resource.text",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "_content": {
+            "fhirpath": "Resource",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "_list": {
+            "fhirpath": "",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "_has": {
+            "fhirpath": "",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "_type": {
+            "fhirpath": "",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "ServiceRequest": {
+        "authored": {
+            "fhirpath": "ServiceRequest.authoredOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "based-on": {
+            "fhirpath": "ServiceRequest.basedOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "body-site": {
+            "fhirpath": "ServiceRequest.bodySite",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "category": {
+            "fhirpath": "ServiceRequest.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code": {
+            "fhirpath": "ServiceRequest.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "ServiceRequest.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "ServiceRequest.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-canonical": {
+            "fhirpath": "ServiceRequest.instantiatesCanonical",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "instantiates-uri": {
+            "fhirpath": "ServiceRequest.instantiatesUri",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "intent": {
+            "fhirpath": "ServiceRequest.intent",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "occurrence": {
+            "fhirpath": "ServiceRequest.occurrence",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "ServiceRequest.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "performer": {
+            "fhirpath": "ServiceRequest.performer",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "performer-type": {
+            "fhirpath": "ServiceRequest.performerType",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "priority": {
+            "fhirpath": "ServiceRequest.priority",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "replaces": {
+            "fhirpath": "ServiceRequest.replaces",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "requester": {
+            "fhirpath": "ServiceRequest.requester",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "requisition": {
+            "fhirpath": "ServiceRequest.requisition",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "specimen": {
+            "fhirpath": "ServiceRequest.specimen",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "ServiceRequest.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "ServiceRequest.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Specimen": {
+        "accession": {
+            "fhirpath": "Specimen.accessionIdentifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "bodysite": {
+            "fhirpath": "Specimen.collection.bodySite",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "collected": {
+            "fhirpath": "Specimen.collection.collected",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "collector": {
+            "fhirpath": "Specimen.collection.collector",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "container": {
+            "fhirpath": "Specimen.container.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "container-id": {
+            "fhirpath": "Specimen.container.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Specimen.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "parent": {
+            "fhirpath": "Specimen.parent",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Specimen.subject.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Specimen.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "Specimen.subject",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "type": {
+            "fhirpath": "Specimen.type",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Substance": {
+        "category": {
+            "fhirpath": "Substance.category",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code": {
+            "fhirpath": "Substance.code | (Substance.ingredient.substance as CodeableConcept)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "container-identifier": {
+            "fhirpath": "Substance.instance.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "expiry": {
+            "fhirpath": "Substance.instance.expiry",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Substance.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "quantity": {
+            "fhirpath": "Substance.instance.quantity",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Substance.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "substance-reference": {
+            "fhirpath": "(Substance.ingredient.substance as Reference)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    },
+    "Task": {
+        "authored-on": {
+            "fhirpath": "Task.authoredOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "based-on": {
+            "fhirpath": "Task.basedOn",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "business-status": {
+            "fhirpath": "Task.businessStatus",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "code": {
+            "fhirpath": "Task.code",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "encounter": {
+            "fhirpath": "Task.encounter",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "focus": {
+            "fhirpath": "Task.focus",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "group-identifier": {
+            "fhirpath": "Task.groupIdentifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "identifier": {
+            "fhirpath": "Task.identifier",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "intent": {
+            "fhirpath": "Task.intent",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "modified": {
+            "fhirpath": "Task.lastModified",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "owner": {
+            "fhirpath": "Task.owner",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "part-of": {
+            "fhirpath": "Task.partOf",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "patient": {
+            "fhirpath": "Task.for.where(resolve() is Patient)",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "performer": {
+            "fhirpath": "Task.performerType",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "period": {
+            "fhirpath": "Task.executionPeriod",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "priority": {
+            "fhirpath": "Task.priority",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "requester": {
+            "fhirpath": "Task.requester",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "status": {
+            "fhirpath": "Task.status",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        },
+        "subject": {
+            "fhirpath": "Task.for",
+            "exampleValue": "",
+            "exampleTestEpicValue": ""
+        }
+    }
+}

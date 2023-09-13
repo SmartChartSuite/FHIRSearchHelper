@@ -1,8 +1,11 @@
 '''File to perform filtering of returned FHIR resources using output from gap analysis'''
 
+import json
 import logging
 from copy import deepcopy
+from pathlib import Path
 
+import fhirpathpy
 from fhir.resources.R4B.bundle import Bundle
 from fhir.resources.R4B.fhirtypes import BundleEntryType
 
@@ -75,6 +78,42 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
                 for entry in returned_resources:
                     if entry.dict(exclude_none=True)['resource'][filter_sp] == filter_sp_value: # type: ignore
                         filtered_entries.append(entry)
+
+    output_bundle.entry = filtered_entries
+    output_bundle.total = len(filtered_entries) # type: ignore
+
+    return output_bundle
+
+
+def filter_bundle_new(input_bundle: Bundle, search_params: QuerySearchParams, gap_analysis_output: list[str]) -> Bundle:
+    '''Function that takes an input bundle, the original search params, and the output from the gap analysis to filter a Bundle'''
+
+    logger.debug('Filtering Bundle using gap analysis output...')
+
+    if not gap_analysis_output:
+        return input_bundle
+
+    returned_resources: list[BundleEntryType] = input_bundle.entry
+    filtered_entries: list[BundleEntryType] = []
+    output_bundle: Bundle = deepcopy(input_bundle)
+
+    with open(f'{Path(__file__).parents[1]}/resources/fhir_r4_search_params.json', 'r') as fin:
+        r4_sp_json = json.load(fin)
+
+    for filter_sp in gap_analysis_output:
+        filter_sp_value: str | int | dict = search_params.searchParams[filter_sp]
+        print('Filter sp value', filter_sp_value)
+        filter_sp_fhirpath = r4_sp_json[search_params.resourceType][filter_sp]['fhirpath']
+
+        for entry in returned_resources:
+            resource_sp_output = fhirpathpy.evaluate(entry.resource, filter_sp_fhirpath) #type: ignore
+            if isinstance(filter_sp_value, str) and '%7C' in filter_sp_value:
+                logger.debug('The filter search parameter value is of type code')
+                filter_sp_value = {'system': filter_sp_value.split('%7C')[0], 'code': filter_sp_value.split('%7C')[1]}
+                logger.debug('Updated filter search parameter value to be a dictionary')
+                print(filter_sp_value)
+            if filter_sp_value in resource_sp_output:
+                filtered_entries.append(entry)
 
     output_bundle.entry = filtered_entries
     output_bundle.total = len(filtered_entries) # type: ignore

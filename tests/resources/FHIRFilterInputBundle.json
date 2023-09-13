@@ -1,0 +1,3519 @@
+{
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 48,
+    "link": [
+        {
+            "relation": "self",
+            "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition?patient=eZ5-7rYdWqgv3jSgIvx.SPw3&category=encounter-diagnosis"
+        }
+    ],
+    "entry": [
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/ejfhyCtPxusbaWaQRKlBQV6LLDg5BFzfVP-addkBOIvnu6EtLcwN8Tkna95oMl5iRy4cY9mJsn-Z1U36H.hTI7Q3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/ejfhyCtPxusbaWaQRKlBQV6LLDg5BFzfVP-addkBOIvnu6EtLcwN8Tkna95oMl5iRy4cY9mJsn-Z1U36H.hTI7Q3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "ejfhyCtPxusbaWaQRKlBQV6LLDg5BFzfVP-addkBOIvnu6EtLcwN8Tkna95oMl5iRy4cY9mJsn-Z1U36H.hTI7Q3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "235595009",
+                            "display": "Gastroesophageal reflux disease (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "530.81",
+                            "display": "Gastroesophageal reflux"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "K21.9",
+                            "display": "Gastroesophageal reflux"
+                        }
+                    ],
+                    "text": "Gastroesophageal reflux"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10583"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/ejfhyCtPxusbaWaQRKlBQV0-WHJqQ2q1Q1BptQKEi.BeYfUVDEiltP59qqQP9D6SHSDkiUxZDjCyPC6JsTkxCUQ3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/ejfhyCtPxusbaWaQRKlBQV0-WHJqQ2q1Q1BptQKEi.BeYfUVDEiltP59qqQP9D6SHSDkiUxZDjCyPC6JsTkxCUQ3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "ejfhyCtPxusbaWaQRKlBQV0-WHJqQ2q1Q1BptQKEi.BeYfUVDEiltP59qqQP9D6SHSDkiUxZDjCyPC6JsTkxCUQ3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "13644009",
+                            "display": "Hypercholesterolemia (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "272.0",
+                            "display": "Hypercholesteremia"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "E78.00",
+                            "display": "Hypercholesteremia"
+                        }
+                    ],
+                    "text": "Hypercholesteremia"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10585"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/ejfhyCtPxusbaWaQRKlBQV.gvAhEiKyDfAaIAXZ.SPDGl0FXMTpC5WYegDN7cBqoExRh4AAC90rOO96fSzUY5oA3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/ejfhyCtPxusbaWaQRKlBQV.gvAhEiKyDfAaIAXZ.SPDGl0FXMTpC5WYegDN7cBqoExRh4AAC90rOO96fSzUY5oA3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "ejfhyCtPxusbaWaQRKlBQV.gvAhEiKyDfAaIAXZ.SPDGl0FXMTpC5WYegDN7cBqoExRh4AAC90rOO96fSzUY5oA3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "59621000",
+                            "display": "Essential hypertension (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "401.9",
+                            "display": "Essential hypertension"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "I10",
+                            "display": "Essential hypertension"
+                        }
+                    ],
+                    "text": "Essential hypertension"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10586"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/ejfhyCtPxusbaWaQRKlBQV4J9qCXrFCYj-bjb9Az0nW3uHHEybqP0uEJN91twLq1Q.6O-9sFnIMHTOhEQjr.qeQ3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/ejfhyCtPxusbaWaQRKlBQV4J9qCXrFCYj-bjb9Az0nW3uHHEybqP0uEJN91twLq1Q.6O-9sFnIMHTOhEQjr.qeQ3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "ejfhyCtPxusbaWaQRKlBQV4J9qCXrFCYj-bjb9Az0nW3uHHEybqP0uEJN91twLq1Q.6O-9sFnIMHTOhEQjr.qeQ3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "10509002",
+                            "display": "Acute bronchitis (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "466.0",
+                            "display": "Acute bronchitis"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "J20.9",
+                            "display": "Acute bronchitis"
+                        }
+                    ],
+                    "text": "Acute bronchitis"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ecrVZiytW622Oa4bXdySeLQ3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10588"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/ejfhyCtPxusbaWaQRKlBQV.F4qX.26xFADYTN6JonZgonZwIf5sCFr-MY9V0jlUhLui0JTvdhPnAY2Tnqzm2ZSQ3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/ejfhyCtPxusbaWaQRKlBQV.F4qX.26xFADYTN6JonZgonZwIf5sCFr-MY9V0jlUhLui0JTvdhPnAY2Tnqzm2ZSQ3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "ejfhyCtPxusbaWaQRKlBQV.F4qX.26xFADYTN6JonZgonZwIf5sCFr-MY9V0jlUhLui0JTvdhPnAY2Tnqzm2ZSQ3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "66857006",
+                            "display": "Hemoptysis (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "786.3",
+                            "display": "Hemoptysis"
+                        }
+                    ],
+                    "text": "Hemoptysis"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/euaFKJJ8tq5MdaE7s35nR-w3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10589"
+                    },
+                    "display": "Orders Only"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OeiRPK5bKjb4MrG2Cs2zQQ9cd6YHR1WKFDS.YhsU1eRnGxDNUq1Wrh4f8cLRByipGw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OeiRPK5bKjb4MrG2Cs2zQQ9cd6YHR1WKFDS.YhsU1eRnGxDNUq1Wrh4f8cLRByipGw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "epRksINO6oVal3KYeT6V0OeiRPK5bKjb4MrG2Cs2zQQ9cd6YHR1WKFDS.YhsU1eRnGxDNUq1Wrh4f8cLRByipGw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "10509002",
+                            "display": "Acute bronchitis (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "466.0",
+                            "display": "Acute bronchitis"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "J20.9",
+                            "display": "Acute bronchitis"
+                        }
+                    ],
+                    "text": "Acute bronchitis"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ePDHZt9z45OWfzDyaw-4OkQ3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10590"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OZrvyozFIsNOIoE2Z3TTOIe8qeuaj3.fWhMrPYV3GAjYyPqt4Fjlp5N3kG2dILgMBg3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OZrvyozFIsNOIoE2Z3TTOIe8qeuaj3.fWhMrPYV3GAjYyPqt4Fjlp5N3kG2dILgMBg3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "epRksINO6oVal3KYeT6V0OZrvyozFIsNOIoE2Z3TTOIe8qeuaj3.fWhMrPYV3GAjYyPqt4Fjlp5N3kG2dILgMBg3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "195381005",
+                            "display": "Non-neoplastic nevus (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "448.1",
+                            "display": "Nevus, non-neoplastic"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "I78.1",
+                            "display": "Nevus, non-neoplastic"
+                        }
+                    ],
+                    "text": "Nevus, non-neoplastic"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eCg0NHdWVhrSXK9yLu6RpYA3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10591"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OY92kppuYu7A6l3WYvrzveh10WXxdQDzsILEd.Z9QIta.UDjv6Eyn7NsCtEHSF6A2A3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OY92kppuYu7A6l3WYvrzveh10WXxdQDzsILEd.Z9QIta.UDjv6Eyn7NsCtEHSF6A2A3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "epRksINO6oVal3KYeT6V0OY92kppuYu7A6l3WYvrzveh10WXxdQDzsILEd.Z9QIta.UDjv6Eyn7NsCtEHSF6A2A3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "262965006",
+                            "display": "Strain of back muscle (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "847.9",
+                            "display": "Back strain"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "S39.012A",
+                            "display": "Back strain"
+                        }
+                    ],
+                    "text": "Back strain"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eYVA7gAsu8YV3eIfpjFrw2A3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10592"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OWDnbUBara9d9LrEqpgKOBRbhDT4Plehv8dHdmrJ4iJCCZBEWAEzouLhr0MQlh.6zw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OWDnbUBara9d9LrEqpgKOBRbhDT4Plehv8dHdmrJ4iJCCZBEWAEzouLhr0MQlh.6zw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "epRksINO6oVal3KYeT6V0OWDnbUBara9d9LrEqpgKOBRbhDT4Plehv8dHdmrJ4iJCCZBEWAEzouLhr0MQlh.6zw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "267432004",
+                            "display": "Pure hypercholesterolemia (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "272.0",
+                            "display": "Pure hypercholesterolemia"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "E78.00",
+                            "display": "Pure hypercholesterolemia"
+                        }
+                    ],
+                    "text": "Pure hypercholesterolemia"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eLO6vQBkc35URoxKeu1Avcw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10593"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OTkBd9tuFQkcO0lMtFcVHp9X1-Mi13I8b6kLuFMhMSQyQZpTRhAz1xWEiaseWcBpww3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OTkBd9tuFQkcO0lMtFcVHp9X1-Mi13I8b6kLuFMhMSQyQZpTRhAz1xWEiaseWcBpww3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "epRksINO6oVal3KYeT6V0OTkBd9tuFQkcO0lMtFcVHp9X1-Mi13I8b6kLuFMhMSQyQZpTRhAz1xWEiaseWcBpww3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "59621000",
+                            "display": "Essential hypertension (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "401.9",
+                            "display": "Essential hypertension"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "I10",
+                            "display": "Essential hypertension"
+                        }
+                    ],
+                    "text": "Essential hypertension"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eLO6vQBkc35URoxKeu1Avcw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10593"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "Diagnosed age 54. Initially treated with sodium restriction, diet, exercise. Diuretics started ~1988, taken sporadically since that time. Patient admits to poor compliance with med regimen. No history to suggest end organ damage or coronary artery disease. Cardiovascular risk factors include 20 pk yr hx of smoking and hypercholesterolemia."
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OdYUW.yiluKxVhAbp0S4ZEUi6FPgm9UkMxA2B4H7xIWCmgwB2qs-zZNDt8uuEz1syQ3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OdYUW.yiluKxVhAbp0S4ZEUi6FPgm9UkMxA2B4H7xIWCmgwB2qs-zZNDt8uuEz1syQ3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "epRksINO6oVal3KYeT6V0OdYUW.yiluKxVhAbp0S4ZEUi6FPgm9UkMxA2B4H7xIWCmgwB2qs-zZNDt8uuEz1syQ3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "235595009",
+                            "display": "Gastroesophageal reflux disease (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "530.81",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "K21.9",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        }
+                    ],
+                    "text": "GERD (gastroesophageal reflux disease)"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eLO6vQBkc35URoxKeu1Avcw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10593"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "GERD, diagnosed by EGD. Symptoms well controlled with intermittent use of H2 blockers"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OTzes4ekUIqtek0NDNrMOQXI55Yn5GX1eso6V6ZIPE4KCw2JensvRz.S.FBVFeT9jw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OTzes4ekUIqtek0NDNrMOQXI55Yn5GX1eso6V6ZIPE4KCw2JensvRz.S.FBVFeT9jw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "epRksINO6oVal3KYeT6V0OTzes4ekUIqtek0NDNrMOQXI55Yn5GX1eso6V6ZIPE4KCw2JensvRz.S.FBVFeT9jw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "110483000",
+                            "display": "Tobacco user (finding)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "305.1",
+                            "display": "Tobacco use disorder"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "F17.200",
+                            "display": "Tobacco use disorder"
+                        }
+                    ],
+                    "text": "Tobacco use disorder"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eLO6vQBkc35URoxKeu1Avcw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10593"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OR0t6YVBHhtCWQiDd7y7of1B7ZkiYw-znXlBFxieEzu9DqBzQI8Efg.ez8j5PwdB9w3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OR0t6YVBHhtCWQiDd7y7of1B7ZkiYw-znXlBFxieEzu9DqBzQI8Efg.ez8j5PwdB9w3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "epRksINO6oVal3KYeT6V0OR0t6YVBHhtCWQiDd7y7of1B7ZkiYw-znXlBFxieEzu9DqBzQI8Efg.ez8j5PwdB9w3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "40930008",
+                            "display": "Hypothyroidism (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "244.9",
+                            "display": "Unspecified hypothyroidism"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "E03.9",
+                            "display": "Unspecified hypothyroidism"
+                        }
+                    ],
+                    "text": "Unspecified hypothyroidism"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eLO6vQBkc35URoxKeu1Avcw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10593"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OacJDa4L.jh-Eidkb8LKkYXMMpYE3yoNlZiwLhyxrHNCsFtKPG8.IcaqS-oSovxllQ3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OacJDa4L.jh-Eidkb8LKkYXMMpYE3yoNlZiwLhyxrHNCsFtKPG8.IcaqS-oSovxllQ3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "epRksINO6oVal3KYeT6V0OacJDa4L.jh-Eidkb8LKkYXMMpYE3yoNlZiwLhyxrHNCsFtKPG8.IcaqS-oSovxllQ3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "13644009",
+                            "display": "Hypercholesterolemia (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "272.0",
+                            "display": "Hypercholesteremia"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "E78.00",
+                            "display": "Hypercholesteremia"
+                        }
+                    ],
+                    "text": "Hypercholesteremia"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ekeSET-l9Zek5puNZoKfCUA3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10597"
+                    },
+                    "display": "Orders Only"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OZjcH1sgYMx7wiatyPwr11JRh2mByYPnsSLz-Y284TBhZ4cVwNGcmKgd6hgVz5011A3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/epRksINO6oVal3KYeT6V0OZjcH1sgYMx7wiatyPwr11JRh2mByYPnsSLz-Y284TBhZ4cVwNGcmKgd6hgVz5011A3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "epRksINO6oVal3KYeT6V0OZjcH1sgYMx7wiatyPwr11JRh2mByYPnsSLz-Y284TBhZ4cVwNGcmKgd6hgVz5011A3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "235595009",
+                            "display": "Gastroesophageal reflux disease (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "530.81",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "K21.9",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        }
+                    ],
+                    "text": "GERD (gastroesophageal reflux disease)"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ekeSET-l9Zek5puNZoKfCUA3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10597"
+                    },
+                    "display": "Orders Only"
+                },
+                "note": [
+                    {
+                        "text": "GERD, diagnosed by EGD. Symptoms well controlled with intermittent use of H2 blockers"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExGqhMWU.vaI9fgczxoJPNmxVKAsRFk5zK1WcdSMFzDWi1KMNJjmdhrmJV.R-l94ifA3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExGqhMWU.vaI9fgczxoJPNmxVKAsRFk5zK1WcdSMFzDWi1KMNJjmdhrmJV.R-l94ifA3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eBU5I8Jv5EOdsC9i64bVExGqhMWU.vaI9fgczxoJPNmxVKAsRFk5zK1WcdSMFzDWi1KMNJjmdhrmJV.R-l94ifA3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "59621000",
+                            "display": "Essential hypertension (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "401.9",
+                            "display": "Essential hypertension"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "I10",
+                            "display": "Essential hypertension"
+                        }
+                    ],
+                    "text": "Essential hypertension"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ePKrjA1p6AYv9tCNxh1EJjw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10601"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "Diagnosed age 54. Initially treated with sodium restriction, diet, exercise. Diuretics started ~1988, taken sporadically since that time. Patient admits to poor compliance with med regimen. No history to suggest end organ damage or coronary artery disease. Cardiovascular risk factors include 20 pk yr hx of smoking and hypercholesterolemia."
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExOGbq57Etsm0MY6JVTvQBESn2x91LzvtTN6okXlYT4bIIVJ2h8W1uSs1SIkl4TnAqA3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExOGbq57Etsm0MY6JVTvQBESn2x91LzvtTN6okXlYT4bIIVJ2h8W1uSs1SIkl4TnAqA3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eBU5I8Jv5EOdsC9i64bVExOGbq57Etsm0MY6JVTvQBESn2x91LzvtTN6okXlYT4bIIVJ2h8W1uSs1SIkl4TnAqA3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "235595009",
+                            "display": "Gastroesophageal reflux disease (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "530.81",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "K21.9",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        }
+                    ],
+                    "text": "GERD (gastroesophageal reflux disease)"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ePKrjA1p6AYv9tCNxh1EJjw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10601"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "GERD, diagnosed by EGD. Symptoms well controlled with intermittent use of H2 blockers"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExBtgYfsM38dHCNmIi34NN3sQpTpz4gSTi.nmjPj3QY14RIEbD-8jNE8X-a0rEWohjg3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExBtgYfsM38dHCNmIi34NN3sQpTpz4gSTi.nmjPj3QY14RIEbD-8jNE8X-a0rEWohjg3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eBU5I8Jv5EOdsC9i64bVExBtgYfsM38dHCNmIi34NN3sQpTpz4gSTi.nmjPj3QY14RIEbD-8jNE8X-a0rEWohjg3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "233604007",
+                            "display": "Pneumonia (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "486",
+                            "display": "Pneumonia"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "J18.9",
+                            "display": "Pneumonia"
+                        }
+                    ],
+                    "text": "Pneumonia"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ePKrjA1p6AYv9tCNxh1EJjw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10601"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExM9kH0Z1VOLdSOYeFFEWd610j7IkOOlXTWnnCYdc1Pu9cYCZX8um-icn6TA.3Mlv1w3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExM9kH0Z1VOLdSOYeFFEWd610j7IkOOlXTWnnCYdc1Pu9cYCZX8um-icn6TA.3Mlv1w3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eBU5I8Jv5EOdsC9i64bVExM9kH0Z1VOLdSOYeFFEWd610j7IkOOlXTWnnCYdc1Pu9cYCZX8um-icn6TA.3Mlv1w3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "110483000",
+                            "display": "Tobacco user (finding)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "305.1",
+                            "display": "Tobacco use disorder"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "F17.200",
+                            "display": "Tobacco use disorder"
+                        }
+                    ],
+                    "text": "Tobacco use disorder"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ePKrjA1p6AYv9tCNxh1EJjw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10601"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExNJoiEjVr0kZQM0XwS3ZMz2O3i9rTRze1-CajtD18ITjj0NHvKOYLM9b8RHmz8sT1w3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExNJoiEjVr0kZQM0XwS3ZMz2O3i9rTRze1-CajtD18ITjj0NHvKOYLM9b8RHmz8sT1w3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eBU5I8Jv5EOdsC9i64bVExNJoiEjVr0kZQM0XwS3ZMz2O3i9rTRze1-CajtD18ITjj0NHvKOYLM9b8RHmz8sT1w3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "13644009",
+                            "display": "Hypercholesterolemia (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "272.0",
+                            "display": "Hypercholesteremia"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "E78.00",
+                            "display": "Hypercholesteremia"
+                        }
+                    ],
+                    "text": "Hypercholesteremia"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ePKrjA1p6AYv9tCNxh1EJjw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10601"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExOGbq57Etsm0MY6JVTvQBES66yy0qt1YPrPlzBOpM0cO5YKfwgJcw8ZVm4u7pO3fUw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExOGbq57Etsm0MY6JVTvQBES66yy0qt1YPrPlzBOpM0cO5YKfwgJcw8ZVm4u7pO3fUw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eBU5I8Jv5EOdsC9i64bVExOGbq57Etsm0MY6JVTvQBES66yy0qt1YPrPlzBOpM0cO5YKfwgJcw8ZVm4u7pO3fUw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "235595009",
+                            "display": "Gastroesophageal reflux disease (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "530.81",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "K21.9",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        }
+                    ],
+                    "text": "GERD (gastroesophageal reflux disease)"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ePKrjA1p6AYv9tCNxh1EJjw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10601"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "GERD, diagnosed by EGD. Symptoms well controlled with intermittent use of H2 blockers"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExGqhMWU.vaI9fgczxoJPNmzMij75Pge2Rqqfotod3gZl58jeWVfcd6IEWjhSsLvZHw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExGqhMWU.vaI9fgczxoJPNmzMij75Pge2Rqqfotod3gZl58jeWVfcd6IEWjhSsLvZHw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eBU5I8Jv5EOdsC9i64bVExGqhMWU.vaI9fgczxoJPNmzMij75Pge2Rqqfotod3gZl58jeWVfcd6IEWjhSsLvZHw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "59621000",
+                            "display": "Essential hypertension (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "401.9",
+                            "display": "Essential hypertension"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "I10",
+                            "display": "Essential hypertension"
+                        }
+                    ],
+                    "text": "Essential hypertension"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ePKrjA1p6AYv9tCNxh1EJjw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10601"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "Diagnosed age 54. Initially treated with sodium restriction, diet, exercise. Diuretics started ~1988, taken sporadically since that time. Patient admits to poor compliance with med regimen. No history to suggest end organ damage or coronary artery disease. Cardiovascular risk factors include 20 pk yr hx of smoking and hypercholesterolemia."
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExPly.vUo0bHSuASTuiNOP8Kl-R4.L0emnlByRW7apuakwqfvdEcq8tjh4Lb-n1DQPg3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExPly.vUo0bHSuASTuiNOP8Kl-R4.L0emnlByRW7apuakwqfvdEcq8tjh4Lb-n1DQPg3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eBU5I8Jv5EOdsC9i64bVExPly.vUo0bHSuASTuiNOP8Kl-R4.L0emnlByRW7apuakwqfvdEcq8tjh4Lb-n1DQPg3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "40930008",
+                            "display": "Hypothyroidism (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "244.9",
+                            "display": "Unspecified hypothyroidism"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "E03.9",
+                            "display": "Unspecified hypothyroidism"
+                        }
+                    ],
+                    "text": "Unspecified hypothyroidism"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ePKrjA1p6AYv9tCNxh1EJjw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10601"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExFx9bCgZqB4c0vAckyrSk-XJ1FneCgEbRGxFxAFLiV19xYYHvrEVbgN1E5TIR07vpg3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExFx9bCgZqB4c0vAckyrSk-XJ1FneCgEbRGxFxAFLiV19xYYHvrEVbgN1E5TIR07vpg3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eBU5I8Jv5EOdsC9i64bVExFx9bCgZqB4c0vAckyrSk-XJ1FneCgEbRGxFxAFLiV19xYYHvrEVbgN1E5TIR07vpg3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "312342009",
+                            "display": "Infective pneumonia (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "486",
+                            "display": "Pneumonia, organism unspecified"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "J18.9",
+                            "display": "Pneumonia, organism unspecified"
+                        }
+                    ],
+                    "text": "Pneumonia, organism unspecified"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eNe1jQk.aQ2zyZwPEjBTURw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10603"
+                    },
+                    "display": "Hospital Encounter"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExKKH1z5WbkmIdQoOxccoW7wGm-KHP2H0Lh3cInb1ZsfLnzp6LIFokjiDgfWcsAWlVA3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExKKH1z5WbkmIdQoOxccoW7wGm-KHP2H0Lh3cInb1ZsfLnzp6LIFokjiDgfWcsAWlVA3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eBU5I8Jv5EOdsC9i64bVExKKH1z5WbkmIdQoOxccoW7wGm-KHP2H0Lh3cInb1ZsfLnzp6LIFokjiDgfWcsAWlVA3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "235595009",
+                            "display": "Gastroesophageal reflux disease (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "530.81",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "K21.9",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        }
+                    ],
+                    "text": "GERD (gastroesophageal reflux disease)"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eNe1jQk.aQ2zyZwPEjBTURw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10603"
+                    },
+                    "display": "Hospital Encounter"
+                },
+                "note": [
+                    {
+                        "text": "GERD, diagnosed by EGD. Symptoms well controlled with intermittent use of H2 blockers"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elH-95LvIFKacj9S4zrPxLGv6p9M-0YctqKihgMXR7pN.mpnYcm0AF2tlhc5H20SLkEFpW2fc9Mzu8N2GBEoqNA3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elH-95LvIFKacj9S4zrPxLGv6p9M-0YctqKihgMXR7pN.mpnYcm0AF2tlhc5H20SLkEFpW2fc9Mzu8N2GBEoqNA3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "elH-95LvIFKacj9S4zrPxLGv6p9M-0YctqKihgMXR7pN.mpnYcm0AF2tlhc5H20SLkEFpW2fc9Mzu8N2GBEoqNA3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "10509002",
+                            "display": "Acute bronchitis (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "466.0",
+                            "display": "Acute bronchitis"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "J20.9",
+                            "display": "Acute bronchitis"
+                        }
+                    ],
+                    "text": "Acute bronchitis"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/e0VBlSREDUme5QWqIol-rzQ3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10612"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpWLrhY25Cd-qUNtAHtERehKfAwkDnYfQp0SEoMDwJfhWPEe17GFjraZ.jN6dSr14.w3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpWLrhY25Cd-qUNtAHtERehKfAwkDnYfQp0SEoMDwJfhWPEe17GFjraZ.jN6dSr14.w3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "egbXzndOTe5kKcGWjhnOZpWLrhY25Cd-qUNtAHtERehKfAwkDnYfQp0SEoMDwJfhWPEe17GFjraZ.jN6dSr14.w3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "235595009",
+                            "display": "Gastroesophageal reflux disease (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "530.81",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "K21.9",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        }
+                    ],
+                    "text": "GERD (gastroesophageal reflux disease)"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/es6Jfy--QxPFWvXbevtFhEA3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10620"
+                    },
+                    "display": "Refill"
+                },
+                "note": [
+                    {
+                        "text": "GERD, diagnosed by EGD. Symptoms well controlled with intermittent use of H2 blockers"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpQCyDn48nUJ9bm9ilZEetrHekvnv6WNKdDwIO.dM.Wn-d5IO3MFnItkNfr7-MwgdRw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpQCyDn48nUJ9bm9ilZEetrHekvnv6WNKdDwIO.dM.Wn-d5IO3MFnItkNfr7-MwgdRw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "egbXzndOTe5kKcGWjhnOZpQCyDn48nUJ9bm9ilZEetrHekvnv6WNKdDwIO.dM.Wn-d5IO3MFnItkNfr7-MwgdRw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "40930008",
+                            "display": "Hypothyroidism (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "244.9",
+                            "display": "Unspecified hypothyroidism"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "E03.9",
+                            "display": "Unspecified hypothyroidism"
+                        }
+                    ],
+                    "text": "Unspecified hypothyroidism"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/es6Jfy--QxPFWvXbevtFhEA3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10620"
+                    },
+                    "display": "Refill"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpQWW3coz2-pUUkWPSMjuMaQjX9jYpLcRH9PiJah5f34o8.0U6BwhsCQIiMgVzvNIsw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpQWW3coz2-pUUkWPSMjuMaQjX9jYpLcRH9PiJah5f34o8.0U6BwhsCQIiMgVzvNIsw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "egbXzndOTe5kKcGWjhnOZpQWW3coz2-pUUkWPSMjuMaQjX9jYpLcRH9PiJah5f34o8.0U6BwhsCQIiMgVzvNIsw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "59621000",
+                            "display": "Essential hypertension (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "401.9",
+                            "display": "Essential hypertension"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "I10",
+                            "display": "Essential hypertension"
+                        }
+                    ],
+                    "text": "Essential hypertension"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/es6Jfy--QxPFWvXbevtFhEA3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10620"
+                    },
+                    "display": "Refill"
+                },
+                "note": [
+                    {
+                        "text": "Diagnosed age 54. Initially treated with sodium restriction, diet, exercise. Diuretics started ~1988, taken sporadically since that time. Patient admits to poor compliance with med regimen. No history to suggest end organ damage or coronary artery disease. Cardiovascular risk factors include 20 pk yr hx of smoking and hypercholesterolemia."
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpe6PhlBj6emgJU95vutCpidhe3bL6I3eIUIaCmzCzVC81Idefs-TbZdjWUq5gbY.mQ3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpe6PhlBj6emgJU95vutCpidhe3bL6I3eIUIaCmzCzVC81Idefs-TbZdjWUq5gbY.mQ3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "egbXzndOTe5kKcGWjhnOZpe6PhlBj6emgJU95vutCpidhe3bL6I3eIUIaCmzCzVC81Idefs-TbZdjWUq5gbY.mQ3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "59621000",
+                            "display": "Essential hypertension (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "401.9",
+                            "display": "Essential hypertension"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "I10",
+                            "display": "Essential hypertension"
+                        }
+                    ],
+                    "text": "Essential hypertension"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/e44ZnB2sYFixA0o3AgqsRJw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10621"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "Diagnosed age 54. Initially treated with sodium restriction, diet, exercise. Diuretics started ~1988, taken sporadically since that time. Patient admits to poor compliance with med regimen. No history to suggest end organ damage or coronary artery disease. Cardiovascular risk factors include 20 pk yr hx of smoking and hypercholesterolemia."
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpXi4K0WlT24abnxh1YsvHTjcGMuBwJRKYo6BsMcySaaM766NCA.myk6hCU9kZERYQg3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpXi4K0WlT24abnxh1YsvHTjcGMuBwJRKYo6BsMcySaaM766NCA.myk6hCU9kZERYQg3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "egbXzndOTe5kKcGWjhnOZpXi4K0WlT24abnxh1YsvHTjcGMuBwJRKYo6BsMcySaaM766NCA.myk6hCU9kZERYQg3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "235595009",
+                            "display": "Gastroesophageal reflux disease (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "530.81",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "K21.9",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        }
+                    ],
+                    "text": "GERD (gastroesophageal reflux disease)"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/e44ZnB2sYFixA0o3AgqsRJw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10621"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "GERD, diagnosed by EGD. Symptoms well controlled with intermittent use of H2 blockers"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpb6S7xFAqwnepRtoHl82a.XxnPKGbZCMZjIwH90fkt81E8LMmeLEbNcL417Fbz-2Tw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/egbXzndOTe5kKcGWjhnOZpb6S7xFAqwnepRtoHl82a.XxnPKGbZCMZjIwH90fkt81E8LMmeLEbNcL417Fbz-2Tw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "egbXzndOTe5kKcGWjhnOZpb6S7xFAqwnepRtoHl82a.XxnPKGbZCMZjIwH90fkt81E8LMmeLEbNcL417Fbz-2Tw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "40930008",
+                            "display": "Hypothyroidism (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "244.9",
+                            "display": "Unspecified hypothyroidism"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "E03.9",
+                            "display": "Unspecified hypothyroidism"
+                        }
+                    ],
+                    "text": "Unspecified hypothyroidism"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/e44ZnB2sYFixA0o3AgqsRJw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10621"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9K5VFpZxla6VyfVsDT1L5S7pR4sDu2PVI1BEhYlvDUnvFv4BqzAaN47YFIylhQRZeg3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9K5VFpZxla6VyfVsDT1L5S7pR4sDu2PVI1BEhYlvDUnvFv4BqzAaN47YFIylhQRZeg3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "elGpDm00U8BcCeBLMu6yI9K5VFpZxla6VyfVsDT1L5S7pR4sDu2PVI1BEhYlvDUnvFv4BqzAaN47YFIylhQRZeg3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "40930008",
+                            "display": "Hypothyroidism (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "244.9",
+                            "display": "Unspecified hypothyroidism"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "E03.9",
+                            "display": "Unspecified hypothyroidism"
+                        }
+                    ],
+                    "text": "Unspecified hypothyroidism"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/e-ilXavMa00uYN178z9uEaQ3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10630"
+                    },
+                    "display": "Orders Only"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9In.7Zvf8m9NDebKwxyiw9BPh8Ll3YqGaM.4Lk58PFdcUa1lvJMTq5ieG43MmaE4gQ3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9In.7Zvf8m9NDebKwxyiw9BPh8Ll3YqGaM.4Lk58PFdcUa1lvJMTq5ieG43MmaE4gQ3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "elGpDm00U8BcCeBLMu6yI9In.7Zvf8m9NDebKwxyiw9BPh8Ll3YqGaM.4Lk58PFdcUa1lvJMTq5ieG43MmaE4gQ3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "127279002",
+                            "display": "Injury of lower extremity (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "844.9",
+                            "display": "Sprain and strain of unspecified site of knee and leg"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "IMO0002",
+                            "display": "Sprain and strain of unspecified site of knee and leg"
+                        }
+                    ],
+                    "text": "Sprain and strain of unspecified site of knee and leg"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eHh4jJzTbOUhWyo8wHw6wKg3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10631"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9JlvKEJvS33nBDYBOBihG.7cKyM93dcttVpRHsJwWXVNhNaHmXGybG9JxBNtzc03gQ3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9JlvKEJvS33nBDYBOBihG.7cKyM93dcttVpRHsJwWXVNhNaHmXGybG9JxBNtzc03gQ3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "elGpDm00U8BcCeBLMu6yI9JlvKEJvS33nBDYBOBihG.7cKyM93dcttVpRHsJwWXVNhNaHmXGybG9JxBNtzc03gQ3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "127279002",
+                            "display": "Injury of lower extremity (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "844.9",
+                            "display": "Sprain and strain of unspecified site of knee and leg"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "IMO0002",
+                            "display": "Sprain and strain of unspecified site of knee and leg"
+                        }
+                    ],
+                    "text": "Sprain and strain of unspecified site of knee and leg"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/e08LiVGrJd564L0CPdzDQNA3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10632"
+                    },
+                    "display": "Emergency"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9PJ7BDp.M.XDXcDcO9PvXTYuwdrR7aIB-x-4gdg4BGskFb2GWm.FqchqAewEKADYpA3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9PJ7BDp.M.XDXcDcO9PvXTYuwdrR7aIB-x-4gdg4BGskFb2GWm.FqchqAewEKADYpA3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "elGpDm00U8BcCeBLMu6yI9PJ7BDp.M.XDXcDcO9PvXTYuwdrR7aIB-x-4gdg4BGskFb2GWm.FqchqAewEKADYpA3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "59621000",
+                            "display": "Essential hypertension (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "401.9",
+                            "display": "Essential hypertension"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "I10",
+                            "display": "Essential hypertension"
+                        }
+                    ],
+                    "text": "Essential hypertension"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ebOyIiDy6BxfgfDpUaaX-Zg3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10637"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "Diagnosed age 54. Initially treated with sodium restriction, diet, exercise. Diuretics started ~1988, taken sporadically since that time. Patient admits to poor compliance with med regimen. No history to suggest end organ damage or coronary artery disease. Cardiovascular risk factors include 20 pk yr hx of smoking and hypercholesterolemia."
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9PFr03xF0HEQo9yT98nZbx5PjWBl..PoSK5TyhlKF-jcdqWLbo6vzwG4FFNMHwEtNA3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9PFr03xF0HEQo9yT98nZbx5PjWBl..PoSK5TyhlKF-jcdqWLbo6vzwG4FFNMHwEtNA3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "elGpDm00U8BcCeBLMu6yI9PFr03xF0HEQo9yT98nZbx5PjWBl..PoSK5TyhlKF-jcdqWLbo6vzwG4FFNMHwEtNA3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "235595009",
+                            "display": "Gastroesophageal reflux disease (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "530.81",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "K21.9",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        }
+                    ],
+                    "text": "GERD (gastroesophageal reflux disease)"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ebOyIiDy6BxfgfDpUaaX-Zg3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10637"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "GERD, diagnosed by EGD. Symptoms well controlled with intermittent use of H2 blockers"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9DeDLbotiI-igMFMrKkPmCxoFPWi2wMe.GsVfRm6IaxzopCuFBYyexdaibjd8.6Zuw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9DeDLbotiI-igMFMrKkPmCxoFPWi2wMe.GsVfRm6IaxzopCuFBYyexdaibjd8.6Zuw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "elGpDm00U8BcCeBLMu6yI9DeDLbotiI-igMFMrKkPmCxoFPWi2wMe.GsVfRm6IaxzopCuFBYyexdaibjd8.6Zuw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "40930008",
+                            "display": "Hypothyroidism (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "244.9",
+                            "display": "Unspecified hypothyroidism"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "E03.9",
+                            "display": "Unspecified hypothyroidism"
+                        }
+                    ],
+                    "text": "Unspecified hypothyroidism"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/ebOyIiDy6BxfgfDpUaaX-Zg3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10637"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9B6ILca.ldDOsqTOFbS1lDTmcBFOgRX9u4RE.fIUm0VissDgYCM44sO.O4.D-EEL1Q3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9B6ILca.ldDOsqTOFbS1lDTmcBFOgRX9u4RE.fIUm0VissDgYCM44sO.O4.D-EEL1Q3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "elGpDm00U8BcCeBLMu6yI9B6ILca.ldDOsqTOFbS1lDTmcBFOgRX9u4RE.fIUm0VissDgYCM44sO.O4.D-EEL1Q3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "59621000",
+                            "display": "Essential hypertension (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "401.9",
+                            "display": "Essential hypertension"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "I10",
+                            "display": "Essential hypertension"
+                        }
+                    ],
+                    "text": "Essential hypertension"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/edJpvKZmCPIxNxI-D-9jboQ3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10638"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "Diagnosed age 54. Initially treated with sodium restriction, diet, exercise. Diuretics started ~1988, taken sporadically since that time. Patient admits to poor compliance with med regimen. No history to suggest end organ damage or coronary artery disease. Cardiovascular risk factors include 20 pk yr hx of smoking and hypercholesterolemia."
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9GSROvDu4RoafqwY4U1vPf0B5EoPV1rCOrCVH1ZmVkd7hM1dHQKXEQxVY79TohO-PA3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9GSROvDu4RoafqwY4U1vPf0B5EoPV1rCOrCVH1ZmVkd7hM1dHQKXEQxVY79TohO-PA3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "elGpDm00U8BcCeBLMu6yI9GSROvDu4RoafqwY4U1vPf0B5EoPV1rCOrCVH1ZmVkd7hM1dHQKXEQxVY79TohO-PA3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "110483000",
+                            "display": "Tobacco user (finding)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "305.1",
+                            "display": "Tobacco use disorder"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "F17.200",
+                            "display": "Tobacco use disorder"
+                        }
+                    ],
+                    "text": "Tobacco use disorder"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/edJpvKZmCPIxNxI-D-9jboQ3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10638"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "Started smoking age 16, smoking 1-15 ppd. Has made several half-hearted attempts to quit but has never been successful for longer than a few days. Only smoker in the family"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9BPL8AeS9J5GmJRkl5..R0sNQyca1pC69x6N4P3fEeC1OonTOhIgnTS.zaZEfQYNTQ3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/elGpDm00U8BcCeBLMu6yI9BPL8AeS9J5GmJRkl5..R0sNQyca1pC69x6N4P3fEeC1OonTOhIgnTS.zaZEfQYNTQ3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "elGpDm00U8BcCeBLMu6yI9BPL8AeS9J5GmJRkl5..R0sNQyca1pC69x6N4P3fEeC1OonTOhIgnTS.zaZEfQYNTQ3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "243876005",
+                            "display": "Screening status (finding)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "V76.51",
+                            "display": "Screen for colon cancer"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "Z12.11",
+                            "display": "Screen for colon cancer"
+                        }
+                    ],
+                    "text": "Screen for colon cancer"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eusguAs7d-rcMgfpZo6sJGA3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10639"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhh9KtWR3RKw82TuBvcjuArruZBEIjWPLJNvFsk.Q-CP2T7PSmq3mPM7S6bsWaSBS3Q3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhh9KtWR3RKw82TuBvcjuArruZBEIjWPLJNvFsk.Q-CP2T7PSmq3mPM7S6bsWaSBS3Q3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eh8OUeGWAtnDo9VfNzyrFhh9KtWR3RKw82TuBvcjuArruZBEIjWPLJNvFsk.Q-CP2T7PSmq3mPM7S6bsWaSBS3Q3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "59621000",
+                            "display": "Essential hypertension (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "401.9",
+                            "display": "Essential hypertension"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "I10",
+                            "display": "Essential hypertension"
+                        }
+                    ],
+                    "text": "Essential hypertension"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/etAH1R5CawHsErIfQmzoxpQ3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10640"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "Diagnosed age 54. Initially treated with sodium restriction, diet, exercise. Diuretics started ~1988, taken sporadically since that time. Patient admits to poor compliance with med regimen. No history to suggest end organ damage or coronary artery disease. Cardiovascular risk factors include 20 pk yr hx of smoking and hypercholesterolemia."
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhvHkz9hhjxT93Y5CZ-a5u2M3n-0xHYNBZiglq6wqiJqfAucUsjRJFSMHHZcC607mPw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhvHkz9hhjxT93Y5CZ-a5u2M3n-0xHYNBZiglq6wqiJqfAucUsjRJFSMHHZcC607mPw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eh8OUeGWAtnDo9VfNzyrFhvHkz9hhjxT93Y5CZ-a5u2M3n-0xHYNBZiglq6wqiJqfAucUsjRJFSMHHZcC607mPw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "110483000",
+                            "display": "Tobacco user (finding)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "305.1",
+                            "display": "Tobacco use disorder"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "F17.200",
+                            "display": "Tobacco use disorder"
+                        }
+                    ],
+                    "text": "Tobacco use disorder"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/etAH1R5CawHsErIfQmzoxpQ3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10640"
+                    },
+                    "display": "Office Visit"
+                },
+                "note": [
+                    {
+                        "text": "Started smoking age 16, smoking 1-15 ppd. Has made several half-hearted attempts to quit but has never been successful for longer than a few days. Only smoker in the family"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhq0kHvBGnstj9NvFxjBsFzOrTtf0iZ4hutpWa73EbzApnZPiL3jdTRF.JMFybU-EHw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhq0kHvBGnstj9NvFxjBsFzOrTtf0iZ4hutpWa73EbzApnZPiL3jdTRF.JMFybU-EHw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eh8OUeGWAtnDo9VfNzyrFhq0kHvBGnstj9NvFxjBsFzOrTtf0iZ4hutpWa73EbzApnZPiL3jdTRF.JMFybU-EHw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "40930008",
+                            "display": "Hypothyroidism (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "244.9",
+                            "display": "Unspecified hypothyroidism"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "E03.9",
+                            "display": "Unspecified hypothyroidism"
+                        }
+                    ],
+                    "text": "Unspecified hypothyroidism"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/etAH1R5CawHsErIfQmzoxpQ3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10640"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhpwHBMt-nFRfWjVKf7XAvrsxTmlxCLD70YGLpTlCxy57U0Qa9vSajV0-U6Bb7RBqqA3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhpwHBMt-nFRfWjVKf7XAvrsxTmlxCLD70YGLpTlCxy57U0Qa9vSajV0-U6Bb7RBqqA3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eh8OUeGWAtnDo9VfNzyrFhpwHBMt-nFRfWjVKf7XAvrsxTmlxCLD70YGLpTlCxy57U0Qa9vSajV0-U6Bb7RBqqA3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "59621000",
+                            "display": "Essential hypertension (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "401.9",
+                            "display": "Essential hypertension"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "I10",
+                            "display": "Essential hypertension"
+                        }
+                    ],
+                    "text": "Essential hypertension"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/e4HmDpgXalRt8NNfFivM0Qg3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10642"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhsDouHvv0cNgx8ohkp.LcnGqoRizp-v4n35gTS0VrsvONVtqc8ho6zvGcJ5kZlTE7g3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhsDouHvv0cNgx8ohkp.LcnGqoRizp-v4n35gTS0VrsvONVtqc8ho6zvGcJ5kZlTE7g3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eh8OUeGWAtnDo9VfNzyrFhsDouHvv0cNgx8ohkp.LcnGqoRizp-v4n35gTS0VrsvONVtqc8ho6zvGcJ5kZlTE7g3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "110483000",
+                            "display": "Tobacco user (finding)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "305.1",
+                            "display": "Tobacco use disorder"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "F17.200",
+                            "display": "Tobacco use disorder"
+                        }
+                    ],
+                    "text": "Tobacco use disorder"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/e4HmDpgXalRt8NNfFivM0Qg3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10642"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhjZCK3BFoxrx5XeKMLvCfCZaXXo1.wpDjceXxlC8wyOdJ6bVUkKfXXAKhkjmkwUfPw3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eh8OUeGWAtnDo9VfNzyrFhjZCK3BFoxrx5XeKMLvCfCZaXXo1.wpDjceXxlC8wyOdJ6bVUkKfXXAKhkjmkwUfPw3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eh8OUeGWAtnDo9VfNzyrFhjZCK3BFoxrx5XeKMLvCfCZaXXo1.wpDjceXxlC8wyOdJ6bVUkKfXXAKhkjmkwUfPw3",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "visit-diagnosis",
+                                "display": "Visit Diagnosis"
+                            }
+                        ],
+                        "text": "Visit Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "235595009",
+                            "display": "Gastroesophageal reflux disease (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "530.81",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "K21.9",
+                            "display": "GERD (gastroesophageal reflux disease)"
+                        }
+                    ],
+                    "text": "GERD (gastroesophageal reflux disease)"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/e4HmDpgXalRt8NNfFivM0Qg3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10642"
+                    },
+                    "display": "Office Visit"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExFx9bCgZqB4c0vAckyrSk-XJ1FneCgEbRGxFxAFLiV19dXqf0-9g.oPy5yJx-5PwEA3"
+                }
+            ],
+            "fullUrl": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Condition/eBU5I8Jv5EOdsC9i64bVExFx9bCgZqB4c0vAckyrSk-XJ1FneCgEbRGxFxAFLiV19dXqf0-9g.oPy5yJx-5PwEA3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "eBU5I8Jv5EOdsC9i64bVExFx9bCgZqB4c0vAckyrSk-XJ1FneCgEbRGxFxAFLiV19dXqf0-9g.oPy5yJx-5PwEA3",
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "version": "4.0.0",
+                            "code": "confirmed",
+                            "display": "Confirmed"
+                        }
+                    ],
+                    "text": "Confirmed"
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ],
+                        "text": "Encounter Diagnosis"
+                    },
+                    {
+                        "coding": [
+                            {
+                                "system": "http://open.epic.com/FHIR/StructureDefinition/condition-category",
+                                "code": "discharge-diagnosis",
+                                "display": "Discharge Diagnosis"
+                            }
+                        ],
+                        "text": "Discharge Diagnosis"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "312342009",
+                            "display": "Infective pneumonia (disorder)"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-9-cm/diagnosis",
+                            "code": "486",
+                            "display": "Pneumonia, organism unspecified"
+                        },
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "J18.9",
+                            "display": "Pneumonia, organism unspecified"
+                        }
+                    ],
+                    "text": "Pneumonia, organism unspecified"
+                },
+                "subject": {
+                    "reference": "Patient/eZ5-7rYdWqgv3jSgIvx.SPw3",
+                    "display": "Ambulatory, Oliver"
+                },
+                "encounter": {
+                    "reference": "Encounter/eNe1jQk.aQ2zyZwPEjBTURw3",
+                    "identifier": {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8",
+                        "value": "10603"
+                    },
+                    "display": "Hospital Encounter"
+                },
+                "note": [
+                    {
+                        "text": "pneumonia"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        }
+    ]
+}

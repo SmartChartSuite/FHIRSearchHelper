@@ -1,0 +1,5171 @@
+{
+    "Account": {
+        "identifier": {
+            "fhirpath": "Account.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "name": {
+            "fhirpath": "Account.name",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "owner": {
+            "fhirpath": "Account.owner",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "patient": {
+            "fhirpath": "Account.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "period": {
+            "fhirpath": "Account.servicePeriod",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "Account.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "subject": {
+            "fhirpath": "Account.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "type": {
+            "fhirpath": "Account.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "AdverseEvent": {
+        "actuality": {
+            "fhirpath": "AdverseEvent.actuality",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "actual"
+            ]
+        },
+        "category": {
+            "fhirpath": "AdverseEvent.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "date": {
+            "fhirpath": "AdverseEvent.date",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2021-05-28"
+            ]
+        },
+        "event": {
+            "fhirpath": "AdverseEvent.event",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696871|888400012",
+                "https://www.meddra.org/|10003988",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696871|888400064",
+                "https://www.meddra.org/|10019211",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696871|888400307",
+                "https://www.meddra.org/|10001497"
+            ]
+        },
+        "location": {
+            "fhirpath": "AdverseEvent.location",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "recorder": {
+            "fhirpath": "AdverseEvent.recorder",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "ehlV4y7pI82B5MCHO2RvkUw3"
+            ]
+        },
+        "resultingcondition": {
+            "fhirpath": "AdverseEvent.resultingCondition",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "seriousness": {
+            "fhirpath": "AdverseEvent.seriousness",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "serious",
+                "https://www.hl7.org/fhir/valueset-adverse-event-seriousness.html|Non-serious",
+                "https://www.hl7.org/fhir/valueset-adverse-event-seriousness.html|Serious"
+            ]
+        },
+        "severity": {
+            "fhirpath": "AdverseEvent.severity",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.768076.7010|1",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.768076.7010|0",
+                "https://www.hl7.org/fhir/valueset-adverse-event-severity.html|severe",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.768076.7010|3",
+                "https://www.hl7.org/fhir/valueset-adverse-event-severity.html|mild"
+            ]
+        },
+        "study": {
+            "fhirpath": "AdverseEvent.study",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "enJ3eMmu-jFFkkT9sTH9Avw3"
+            ]
+        },
+        "subject": {
+            "fhirpath": "AdverseEvent.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "exXRmhbBlDmkQs7JHPE37Yw3"
+            ]
+        },
+        "substance": {
+            "fhirpath": "AdverseEvent.suspectEntity.instance",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "enJ3eMmu-jFFkkT9sTH9Avw3"
+            ]
+        }
+    },
+    "AllergyIntolerance": {
+        "asserter": {
+            "fhirpath": "AllergyIntolerance.asserter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "category": {
+            "fhirpath": "AllergyIntolerance.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "medication"
+            ]
+        },
+        "clinical-status": {
+            "fhirpath": "AllergyIntolerance.clinicalStatus",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "active",
+                "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical|active"
+            ]
+        },
+        "code": {
+            "fhirpath": "AllergyIntolerance.code | AllergyIntolerance.reaction.substance",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000007471",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000007002",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000006138",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000167685",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000011281",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000178976",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000006583",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000167001",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000178984",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000179429",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000179641",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000007468",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000011298",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000179548",
+                "http://www.nlm.nih.gov/research/umls/rxnorm|31738",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000166996",
+                "urn:oid:2.16.840.1.113883.4.9|4FLT4T3WUN",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000007253",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000178981",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000179730",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000007469",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000005873",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000179395",
+                "urn:oid:2.16.840.1.113883.4.9|7OV03QG267",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000006487",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000006459",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000005863",
+                "urn:oid:2.16.840.1.113883.4.9|696BNE976J",
+                "http://www.nlm.nih.gov/research/umls/rxnorm|1311629",
+                "http://www.nlm.nih.gov/research/umls/rxnorm|1546280",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000166998",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000167000",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000166999",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000166995",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000007481",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000178983",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000007482",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000005940",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000007337",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000179587",
+                "http://snomed.info/sct|COOPERTEST",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000007418",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000179710",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000179599",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000179600",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000005840",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000179727",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000166997",
+                "urn:oid:2.16.840.1.113883.3.26.1.5|N0000179370",
+                "http://www.nlm.nih.gov/research/umls/rxnorm|6211",
+                "http://www.nlm.nih.gov/research/umls/rxnorm|1307662",
+                "http://www.nlm.nih.gov/research/umls/rxnorm|1314891",
+                "urn:oid:2.16.840.1.113883.4.9|544D0W9VKA",
+                "urn:oid:2.16.840.1.113883.4.9|J2B2A4N98G",
+                "urn:oid:2.16.840.1.113883.4.9|2LQ0UUW8IN",
+                "urn:oid:2.16.840.1.113883.4.9|3SY5LH9PMK",
+                "http://www.nlm.nih.gov/research/umls/rxnorm|1305527",
+                "urn:oid:2.16.840.1.113883.4.9|EWQ57Q8I5X"
+            ]
+        },
+        "criticality": {
+            "fhirpath": "AllergyIntolerance.criticality",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "low",
+                "high"
+            ]
+        },
+        "date": {
+            "fhirpath": "AllergyIntolerance.recordedDate",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2019-05-28T15:27:38Z",
+                "2019-05-28T15:28:10Z",
+                "2019-05-24T20:19:17Z",
+                "2019-05-24T20:18:04Z"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "AllergyIntolerance.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "last-date": {
+            "fhirpath": "AllergyIntolerance.lastOccurrence",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "manifestation": {
+            "fhirpath": "AllergyIntolerance.reaction.manifestation",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://snomed.info/sct|Anaphylaxis",
+                "http://snomed.info/sct|Rash",
+                "http://snomed.info/sct|Hives",
+                "http://snomed.info/sct|Itching",
+                "http://snomed.info/sct|Nausea"
+            ]
+        },
+        "onset": {
+            "fhirpath": "AllergyIntolerance.reaction.onset",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "AllergyIntolerance.patient",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e63wRTbPfr1p8UW81d8Seiw3",
+                "e0w0LEDCYtfckT6N.CkJKCw3",
+                "egqBHVfQlt4Bw3XGXoxVxHg3"
+            ]
+        },
+        "recorder": {
+            "fhirpath": "AllergyIntolerance.recorder",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "route": {
+            "fhirpath": "AllergyIntolerance.reaction.exposureRoute",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "severity": {
+            "fhirpath": "AllergyIntolerance.reaction.severity",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "type": {
+            "fhirpath": "AllergyIntolerance.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "verification-status": {
+            "fhirpath": "AllergyIntolerance.verificationStatus",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification|confirmed"
+            ]
+        }
+    },
+    "Appointment": {
+        "actor": {
+            "fhirpath": "Appointment.participant.actor",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "exzJSfs-2YYqMPilpdzkcdMVzw6TB9WJfeqFRVe.cpSo3",
+                "e6.GHPEJ3Jrk18e14wi2AJ5vFRqvLa0ZB6qH40N4UgB03",
+                "ef9TegF2nfECi-0Skirbvpg3",
+                "efR3SIdpRKF9BFBM5qakt9F5X1mWxjiAGu2hNTKbqOdI3",
+                "e4W4rmGe9QzuGm2Dy4NBqVc0KDe6yGld6HW95UuN-Qd03",
+                "edMTlFfH6NJ009KzsRtLjgZyfcYBTM5Zu1eEO2ZKijsg3",
+                "eOyFJ.PiGBcbhr3T1oyJZ1A3",
+                "erXuFYUfucBZaryVksYEcMg3",
+                "eM5CWtq15N0WJeuCet5bJlQ3",
+                "enLdMzu5kq-UhB8pQ-ux.1-R66swHqxTAQiOGeY2gUhU3",
+                "ewyZVtBwkC0w85m69VbpXwQ3"
+            ]
+        },
+        "appointment-type": {
+            "fhirpath": "Appointment.appointmentType",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://terminology.hl7.org/CodeSystem/v3-ActCode|AMB"
+            ]
+        },
+        "based-on": {
+            "fhirpath": "Appointment.basedOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "date": {
+            "fhirpath": "Appointment.start",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2017-10-06",
+                "2023-06-02T20:45:00Z",
+                "2021-01-06T14:00:00Z",
+                "2017-10-06T20:45:00Z",
+                "2021-01-05T17:15:00Z",
+                "2017-10-06T21:15:00Z",
+                "2023-06-06T13:56:00Z",
+                "2017-10-09T13:00:00Z",
+                "2023-06-02T20:50:00Z"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Appointment.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "location": {
+            "fhirpath": "Appointment.participant.actor.where(reference.startsWith('Location'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "exzJSfs-2YYqMPilpdzkcdMVzw6TB9WJfeqFRVe.cpSo3",
+                "e6.GHPEJ3Jrk18e14wi2AJ5vFRqvLa0ZB6qH40N4UgB03",
+                "efR3SIdpRKF9BFBM5qakt9F5X1mWxjiAGu2hNTKbqOdI3",
+                "e4W4rmGe9QzuGm2Dy4NBqVc0KDe6yGld6HW95UuN-Qd03",
+                "edMTlFfH6NJ009KzsRtLjgZyfcYBTM5Zu1eEO2ZKijsg3",
+                "enLdMzu5kq-UhB8pQ-ux.1-R66swHqxTAQiOGeY2gUhU3"
+            ]
+        },
+        "part-status": {
+            "fhirpath": "Appointment.participant.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "accepted"
+            ]
+        },
+        "patient": {
+            "fhirpath": "Appointment.participant.actor.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "erXuFYUfucBZaryVksYEcMg3",
+                "erXuFYUfucBZaryVksYEcMg3"
+            ]
+        },
+        "practitioner": {
+            "fhirpath": "Appointment.participant.actor.where(reference.startsWith('Practitioner'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eOyFJ.PiGBcbhr3T1oyJZ1A3",
+                "eM5CWtq15N0WJeuCet5bJlQ3",
+                "ef9TegF2nfECi-0Skirbvpg3",
+                "ewyZVtBwkC0w85m69VbpXwQ3"
+            ]
+        },
+        "reason-code": {
+            "fhirpath": "Appointment.reasonCode",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "reason-reference": {
+            "fhirpath": "Appointment.reasonReference",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "service-category": {
+            "fhirpath": "Appointment.serviceCategory",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "appointment",
+                "http://open.epic.com/FHIR/StructureDefinition/appointment-service-category|surgery",
+                "http://open.epic.com/FHIR/StructureDefinition/appointment-service-category|appointment"
+            ]
+        },
+        "service-type": {
+            "fhirpath": "Appointment.serviceType",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.808267|1400000001",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.808267|10023",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.808267|1053001",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.808267|1003"
+            ]
+        },
+        "slot": {
+            "fhirpath": "Appointment.slot",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "specialty": {
+            "fhirpath": "Appointment.specialty",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.836982.5030|110"
+            ]
+        },
+        "status": {
+            "fhirpath": "Appointment.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "booked",
+                "fulfilled",
+                "booked",
+                "arrived"
+            ]
+        },
+        "supporting-info": {
+            "fhirpath": "Appointment.supportingInformation",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        }
+    },
+    "BodyStructure": {
+        "identifier": {
+            "fhirpath": "BodyStructure.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "location": {
+            "fhirpath": "BodyStructure.location",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://snomed.info/sct|18639004",
+                "urn:oid:2.16.840.1.113883.6.96|18639004"
+            ]
+        },
+        "morphology": {
+            "fhirpath": "BodyStructure.morphology",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://snomed.info/sct|280115004",
+                "urn:oid:2.16.840.1.113883.6.96|280115004"
+            ]
+        },
+        "patient": {
+            "fhirpath": "BodyStructure.patient",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eM0bcoitty9qE1EF3-a1Awg3",
+                "eM0bcoitty9qE1EF3-a1Awg3"
+            ]
+        }
+    },
+    "CarePlan": {
+        "activity-code": {
+            "fhirpath": "CarePlan.activity.detail.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "activity-date": {
+            "fhirpath": "CarePlan.activity.detail.scheduled",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "activity-reference": {
+            "fhirpath": "CarePlan.activity.reference",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "based-on": {
+            "fhirpath": "CarePlan.basedOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "care-team": {
+            "fhirpath": "CarePlan.careTeam",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "category": {
+            "fhirpath": "CarePlan.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan",
+                "http://snomed.info/sct|38717003",
+                "urn:oid:2.16.840.1.113883.6.96|736378000",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.726668.10|10",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.848076.32|1",
+                "http://snomed.info/sct|736353004",
+                "http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan",
+                "http://snomed.info/sct|734163000",
+                "urn:oid:1.2.840.114350.1.72.1.7.7.10.848076.94000|0",
+                "http://snomed.info/sct|738906000"
+            ]
+        },
+        "condition": {
+            "fhirpath": "CarePlan.addresses",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "eAg-QQ3eS6W9jXkI5e8yZNw3"
+            ]
+        },
+        "date": {
+            "fhirpath": "CarePlan.period",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "encounter": {
+            "fhirpath": "CarePlan.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "goal": {
+            "fhirpath": "CarePlan.goal",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "CarePlan.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-canonical": {
+            "fhirpath": "CarePlan.instantiatesCanonical",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-uri": {
+            "fhirpath": "CarePlan.instantiatesUri",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "intent": {
+            "fhirpath": "CarePlan.intent",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "plan",
+                "plan",
+                "plan",
+                "proposal",
+                "plan"
+            ]
+        },
+        "part-of": {
+            "fhirpath": "CarePlan.partOf",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "CarePlan.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e0yyMZa5aqjpDhvmIODSJgw3",
+                "ePGJfjiWayus47VRmNLCBcA3",
+                "eTRO.ZVFuhUxXw6HzTAjtfg3",
+                "erXuFYUfucBZaryVksYEcMg3",
+                "evsJR7wUkBvPXgtZSwj8jNQ3"
+            ]
+        },
+        "performer": {
+            "fhirpath": "CarePlan.activity.detail.performer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "replaces": {
+            "fhirpath": "CarePlan.replaces",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "CarePlan.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "active",
+                "completed",
+                "active",
+                "active",
+                "active",
+                "active"
+            ]
+        },
+        "subject": {
+            "fhirpath": "CarePlan.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e0yyMZa5aqjpDhvmIODSJgw3",
+                "ePGJfjiWayus47VRmNLCBcA3",
+                "eTRO.ZVFuhUxXw6HzTAjtfg3",
+                "erXuFYUfucBZaryVksYEcMg3",
+                "evsJR7wUkBvPXgtZSwj8jNQ3"
+            ]
+        }
+    },
+    "CareTeam": {
+        "category": {
+            "fhirpath": "CareTeam.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://loinc.org|LA28865-6"
+            ]
+        },
+        "date": {
+            "fhirpath": "CareTeam.period",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "encounter": {
+            "fhirpath": "CareTeam.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "CareTeam.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "participant": {
+            "fhirpath": "CareTeam.participant.member",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eM5CWtq15N0WJeuCet5bJlQ3"
+            ]
+        },
+        "patient": {
+            "fhirpath": "CareTeam.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eJzlzKe3KPzAV5TtkxmNivQ3"
+            ]
+        },
+        "status": {
+            "fhirpath": "CareTeam.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "active"
+            ]
+        },
+        "subject": {
+            "fhirpath": "CareTeam.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eJzlzKe3KPzAV5TtkxmNivQ3"
+            ]
+        }
+    },
+    "Communication": {
+        "based-on": {
+            "fhirpath": "Communication.basedOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "category": {
+            "fhirpath": "Communication.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "encounter": {
+            "fhirpath": "Communication.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "Communication.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "instantiates-canonical": {
+            "fhirpath": "Communication.instantiatesCanonical",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "instantiates-uri": {
+            "fhirpath": "Communication.instantiatesUri",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "medium": {
+            "fhirpath": "Communication.medium",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "part-of": {
+            "fhirpath": "Communication.partOf",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "patient": {
+            "fhirpath": "Communication.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "received": {
+            "fhirpath": "Communication.received",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "recipient": {
+            "fhirpath": "Communication.recipient",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "sender": {
+            "fhirpath": "Communication.sender",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "sent": {
+            "fhirpath": "Communication.sent",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "Communication.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "subject": {
+            "fhirpath": "Communication.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "Condition": {
+        "abatement-age": {
+            "fhirpath": "Condition.abatementAge | Condition.abatementRange",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "abatement-date": {
+            "fhirpath": "Condition.abatementDateTime | Condition.abatementPeriod",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "abatement-string": {
+            "fhirpath": "Condition.abatementString",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "asserter": {
+            "fhirpath": "Condition.asserter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "body-site": {
+            "fhirpath": "Condition.bodySite",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "category": {
+            "fhirpath": "Condition.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
+                "http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
+                "http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
+                "http://open.epic.com/FHIR/StructureDefinition/condition-category|reason-for-visit",
+                "http://open.epic.com/FHIR/StructureDefinition/condition-category|visit-diagnosis",
+                "http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
+                "http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
+                "http://open.epic.com/FHIR/StructureDefinition/condition-category|visit-diagnosis",
+                "http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
+                "http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
+                "http://open.epic.com/FHIR/StructureDefinition/condition-category|reason-for-visit",
+                "http://open.epic.com/FHIR/StructureDefinition/condition-category|visit-diagnosis",
+                "http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item"
+            ]
+        },
+        "clinical-status": {
+            "fhirpath": "Condition.clinicalStatus",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://terminology.hl7.org/CodeSystem/condition-clinical|active",
+                "http://terminology.hl7.org/CodeSystem/condition-clinical|active",
+                "http://terminology.hl7.org/CodeSystem/condition-clinical|active",
+                "http://terminology.hl7.org/CodeSystem/condition-clinical|active",
+                "http://terminology.hl7.org/CodeSystem/condition-clinical|active"
+            ]
+        },
+        "code": {
+            "fhirpath": "Condition.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://hl7.org/fhir/sid/icd-10-cm|I51.9",
+                "http://snomed.info/sct|56265001",
+                "http://hl7.org/fhir/sid/icd-10-cm|I25.2",
+                "http://snomed.info/sct|399211009",
+                "http://hl7.org/fhir/sid/icd-10-cm|J45.909",
+                "http://hl7.org/fhir/sid/icd-10-cm|J45.40",
+                "http://snomed.info/sct|427295004",
+                "http://snomed.info/sct|405944004",
+                "http://hl7.org/fhir/sid/icd-10-cm|J20.9",
+                "http://hl7.org/fhir/sid/icd-9-cm/diagnosis|818.1",
+                "http://hl7.org/fhir/sid/icd-10-cm|S42.302B",
+                "http://hl7.org/fhir/sid/icd-10-cm|S42.309A",
+                "http://snomed.info/sct|301004001",
+                "http://hl7.org/fhir/sid/icd-10-cm|J18.1",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.728286|160050",
+                "http://snomed.info/sct|23406007",
+                "http://hl7.org/fhir/sid/icd-9-cm/diagnosis|V54.10",
+                "http://hl7.org/fhir/sid/icd-10-cm|S42.301D",
+                "http://snomed.info/sct|23406007",
+                "http://hl7.org/fhir/sid/icd-10-cm|S42.309A",
+                "http://hl7.org/fhir/sid/icd-9-cm/diagnosis|V49.89",
+                "http://snomed.info/sct|315016007",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.728286|83",
+                "http://hl7.org/fhir/sid/icd-10-cm|Z91.89"
+            ]
+        },
+        "encounter": {
+            "fhirpath": "Condition.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "emhwuharfnf8VhCQg97qP7Q3",
+                "ex6x-.onDJ.UfYweCbBoqDg3",
+                "e6kBx6PwnxIv.5kCifScsWg3"
+            ]
+        },
+        "evidence": {
+            "fhirpath": "Condition.evidence.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "evidence-detail": {
+            "fhirpath": "Condition.evidence.detail",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "epRHrfjlZHEPIuhqy74k3CQ3",
+                "eGYG5aL9xm65vOewRcw474A3",
+                "eVGf2YljIMIk76IcfbNpjWQ3"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Condition.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "onset-age": {
+            "fhirpath": "Condition.onsetAge | Condition.onsetRange",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "onset-date": {
+            "fhirpath": "Condition.onsetDateTime | Condition.onsetPeriod",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "onset-info": {
+            "fhirpath": "Condition.onsetString",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "Condition.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e0w0LEDCYtfckT6N.CkJKCw3",
+                "eIXesllypH3M9tAA5WdJftQ3",
+                "egqBHVfQlt4Bw3XGXoxVxHg3",
+                "eh2xYHuzl9nkSFVvV3osUHg3",
+                "eq081-VQEgP8drUUqCWzHfw3"
+            ]
+        },
+        "recorded-date": {
+            "fhirpath": "Condition.recordedDate",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2019-05-28",
+                "2019-05-24",
+                "2019-05-24T20:10:26Z",
+                "2019-05-24",
+                "2019-05-28",
+                "2019-05-28",
+                "2019-05-28T13:56:10Z"
+            ]
+        },
+        "severity": {
+            "fhirpath": "Condition.severity",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "stage": {
+            "fhirpath": "Condition.stage.summary",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "subject": {
+            "fhirpath": "Condition.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e0w0LEDCYtfckT6N.CkJKCw3",
+                "eIXesllypH3M9tAA5WdJftQ3",
+                "egqBHVfQlt4Bw3XGXoxVxHg3",
+                "eh2xYHuzl9nkSFVvV3osUHg3",
+                "eq081-VQEgP8drUUqCWzHfw3"
+            ]
+        },
+        "verification-status": {
+            "fhirpath": "Condition.verificationStatus",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://terminology.hl7.org/CodeSystem/condition-ver-status|confirmed",
+                "http://terminology.hl7.org/CodeSystem/condition-ver-status|confirmed",
+                "http://terminology.hl7.org/CodeSystem/condition-ver-status|confirmed",
+                "http://terminology.hl7.org/CodeSystem/condition-ver-status|confirmed",
+                "http://terminology.hl7.org/CodeSystem/condition-ver-status|confirmed"
+            ]
+        }
+    },
+    "Consent": {
+        "action": {
+            "fhirpath": "Consent.provision.action",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "actor": {
+            "fhirpath": "Consent.provision.actor.reference",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "category": {
+            "fhirpath": "Consent.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://snomed.info/sct|11291000146105",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.796783.100|1",
+                "http://terminology.hl7.org/CodeSystem/consentcategorycodes|acd"
+            ]
+        },
+        "consentor": {
+            "fhirpath": "Consent.performer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eCzp8tUARfrldZGSdbqICuw3"
+            ]
+        },
+        "data": {
+            "fhirpath": "Consent.provision.data.reference",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "date": {
+            "fhirpath": "Consent.dateTime",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2010-10-28T13:03:57Z"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Consent.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "organization": {
+            "fhirpath": "Consent.organization",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "Consent.patient",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eXFljJT8WxVd2PjwvPAGR1A3"
+            ]
+        },
+        "period": {
+            "fhirpath": "Consent.provision.period",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "purpose": {
+            "fhirpath": "Consent.provision.purpose",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "scope": {
+            "fhirpath": "Consent.scope",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://terminology.hl7.org/CodeSystem/consentscope|adr"
+            ]
+        },
+        "security-label": {
+            "fhirpath": "Consent.provision.securityLabel",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "source-reference": {
+            "fhirpath": "Consent.source",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "Consent.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "active"
+            ]
+        }
+    },
+    "Coverage": {
+        "beneficiary": {
+            "fhirpath": "Coverage.beneficiary",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e63wRTbPfr1p8UW81d8Seiw3"
+            ]
+        },
+        "class-type": {
+            "fhirpath": "Coverage.class.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://terminology.hl7.org/CodeSystem/coverage-class|plan",
+                "http://terminology.hl7.org/CodeSystem/coverage-class|group"
+            ]
+        },
+        "class-value": {
+            "fhirpath": "Coverage.class.value",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "10502",
+                "1640000006",
+                "US9999999999913",
+                "10003",
+                "BSCGROUP1",
+                "1640000003"
+            ]
+        },
+        "dependent": {
+            "fhirpath": "Coverage.dependent",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Coverage.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "Coverage.beneficiary",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e63wRTbPfr1p8UW81d8Seiw3"
+            ]
+        },
+        "payor": {
+            "fhirpath": "Coverage.payor",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eZJz9NSFV2qF0NQIOzJ-37Q3",
+                "e27HON.CwivkWkNI7QSKUGw3",
+                "eAFeNDrPcgInd1MqWYe-bSQ3"
+            ]
+        },
+        "policy-holder": {
+            "fhirpath": "Coverage.policyHolder",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "Coverage.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "active"
+            ]
+        },
+        "subscriber": {
+            "fhirpath": "Coverage.subscriber",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e63wRTbPfr1p8UW81d8Seiw3"
+            ]
+        },
+        "type": {
+            "fhirpath": "Coverage.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        }
+    },
+    "Device": {
+        "device-name": {
+            "fhirpath": "Device.deviceName.name | Device.type.coding.display | Device.type.text",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "Plate",
+                "Screw",
+                "ANCHOR MINI WITH THREAD TAB-5/1/2019",
+                "PLATE BONE MAXILLOFACIAL 2 HOLE MICRO STRAIGHT TITANIUM LONG-5/1/2019"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Device.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "location": {
+            "fhirpath": "Device.location",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "manufacturer": {
+            "fhirpath": "Device.manufacturer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "KLS Martin L.P.",
+                "Boston Scientific"
+            ]
+        },
+        "model": {
+            "fhirpath": "Device.modelNumber",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "25-302-12",
+                "210466"
+            ]
+        },
+        "organization": {
+            "fhirpath": "Device.owner",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "Device.patient",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eh2xYHuzl9nkSFVvV3osUHg3"
+            ]
+        },
+        "status": {
+            "fhirpath": "Device.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "active"
+            ]
+        },
+        "type": {
+            "fhirpath": "Device.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.737780.70|150",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.737780.70|140"
+            ]
+        },
+        "udi-carrier": {
+            "fhirpath": "Device.udiCarrier.carrierHRF",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "(01)4879842(11)190116(17)740528(10)154(21)282154",
+                "(01)71126(11)181215(17)790528(10)12873(21)97891"
+            ]
+        },
+        "udi-di": {
+            "fhirpath": "Device.udiCarrier.deviceIdentifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "71126",
+                "4879842"
+            ]
+        },
+        "url": {
+            "fhirpath": "Device.url",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        }
+    },
+    "DeviceRequest": {
+        "authored-on": {
+            "fhirpath": "DeviceRequest.authoredOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2012-11-29T15:42:54Z",
+                "2012-11-22T15:22:51Z",
+                "2012-11-22T15:22:52Z"
+            ]
+        },
+        "based-on": {
+            "fhirpath": "DeviceRequest.basedOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "code": {
+            "fhirpath": "(DeviceRequest.codeCodeableConcept)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580|33390",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580|33178",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580|33202"
+            ]
+        },
+        "device": {
+            "fhirpath": "(DeviceRequest.codeReference)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "encounter": {
+            "fhirpath": "DeviceRequest.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eJOeSXuvW46HAtPgbIYRrtw3"
+            ]
+        },
+        "event-date": {
+            "fhirpath": "(DeviceRequest.occurrencedateTime) | (DeviceRequest.occurrencePeriod)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "group-identifier": {
+            "fhirpath": "DeviceRequest.groupIdentifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "DeviceRequest.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-canonical": {
+            "fhirpath": "DeviceRequest.instantiatesCanonical",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-uri": {
+            "fhirpath": "DeviceRequest.instantiatesUri",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "insurance": {
+            "fhirpath": "DeviceRequest.insurance",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "intent": {
+            "fhirpath": "DeviceRequest.intent",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "order"
+            ]
+        },
+        "patient": {
+            "fhirpath": "DeviceRequest.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eiOSxC6ySV5DPf3jHZsJWEA3"
+            ]
+        },
+        "performer": {
+            "fhirpath": "DeviceRequest.performer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "prior-request": {
+            "fhirpath": "DeviceRequest.priorRequest",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "requester": {
+            "fhirpath": "DeviceRequest.requester",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e8bM9BibcJ25SLe6lJi5i9Q3",
+                "eG0XYqQPyw2OeCALcGupnjQ3"
+            ]
+        },
+        "status": {
+            "fhirpath": "DeviceRequest.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "active"
+            ]
+        },
+        "subject": {
+            "fhirpath": "DeviceRequest.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eiOSxC6ySV5DPf3jHZsJWEA3"
+            ]
+        }
+    },
+    "DeviceUseStatement": {
+        "device": {
+            "fhirpath": "DeviceUseStatement.device",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eCfD93j2-4WMmpSH05ZhiTw3"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "DeviceUseStatement.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "DeviceUseStatement.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e9Bi2yhKnvFU8rsjpJpPMCw3"
+            ]
+        },
+        "subject": {
+            "fhirpath": "DeviceUseStatement.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e9Bi2yhKnvFU8rsjpJpPMCw3"
+            ]
+        }
+    },
+    "DiagnosticReport": {
+        "based-on": {
+            "fhirpath": "DiagnosticReport.basedOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "ehD1rMGm0zaL2F3AXMUDtWwj.xhge6RdXOA3JTEAqU5s3",
+                "e9dYxf-IZQnjLPZ.7EUor47r7hBhVUJW0uyCaouCn1Zw3",
+                "enf3AGjDevbeKPagusE3V1s5OQotZY-b9J5pspEt6PfU3",
+                "eK6sCsSKqfbW3Mps-9UTttzTXimr.hD8JVMCVQTY8yMo3",
+                "egSVxzEQTsjKgW6Dx6veENM8MSbquRNB41NDAnmTfdEc3",
+                "e6t1HtRj0Za8M9Y0u5nU2tu3idJ7P66B2HzlMtddZ6Wc3",
+                "eikKnNjBSfWHmf2MZw5cvxvZudUUagi02jRCL-GG9YXA3",
+                "egf4KkhXmgeVWImXEEYH.CEE1ZgJG5SQy2vBX1HgvBCs3",
+                "ePsXywWuaF47D-FPsxcnz3BOk1-JNF41RJJEMQu.2TCA3"
+            ]
+        },
+        "category": {
+            "fhirpath": "DiagnosticReport.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://loinc.org|LP29708-2",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.30|Card Service",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.30|Lab",
+                "http://terminology.hl7.org/CodeSystem/v2-0074|LAB",
+                "http://terminology.hl7.org/CodeSystem/v2-0074|LAB",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.30|Lab",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.30|Path,Cyt",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.30|Imaging",
+                "http://loinc.org|LP7839-6",
+                "http://loinc.org|LP29708-2",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.30|Echo",
+                "http://loinc.org|LP29684-5"
+            ]
+        },
+        "code": {
+            "fhirpath": "DiagnosticReport.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:2.16.840.1.113883.6.12|82465",
+                "http://loinc.org|2093-3",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580|89930",
+                "http://loinc.org|4548-4",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.5.737384.155|RPID2503",
+                "urn:oid:2.16.840.1.113883.6.12|93306",
+                "urn:oid:2.16.840.1.113883.6.96|43396009",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.5.737384.72|IMG36",
+                "urn:oid:2.16.840.1.113883.6.12|LAB10052",
+                "urn:oid:2.16.840.1.113883.6.12|71020",
+                "urn:oid:2.16.840.1.113883.6.96|9564003",
+                "urn:oid:2.16.840.1.113883.6.12|83036",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.5.737384.52000|7000029",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580|1696",
+                "urn:oid:2.16.840.1.113883.6.12|88305",
+                "http://loinc.org|36643-5"
+            ]
+        },
+        "conclusion": {
+            "fhirpath": "DiagnosticReport.conclusionCode",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "urn:oid:2.16.840.1.113883.6.103|786.50"
+            ]
+        },
+        "date": {
+            "fhirpath": "DiagnosticReport.effective",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "encounter": {
+            "fhirpath": "DiagnosticReport.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eucYt0hPWgEMZqybf6t4c.g3",
+                "eoIRZgvu9RhrwOzDlZkRbSg3",
+                "eMT95RPaM-HxLc3NeIA5qlQ3",
+                "elMz2mwjsRvKnZiR.0ceTUg3",
+                "ej567ARSFdaF4ooZVunIlIg3"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "DiagnosticReport.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "issued": {
+            "fhirpath": "DiagnosticReport.issued",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2019-05-28T16:06:00Z",
+                "2019-05-28T15:29:23Z",
+                "2023-03-21T21:42:00Z",
+                "2023-06-02T20:51:09Z",
+                "2023-06-02T21:02:00Z",
+                "2019-05-28T14:22:00Z",
+                "2023-06-02T20:44:36Z",
+                "2019-05-28T14:21:00Z",
+                "2023-03-28T21:22:00Z"
+            ]
+        },
+        "media": {
+            "fhirpath": "DiagnosticReport.media.link",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "DiagnosticReport.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e0w0LEDCYtfckT6N.CkJKCw3",
+                "erXuFYUfucBZaryVksYEcMg3"
+            ]
+        },
+        "performer": {
+            "fhirpath": "DiagnosticReport.performer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "ef9TegF2nfECi-0Skirbvpg3",
+                "eB-K4HVT6p4gK8hg5Gmj4UB5p52sF1gpu3WFScMeXeRM3",
+                "elpRiy0AYgjhdjAhTBJ3Aiw3",
+                "eVUDU8oWh9.KM7oI8Mu9jlqn1C3d5ozeHAXDHuaPYsvU3",
+                "e2qocqJm-DdjHLS0Not4qjA3",
+                "etOhDRFmHqAJ3CBmvHCeF9VYgSiH5bYCNkDSOho2TXb43",
+                "e9s-IdXQOUVywHOVoisd6xQ3",
+                "eM5CWtq15N0WJeuCet5bJlQ3"
+            ]
+        },
+        "result": {
+            "fhirpath": "DiagnosticReport.result",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eTsiRKs.Ag5J3bzwK2PGriGdUAK9BOY3Q3kyh3HZS-C83",
+                "esFhjXae1fMMDolMsXjgBjz9hJczl28dBOAWyHG2FXcw8BQKIOiYT95ieddxdFq733",
+                "eyPMWgv2u2RUfsV4p1lLKuUtqyPs2-QNi2zKvbTsFYtRByc6B.cSi1iVU5V2HOpX23",
+                "ewsTskhkXSmYbFS3BbPEnj2hPch0aecIuIamSHnZsazQ3",
+                "efdH9KfkpL80Id0L6JfDK5LO-yyDW4ziEBQtZ3.RMbNjen0QdebiGe502pCPQ4-9I3",
+                "efdH9KfkpL80Id0L6JfDK5LO-yyDW4ziEBQtZ3.RMbNiZYMaZC4SMjWZa2lcoygsB3",
+                "eWQ91GjryHtrlYhSNxK1L7mI-fgFwPAedom.YQ4JDeQk3",
+                "efdH9KfkpL80Id0L6JfDK5LO-yyDW4ziEBQtZ3.RMbNjuRJ.TpTgtETGg6K0LfRGG3",
+                "eWQ91GjryHtrlYhSNxK1L7hOQbiABlro0a6oo2bIh68I3",
+                "e2wla.p-cP3wLJKzvkSyXg-uK6m.vmaiIZWz53hK7wkC2t82hC1heHjjJ5ty1bqd.3",
+                "epvZIWrCStn-QxWdd6yDL2rsODx.M3VAMdHGGYcFbGkQ3",
+                "eIkkKIKQ9SYj64CcodhSNI1iJXu8kwbz9NW3WyiZCcj83"
+            ]
+        },
+        "results-interpreter": {
+            "fhirpath": "DiagnosticReport.resultsInterpreter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "specimen": {
+            "fhirpath": "DiagnosticReport.specimen",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "DiagnosticReport.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "final",
+                "final",
+                "preliminary",
+                "amended"
+            ]
+        },
+        "subject": {
+            "fhirpath": "DiagnosticReport.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e0w0LEDCYtfckT6N.CkJKCw3",
+                "erXuFYUfucBZaryVksYEcMg3"
+            ]
+        }
+    },
+    "DocumentReference": {
+        "authenticator": {
+            "fhirpath": "DocumentReference.authenticator",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "exfo6E4EXjWsnhA1OGVElgw3",
+                "eLFLR2Jzap4gBXtU5dFBMlw3",
+                "eUXiD4IyBLJFoR2VHOjfTdg3",
+                "eUXiD4IyBLJFoR2VHOjfTdg3"
+            ]
+        },
+        "author": {
+            "fhirpath": "DocumentReference.author",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "exfo6E4EXjWsnhA1OGVElgw3",
+                "eLFLR2Jzap4gBXtU5dFBMlw3",
+                "eUXiD4IyBLJFoR2VHOjfTdg3",
+                "eUXiD4IyBLJFoR2VHOjfTdg3"
+            ]
+        },
+        "category": {
+            "fhirpath": "DocumentReference.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://open.epic.com/FHIR/StructureDefinition/document-reference-category|summary-document",
+                "http://open.epic.com/FHIR/StructureDefinition/documentreference-category|document-information",
+                "http://open.epic.com/FHIR/StructureDefinition/document-reference-class|imaging-result",
+                "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category|clinical-note",
+                "http://open.epic.com/FHIR/StructureDefinition/document-reference-category|summary-document",
+                "http://open.epic.com/FHIR/StructureDefinition/documentreference-category|document-information",
+                "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category|clinical-note",
+                "http://open.epic.com/FHIR/StructureDefinition/document-reference-category|summary-document",
+                "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category|clinical-note"
+            ]
+        },
+        "contenttype": {
+            "fhirpath": "DocumentReference.content.attachment.contentType",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "text/html",
+                "application/pdf",
+                "text/rtf",
+                "application/xml",
+                "text/html",
+                "text/rtf",
+                "application/xml",
+                "text/html",
+                "text/rtf",
+                "application/xml"
+            ]
+        },
+        "custodian": {
+            "fhirpath": "DocumentReference.custodian",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "date": {
+            "fhirpath": "DocumentReference.date",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2019-05-28T15:32:14Z",
+                "2019-10-24T15:18:20Z",
+                "2019-05-28T15:29:23Z",
+                "2021-01-29T20:01:32Z",
+                "2021-01-29T20:27:23Z",
+                "2019-10-22T20:56:36Z",
+                "2019-05-24T20:20:00Z",
+                "2020-10-06T10:07:29Z",
+                "2019-05-28T15:17:30Z",
+                "2019-09-22T22:52:00Z"
+            ]
+        },
+        "description": {
+            "fhirpath": "DocumentReference.description",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "encounter": {
+            "fhirpath": "DocumentReference.context.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eDWqwAhyeXpU4mWkDJu7Y7A3",
+                "eucYt0hPWgEMZqybf6t4c.g3",
+                "efIW9lG0EC.C2hf32Szp9EQ3",
+                "eItklb.ariPgb4M.FrnHpCA3",
+                "eW-16iNSm073rcaHWtUJmvA3",
+                "emhwuharfnf8VhCQg97qP7Q3",
+                "eY9mMJEr8A.UZXBa2lT8oSw3",
+                "ex6x-.onDJ.UfYweCbBoqDg3"
+            ]
+        },
+        "event": {
+            "fhirpath": "DocumentReference.context.event",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "facility": {
+            "fhirpath": "DocumentReference.context.facilityType",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "format": {
+            "fhirpath": "DocumentReference.content.format",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "DocumentReference.masterIdentifier | DocumentReference.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "language": {
+            "fhirpath": "DocumentReference.content.attachment.language",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "location": {
+            "fhirpath": "DocumentReference.content.attachment.url",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "Binary/fb4rWHup0xAuToxOylEsEv9o8KDqbCgDWmSjY7VpPoSs4",
+                "Binary/eocCwzv45f51oacqX93jBYA3",
+                "Binary/eb-PZ4-0fovIxH5FlYiZuIw3",
+                "Binary/euBtbCGuEFiDypehOaYedj59pZYdyXEQNzG29.3JxKFo3",
+                "Binary/euBtbCGuEFiDypehOaYedj9Z6kuNj1HR8d9N8mdLtJFk3",
+                "Binary/fMx3jGctXpu4WmCzzoRKrs7jF-VdCyikb2J0DXFn97Ks4",
+                "Binary/fQGkgKzWOgz9bH2uQrFzhR4-QefLB16i4y6fjKhMI3PM4",
+                "Binary/en.o5yNkoLYGeiNWVj2HWUw3",
+                "Binary/flVFUsfuKNhZSiy2AyKJd3GB2kMvSzfP4W-mcGRc-PPE4",
+                "Binary/fR6WwTajjwDTabOU1VDt6G1pav7PJM4Kvp1UFJn4oFXY4",
+                "Binary/ejYu9Akyg9iI0nfbfqB0svA3",
+                "Binary/fMx3jGctXpu4WmCzzoRKrs9AMCB9Y-Yc4iFC9XQfAOGM4",
+                "Binary/fMx3jGctXpu4WmCzzoRKrs89MBQ9lruXjiK83jhmDizY4",
+                "Binary/fMx3jGctXpu4WmCzzoRKrs3Yqs8i-cxG0hQtLz0w-t4Y4",
+                "Binary/fMx3jGctXpu4WmCzzoRKrszhIqDF0a4jOam3363Vz8Bo4",
+                "Binary/fuE9ruZMj59nwHdMK3Efcmg-Ak0StodtsCnT98Y1WZ9E4",
+                "Binary/eYjyNQjrBZrk7KP-Skf2XyQ3",
+                "Binary/fkHTpz9iJ6pBHDEF3tA0zqLnF-NuruA071.sAGVLG2uE4",
+                "Binary/fMx3jGctXpu4WmCzzoRKrs2LyZm0DVfzAQe--BqRzzr44",
+                "Binary/fMx3jGctXpu4WmCzzoRKrs3BC38uzF39jDkmnQxXlT504",
+                "Binary/e-niBCJ2ghhxWcRKyoA-Rkg3"
+            ]
+        },
+        "patient": {
+            "fhirpath": "DocumentReference.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e0w0LEDCYtfckT6N.CkJKCw3",
+                "egqBHVfQlt4Bw3XGXoxVxHg3",
+                "eh2xYHuzl9nkSFVvV3osUHg3"
+            ]
+        },
+        "period": {
+            "fhirpath": "DocumentReference.context.period",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "related": {
+            "fhirpath": "DocumentReference.context.related",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "relatesto": {
+            "fhirpath": "DocumentReference.relatesTo.target",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "relation": {
+            "fhirpath": "DocumentReference.relatesTo.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "relationship": {
+            "fhirpath": "On DocumentReference.relatesTo:\nrelatesto: code\nrelation: target",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "security-label": {
+            "fhirpath": "DocumentReference.securityLabel",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "setting": {
+            "fhirpath": "DocumentReference.context.practiceSetting",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.836982.1050|4",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.686980.110|4",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.836982.1050|9",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.836982.1050|9"
+            ]
+        },
+        "status": {
+            "fhirpath": "DocumentReference.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "current",
+                "current",
+                "current"
+            ]
+        },
+        "subject": {
+            "fhirpath": "DocumentReference.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e0w0LEDCYtfckT6N.CkJKCw3",
+                "egqBHVfQlt4Bw3XGXoxVxHg3",
+                "eh2xYHuzl9nkSFVvV3osUHg3"
+            ]
+        },
+        "type": {
+            "fhirpath": "DocumentReference.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.72.727879.69848980|1",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201003",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201016",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|11",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201017",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|10",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201000",
+                "urn:oid:1.2.840.114350.1.72.727879.69848980|3",
+                "http://loinc.org|28570-0",
+                "urn:oid:1.2.840.114350.1.72.727879.69848980|4",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.737880.5010|4",
+                "http://loinc.org|34117-2",
+                "http://loinc.org|11506-3",
+                "http://loinc.org|34133-9",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.737880.5010|3",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.737880.5010|1",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201007",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201015",
+                "http://loinc.org|18748-4",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|12",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201007",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201016",
+                "urn:oid:1.2.840.114350.1.72.727879.69848980|1",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|11",
+                "http://loinc.org|11506-3",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201015",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|10",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201017",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201000",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|12",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.686783.100|201003",
+                "http://loinc.org|34133-9",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.737880.5010|1",
+                "http://loinc.org|34133-9",
+                "http://loinc.org|11506-3",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.737880.5010|1",
+                "urn:oid:1.2.840.114350.1.72.727879.69848980|1"
+            ]
+        }
+    },
+    "Encounter": {
+        "account": {
+            "fhirpath": "Encounter.account",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "appointment": {
+            "fhirpath": "Encounter.appointment",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "based-on": {
+            "fhirpath": "Encounter.basedOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "class": {
+            "fhirpath": "Encounter.class",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "date": {
+            "fhirpath": "Encounter.period",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "diagnosis": {
+            "fhirpath": "Encounter.diagnosis.condition",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "episode-of-care": {
+            "fhirpath": "Encounter.episodeOfCare",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Encounter.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "length": {
+            "fhirpath": "Encounter.length",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "location": {
+            "fhirpath": "Encounter.location.location",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eIFJdH1hm1mbcKtakI4NHq27tpuUFeCGavbGSaa6v1os3",
+                "eW-TbIGSpR-M4B7X7-DmL3DXu0wm.Y1RY8HtNODYpSus3"
+            ]
+        },
+        "location-period": {
+            "fhirpath": "Encounter.location.period",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "part-of": {
+            "fhirpath": "Encounter.partOf",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "participant": {
+            "fhirpath": "Encounter.participant.individual",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eoScyX3bs1SY.2lMoHCGcVw3"
+            ]
+        },
+        "participant-type": {
+            "fhirpath": "Encounter.participant.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "Encounter.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eBZnFnAwp8rVbEJP1yHg7rw3"
+            ]
+        },
+        "pracitioner": {
+            "fhirpath": "Encounter.participant.individual.where(reference.startsWith('Practitioner'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eoScyX3bs1SY.2lMoHCGcVw3"
+            ]
+        },
+        "reason-code": {
+            "fhirpath": "Encounter.reasonCode",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.728286|47",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.728286|160241"
+            ]
+        },
+        "reason-reference": {
+            "fhirpath": "Encounter.reasonReference",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "service-provider": {
+            "fhirpath": "Encounter.serviceProvider",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "special-arrangement": {
+            "fhirpath": "Encounter.hospitalization.specialArrangement",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "Encounter.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "finished"
+            ]
+        },
+        "subject": {
+            "fhirpath": "Encounter.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eBZnFnAwp8rVbEJP1yHg7rw3"
+            ]
+        },
+        "type": {
+            "fhirpath": "Encounter.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.30|111",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.30|70"
+            ]
+        }
+    },
+    "EpisodeOfCare": {
+        "care-manager": {
+            "fhirpath": "EpisodeOfCare.careManager.where(reference.startsWith('Practitioner'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "condition": {
+            "fhirpath": "EpisodeOfCare.diagnosis.condition",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "ebRbh3fvViisWo6KRk80wTA3"
+            ]
+        },
+        "date": {
+            "fhirpath": "EpisodeOfCare.period",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "EpisodeOfCare.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "incoming-referral": {
+            "fhirpath": "EpisodeOfCare.referralRequest",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "organization": {
+            "fhirpath": "EpisodeOfCare.managingOrganization",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "EpisodeOfCare.patient",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e9wE9ZXqNWhOX7OEIlDYsAg3"
+            ]
+        },
+        "status": {
+            "fhirpath": "EpisodeOfCare.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "finished"
+            ]
+        },
+        "type": {
+            "fhirpath": "EpisodeOfCare.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.726668.130|1",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.726668|2"
+            ]
+        }
+    },
+    "ExplanationOfBenefit": {
+        "care-team": {
+            "fhirpath": "ExplanationOfBenefit.careTeam.provider",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eO55AS-rAfBKCdE823XBPysR4bgR81fVXXfvLHblxLgU3"
+            ]
+        },
+        "claim": {
+            "fhirpath": "ExplanationOfBenefit.claim",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "coverage": {
+            "fhirpath": "ExplanationOfBenefit.insurance.coverage",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "created": {
+            "fhirpath": "ExplanationOfBenefit.created",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2013-11-09T00:31:00Z"
+            ]
+        },
+        "detail-udi": {
+            "fhirpath": "ExplanationOfBenefit.item.detail.udi",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "disposition": {
+            "fhirpath": "ExplanationOfBenefit.disposition",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "Clean"
+            ]
+        },
+        "encounter": {
+            "fhirpath": "ExplanationOfBenefit.item.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "enterer": {
+            "fhirpath": "ExplanationOfBenefit.enterer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "facility": {
+            "fhirpath": "ExplanationOfBenefit.facility",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "ExplanationOfBenefit.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "item-udi": {
+            "fhirpath": "ExplanationOfBenefit.item.udi",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "ExplanationOfBenefit.patient",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e7WJINuEm7c1-TcyVd4GoPg3"
+            ]
+        },
+        "payee": {
+            "fhirpath": "ExplanationOfBenefit.payee.party",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "procedure-udi": {
+            "fhirpath": "ExplanationOfBenefit.procedure.udi",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "provider": {
+            "fhirpath": "ExplanationOfBenefit.provider",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "ExplanationOfBenefit.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "active"
+            ]
+        },
+        "subdetail-udi": {
+            "fhirpath": "ExplanationOfBenefit.item.detail.subDetail.udi",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        }
+    },
+    "FamilyMemberHistory": {
+        "code": {
+            "fhirpath": "FamilyMemberHistory.condition.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.19360|10400",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.19360|700",
+                "http://snomed.info/sct|160303001",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.19360|108",
+                "http://snomed.info/sct|160377001",
+                "http://snomed.info/sct|289916006"
+            ]
+        },
+        "date": {
+            "fhirpath": "FamilyMemberHistory.date",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2015-04-30"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "FamilyMemberHistory.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-canonical": {
+            "fhirpath": "FamilyMemberHistory.instantiatesCanonical",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-uri": {
+            "fhirpath": "FamilyMemberHistory.instantiatesUri",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "FamilyMemberHistory.patient",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "enNQvBlRfDCq4NsM90Kr8QQ3"
+            ]
+        },
+        "relationship": {
+            "fhirpath": "FamilyMemberHistory.relationship",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.19350|13",
+                "http://terminology.hl7.org/CodeSystem/v3-RoleCode|MUNCLE",
+                "http://terminology.hl7.org/CodeSystem/v3-RoleCode|PUNCLE",
+                "http://terminology.hl7.org/CodeSystem/v3-RoleCode|PAUNT",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.19350|15",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.698084.19350|14"
+            ]
+        },
+        "sex": {
+            "fhirpath": "FamilyMemberHistory.sex",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://hl7.org/fhir/administrative-gender|unknown"
+            ]
+        },
+        "status": {
+            "fhirpath": "FamilyMemberHistory.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "completed"
+            ]
+        }
+    },
+    "Flag": {
+        "author": {
+            "fhirpath": "Flag.author",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "date": {
+            "fhirpath": "Flag.period",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "encounter": {
+            "fhirpath": "Flag.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Flag.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "Flag.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eTplvxRvcd-eT1nEI8BvQRQ3",
+                "exXRmhbBlDmkQs7JHPE37Yw3"
+            ]
+        },
+        "subject": {
+            "fhirpath": "Flag.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eTplvxRvcd-eT1nEI8BvQRQ3",
+                "exXRmhbBlDmkQs7JHPE37Yw3"
+            ]
+        }
+    },
+    "Goal": {
+        "achievement-status": {
+            "fhirpath": "Goal.achievementStatus",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://terminology.hl7.org/CodeSystem/goal-achievement|in-progress"
+            ]
+        },
+        "category": {
+            "fhirpath": "Goal.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.737184.20005|2",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.737184.20005|100000"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Goal.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "lifecycle-status": {
+            "fhirpath": "Goal.lifecycleStatus",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "active"
+            ]
+        },
+        "patient": {
+            "fhirpath": "Goal.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eq081-VQEgP8drUUqCWzHfw3"
+            ]
+        },
+        "start-date": {
+            "fhirpath": "(Goal.startdate)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "subject": {
+            "fhirpath": "Goal.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eq081-VQEgP8drUUqCWzHfw3"
+            ]
+        },
+        "target-date": {
+            "fhirpath": "(Goal.target.duedate)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        }
+    },
+    "Group": {
+        "actual": {
+            "fhirpath": "Group.actual",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "characteristic": {
+            "fhirpath": "Group.characteristic.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "characteristic-value": {
+            "fhirpath": "On Group.characteristic\ncharacteristic: code\nvalue: value",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "code": {
+            "fhirpath": "Group.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "exclude": {
+            "fhirpath": "Group.characteristic.exclude",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "Group.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "managing-entity": {
+            "fhirpath": "Group.managingEntity",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "member": {
+            "fhirpath": "Group.member.entity",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "type": {
+            "fhirpath": "Group.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "value": {
+            "fhirpath": "(Group.characteristic.valueCodeableConcept) | (Group.characteristic.valueboolean)",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "Immunization": {
+        "date": {
+            "fhirpath": "Immunization.occurrence",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Immunization.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "location": {
+            "fhirpath": "Immunization.location",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "lot-number": {
+            "fhirpath": "Immunization.lotNumber",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "48973",
+                "963",
+                "156",
+                "8741",
+                "AMB MMR LOT",
+                "2693",
+                "1089"
+            ]
+        },
+        "manufacturer": {
+            "fhirpath": "Immunization.manufacturer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "Immunization.patient",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eAB3mDIBBcyUKviyzrxsnAw3"
+            ]
+        },
+        "performer": {
+            "fhirpath": "Immunization.performer.actor",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eM5CWtq15N0WJeuCet5bJlQ3"
+            ]
+        },
+        "reaction": {
+            "fhirpath": "Immunization.reaction.detail",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "reaction-date": {
+            "fhirpath": "Immunization.reaction.date",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "reason-code": {
+            "fhirpath": "Immunization.reasonCode",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "reason-reference": {
+            "fhirpath": "Immunization.reasonReference",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "series": {
+            "fhirpath": "Immunization.protocolApplied.series",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "Immunization.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "completed"
+            ]
+        },
+        "status-reason": {
+            "fhirpath": "Immunization.statusReason",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "target-disease": {
+            "fhirpath": "Immunization.protocolApplied.targetDisease",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "vaccine-code": {
+            "fhirpath": "Immunization.vaccineCode",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://hl7.org/fhir/sid/cvx|03",
+                "http://hl7.org/fhir/sid/ndc|0006-4681-01",
+                "http://hl7.org/fhir/sid/cvx|20",
+                "http://hl7.org/fhir/sid/ndc|58160-810-01"
+            ]
+        }
+    },
+    "ImmunizationRecommendation": {
+        "date": {
+            "fhirpath": "ImmunizationRecommendation.date",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "ImmunizationRecommendation.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "information": {
+            "fhirpath": "ImmunizationRecommendation.recommendation.supportingPatientInformation",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "patient": {
+            "fhirpath": "ImmunizationRecommendation.patient",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "ImmunizationRecommendation.recommendation.forecastStatus",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "support": {
+            "fhirpath": "ImmunizationRecommendation.recommendation.supportingImmunization",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "target-disease": {
+            "fhirpath": "ImmunizationRecommendation.recommendation.targetDisease",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "vaccine-type": {
+            "fhirpath": "ImmunizationRecommendation.recommendation.vaccineCode",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "List": {
+        "code": {
+            "fhirpath": "List.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://open.epic.com/FHIR/StructureDefinition/list-type|allergies",
+                "http://open.epic.com/FHIR/StructureDefinition/list-type|medications"
+            ]
+        },
+        "date": {
+            "fhirpath": "List.date",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "empty-reason": {
+            "fhirpath": "List.emptyReason",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "http://terminology.hl7.org/CodeSystem/list-empty-reason|unavailable"
+            ]
+        },
+        "encounter": {
+            "fhirpath": "List.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "eb7FVygLHsFTefLiiCP9waA3",
+                "enq2HuMoa531kklNmYbiIYg3",
+                "e4dc6Acnyn-HBkETHRVuKQA3",
+                "eO06DkwjOvIaYsUaO2xQZDw3",
+                "eO9Izm0FwTxVqLslj9LJLqg3",
+                "egyGKYfRh1k4PoNvSq61FKg3",
+                "efY4vhaqwP6HuDCIbVuAkbQ3",
+                "e5LXvbdkNNCksQ8RJEMGX9A3",
+                "e85rqQT.7.o3WpMmE.6KGnw3",
+                "enefK7qLDk71GZQf7th9zAw3",
+                "ejHSgHTi-oTHAIeAOzTmnCA3",
+                "ebDhzTWR.e6phvs0W1c1hbQ3",
+                "exaz-zj7bs68JTzeK0fQ-jg3",
+                "e9cAYpbDd-GlkCEeV5zuDGA3",
+                "ecfWHWc2Jr4HuBay5dufgsA3",
+                "ejw8QV9lqTuKqN2kOwFrcAQ3",
+                "ewTflc3nQtgSLugE94M5ofQ3",
+                "eTtTz.ZtgK0zFigkmSMFcDQ3",
+                "eMUHIcIEDoFxJ.xNNYilO4w3",
+                "eOVi09HWOwW1wiOtbui8HjA3",
+                "eWOMXNWPs6SLqShsbcyW43g3",
+                "eCMR226UusGtvrPHEnO.CIA3",
+                "eIvaQxJuwA6Ckcv5smTTRXw3",
+                "e6AHE6oGKpV6V.RiIHv0tLA3",
+                "eLFDWMZCo1FEtU1VbWj8YBQ3",
+                "eFzPqFn7UmDnQvCwZFgbqrg3",
+                "eaXUkcHS.glBBVl5FUT2Rfw3",
+                "eBZQvxzjvIqCkpLjFd-87Ag3",
+                "eykhYtZaruBS00C5FpRh8qA3",
+                "eF1AK66JpMXqwjDKbN-CuCw3",
+                "eOfubB8Iydhi8ZzAqcaA1nQ3",
+                "eCZoTIRb9IW4sO2YZK1wv6Q3",
+                "edejpqnXYArADprOWRr.Dgw3",
+                "eQQWHoBHpMQPvUFi.cuGjtw3",
+                "ezOWwXBfZ7V2He93xrn081w3",
+                "eigRR2kNQ4Lyqszop-wFlDg3",
+                "ehbXyCNxkiaHYQa7Ktv1DEg3",
+                "e.tNMdI6rIN0kgIP4zA4W5Q3",
+                "e88fVs7iK21uHCuD1ciSmGQ3",
+                "etzVi722qxj4znsSlb-AHnw3",
+                "eBwMO3CL5PqGj-o0rGDdqCA3",
+                "e8YajfzGyJIXLGPJ5hj.12A3",
+                "eYxQz2vFUD0siZeJm2O6hGw3",
+                "e0xLOL3nYSz2eYq3IAw7J5w3",
+                "eC8Y5WR7TW0xBFTadtYiywA3",
+                "eJb1t8LMOktm.1qzEENnuaw3",
+                "exzpxEwvH-uMLlpA2m6JXsQ3",
+                "eEyQVKhqiY9tI1ySV1.vYWw3",
+                "es5j6P9wSdjhzzuyCBD1lkg3",
+                "egzWDkEYGKhtKYS.Ip-EdEQ3",
+                "epAcT-m3NG6-rOXARRqPvHg3",
+                "eUQKX0Wrq06u-BHOeC7SmRA3",
+                "ewa23IpSWWwSRC3u3Elrrmg3",
+                "eML1f9dAphBBGk8zrCXEmrw3",
+                "edjL3Y4CqgATjNoIDU5YTqw3",
+                "ejUGeQK50KhOYiyEDAozyeQ3"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "List.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "item": {
+            "fhirpath": "List.entry.item",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eDDkI1cAyDYgpTJheyIFMmg3",
+                "eZ1pvyLoUPYDKxkV81IIh.w3",
+                "eOnDjHmuEYe5Ff12esGzEXQ3",
+                "eshv1wm-gufhRqJFJKSb7jQ3",
+                "ea41IWST5zyKhpYE20evH8Q3",
+                "eG1z0wUebHIJldz2QzOaJ4w3",
+                "ezahhnDm.rDnIlckDnw2svg3",
+                "e9yDZVQhP.8SvfW9dvqyg3g3",
+                "eQeEhyBMIj1F9I0IcqakRpw3",
+                "e-bAwvkdLbafYZadNdpQbKA3",
+                "eR-QZWCcye.E0T94go4GRWA3",
+                "eSmQCDW4TuRXT78LncIlKPA3",
+                "eqdnf.b6Woj05flsPpKmCOQ3",
+                "eQi-xDBgRR9eutQQjil.ksQ3",
+                "enkOUxOeMyGx8cJfUtcYQUA3",
+                "eBKAvoYHE.ThcMfjIuXGxKQ3"
+            ]
+        },
+        "notes": {
+            "fhirpath": "List.note.text",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "Your medication list is not available because the admission was too long ago.",
+                "This visit is during an admission. Changes to the med list made in this visit will be reflected in the After Visit Summary of the admission."
+            ]
+        },
+        "patient": {
+            "fhirpath": "List.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e63wRTbPfr1p8UW81d8Seiw3",
+                "el0VeGTE1vcmdn5N.BKPUFg3"
+            ]
+        },
+        "source": {
+            "fhirpath": "List.source",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "List.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "current",
+                "retired"
+            ]
+        },
+        "subject": {
+            "fhirpath": "List.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e63wRTbPfr1p8UW81d8Seiw3",
+                "el0VeGTE1vcmdn5N.BKPUFg3"
+            ]
+        },
+        "title": {
+            "fhirpath": "List.title",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        }
+    },
+    "Location": {
+        "address": {
+            "fhirpath": "Location.address",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "address-city": {
+            "fhirpath": "Location.address.city",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "address-county": {
+            "fhirpath": "Location.address.country",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "address-postalcode": {
+            "fhirpath": "Location.address.postalCode",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "address-state": {
+            "fhirpath": "Location.address.state",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "address-use": {
+            "fhirpath": "Location.address.use",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "endpoint": {
+            "fhirpath": "Location.endpoint",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "Location.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "name": {
+            "fhirpath": "Location.name | Location.alias",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "near": {
+            "fhirpath": "Location.position",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "operational-status": {
+            "fhirpath": "Location.operationalStatus",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "organization": {
+            "fhirpath": "Location.managingOrganization",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "partof": {
+            "fhirpath": "Location.partOf",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "Location.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "type": {
+            "fhirpath": "Location.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "Medication": {
+        "code": {
+            "fhirpath": "Medication.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "expiration-date": {
+            "fhirpath": "Medication.batch.expirationDate",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "form": {
+            "fhirpath": "Medication.form",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "Medication.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "ingredient": {
+            "fhirpath": "(Medication.ingredient.itemReference)",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "ingredient-code": {
+            "fhirpath": "(Medication.ingredient.itemCodeableConcept)",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "lot-number": {
+            "fhirpath": "Medication.batch.lotNumber",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "manufacturer": {
+            "fhirpath": "Medication.manufacturer",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "Medication.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "MedicationAdministration": {
+        "code": {
+            "fhirpath": "(MedicationAdministration.medicationCodeableConcept)",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "context": {
+            "fhirpath": "MedicationAdministration.context",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "device": {
+            "fhirpath": "MedicationAdministration.device",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "effective-time": {
+            "fhirpath": "MedicationAdministration.effective",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "MedicationAdministration.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "medication": {
+            "fhirpath": "(MedicationAdministration.medicationReference)",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "patient": {
+            "fhirpath": "MedicationAdministration.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "performer": {
+            "fhirpath": "MedicationAdministration.performer.actor",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "reason-given": {
+            "fhirpath": "MedicationAdministration.reasonCode",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "reason-not-given": {
+            "fhirpath": "MedicationAdministration.statusReason",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "request": {
+            "fhirpath": "MedicationAdministration.request",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "MedicationAdministration.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "subject": {
+            "fhirpath": "MedicationAdministration.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "MedicationDispense": {
+        "code": {
+            "fhirpath": "(MedicationDispense.medicationCodeableConcept)",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "context": {
+            "fhirpath": "MedicationDispense.context",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "destination": {
+            "fhirpath": "MedicationDispense.destination",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "MedicationDispense.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "medication": {
+            "fhirpath": "(MedicationDispense.medicationReference)",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "patient": {
+            "fhirpath": "MedicationDispense.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "performer": {
+            "fhirpath": "MedicationDispense.performer.actor",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "prescription": {
+            "fhirpath": "MedicationDispense.authorizingPrescription",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "receiver": {
+            "fhirpath": "MedicationDispense.receiver",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "responsibleparty": {
+            "fhirpath": "MedicationDispense.substitution.responsibleParty",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "MedicationDispense.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "subject": {
+            "fhirpath": "MedicationDispense.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "type": {
+            "fhirpath": "MedicationDispense.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "whenhandedover": {
+            "fhirpath": "MedicationDispense.whenHandedOver",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "whenprepared": {
+            "fhirpath": "MedicationDispense.whenPrepared",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "MedicationRequest": {
+        "authoredon": {
+            "fhirpath": "MedicationRequest.authoredOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2019-05-24",
+                "2019-05-24",
+                "2019-05-28",
+                "2019-05-28"
+            ]
+        },
+        "category": {
+            "fhirpath": "MedicationRequest.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://terminology.hl7.org/CodeSystem/medicationrequest-category|discharge",
+                "http://terminology.hl7.org/CodeSystem/medicationrequest-category|community",
+                "http://terminology.hl7.org/CodeSystem/medicationrequest-category|community",
+                "http://terminology.hl7.org/CodeSystem/medicationrequest-category|community",
+                "http://terminology.hl7.org/CodeSystem/medicationrequest-category|community"
+            ]
+        },
+        "code": {
+            "fhirpath": "(MedicationRequest.medicationCodeableConcept)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "date": {
+            "fhirpath": "MedicationRequest.dosageInstruction.timing.event",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "encounter": {
+            "fhirpath": "MedicationRequest.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e2tX.zRRuP1elysuhOHkiqg3",
+                "emhwuharfnf8VhCQg97qP7Q3",
+                "e6kBx6PwnxIv.5kCifScsWg3",
+                "elMz2mwjsRvKnZiR.0ceTUg3"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "MedicationRequest.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "intended-dispenser": {
+            "fhirpath": "MedicationRequest.dispenseRequest.performer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "intended-performer": {
+            "fhirpath": "MedicationRequest.performer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "intended-performertype": {
+            "fhirpath": "MedicationRequest.performerType",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "intent": {
+            "fhirpath": "MedicationRequest.intent",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "order",
+                "order",
+                "order",
+                "order"
+            ]
+        },
+        "medication": {
+            "fhirpath": "(MedicationRequest.medicationReference)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eJtJ6NMndESioT03jqmLOc5BO8nV.JwGOixP1gmFbqZ4XX0Hywfv.9NP1InMqs--l3",
+                "eoIw-pQe79Sedl2L1X7dzmEMWDPysi2QC4LImRk-aq0Vo5DxYe8llokKeb3SVHtzo3",
+                "eetjoXy-TbdryRS.SobVHBqoCMs8lmt2inFn0657-Y4snqwFF2gPkel3GYPuh2Ofk3",
+                "e.Y79OPS9YTaZQWUR-O58gvsRhtkshFVW4BzxPQ526sVNcwxFTSnnXA5x9oQ7uQyV3",
+                "ej-bgums0x4N6E0.QqIjJb3kGhOQBVK3lIYjcil9mb9j-ukNrz6P2y90AiDm3R20Y3"
+            ]
+        },
+        "patient": {
+            "fhirpath": "MedicationRequest.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eIXesllypH3M9tAA5WdJftQ3",
+                "egqBHVfQlt4Bw3XGXoxVxHg3",
+                "eq081-VQEgP8drUUqCWzHfw3",
+                "erXuFYUfucBZaryVksYEcMg3"
+            ]
+        },
+        "priority": {
+            "fhirpath": "MedicationRequest.priority",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "requester": {
+            "fhirpath": "MedicationRequest.requester",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eW.s0G2HJ4Csj548x4hZ37A3",
+                "eM5CWtq15N0WJeuCet5bJlQ3",
+                "eM5CWtq15N0WJeuCet5bJlQ3",
+                "eM5CWtq15N0WJeuCet5bJlQ3"
+            ]
+        },
+        "status": {
+            "fhirpath": "MedicationRequest.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "completed",
+                "active",
+                "completed",
+                "completed",
+                "active"
+            ]
+        },
+        "subject": {
+            "fhirpath": "MedicationRequest.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eIXesllypH3M9tAA5WdJftQ3",
+                "egqBHVfQlt4Bw3XGXoxVxHg3",
+                "eq081-VQEgP8drUUqCWzHfw3",
+                "erXuFYUfucBZaryVksYEcMg3"
+            ]
+        }
+    },
+    "NutritionOrder": {
+        "additive": {
+            "fhirpath": "NutritionOrder.enteralFormula.additiveType",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "datetime": {
+            "fhirpath": "NutritionOrder.dateTime",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2016-09-27T18:41:03Z"
+            ]
+        },
+        "encounter": {
+            "fhirpath": "NutritionOrder.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "formula": {
+            "fhirpath": "NutritionOrder.enteralFormula.baseFormulaType",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "NutritionOrder.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-canonical": {
+            "fhirpath": "NutritionOrder.instantiatesCanonical",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-uri": {
+            "fhirpath": "NutritionOrder.instantiatesUri",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "oraldiet": {
+            "fhirpath": "NutritionOrder.oralDiet.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.34365|3"
+            ]
+        },
+        "patient": {
+            "fhirpath": "NutritionOrder.patient",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eZ7jDtqYvICzKE.QCrkFzNA3"
+            ]
+        },
+        "provider": {
+            "fhirpath": "NutritionOrder.orderer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "NutritionOrder.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "active"
+            ]
+        },
+        "supplement": {
+            "fhirpath": "NutritionOrder.supplement.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        }
+    },
+    "Observation": {
+        "based-on": {
+            "fhirpath": "Observation.basedOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "egSVxzEQTsjKgW6Dx6veENM8MSbquRNB41NDAnmTfdEc3"
+            ]
+        },
+        "category": {
+            "fhirpath": "Observation.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://open.epic.com/FHIR/StructureDefinition/observation-category|smartdata",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.30|POCT",
+                "http://terminology.hl7.org/CodeSystem/observation-category|laboratory",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.30|Lab",
+                "http://terminology.hl7.org/CodeSystem/observation-category|vital-signs",
+                "http://terminology.hl7.org/CodeSystem/observation-category|social-history",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-category|labor-delivery",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-category|obstetrics-gynecology",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-category|core-characteristics",
+                "http://terminology.hl7.org/CodeSystem/observation-category|social-history",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-category|LDA",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-category|LDA-assessment",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-category|LDA-property",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-category|newborn-delivery",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-category|genomics"
+            ]
+        },
+        "code": {
+            "fhirpath": "Observation.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://snomed.info/sct|SNOMED#41633001",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.727688|EPIC#OPH159",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.727688|EPIC#OPH161",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.727688|EPIC#OPH162",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.727688|EPIC#OPH160",
+                "http://loinc.org|777-3",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552600",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552049",
+                "http://loinc.org|6690-2",
+                "http://loinc.org|789-8",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552606",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552605",
+                "http://loinc.org|4548-4",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1577212",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1554749",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552602",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552601",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1534121",
+                "http://loinc.org|4544-3",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1537859",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|212",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552604",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1577876",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1534435",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1577116",
+                "http://loinc.org|2349-9",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552603",
+                "http://loinc.org|718-7",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1534436",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1526664",
+                "urn:oid:1.2.246.537.6.96|29463-7",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|6",
+                "http://loinc.org|9279-1",
+                "urn:oid:1.2.246.537.6.96|59417-6",
+                "urn:oid:1.2.246.537.6.96|8480-6",
+                "http://loinc.org|2710-2",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|8",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tkgg8UmEMvovrM.sHkZKrAQ0",
+                "http://loinc.org|55284-4",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tE05EUOPOaQ8Z1dO9K-fJSg0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|11",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tX9rE8TgbEPXWpgEX7kuaoQ0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|10",
+                "http://loinc.org|29463-7",
+                "urn:oid:1.2.246.537.6.96|9279-1",
+                "http://loinc.org|2708-6",
+                "http://loinc.org|8302-2",
+                "urn:oid:1.2.246.537.6.96|8310-5",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|14",
+                "http://loinc.org|59408-5",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|t37isBRXnEf9.NUQV-lcIJQ0",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tBdNYepLeojPG60x7nUx9kQ0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|5",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|9",
+                "urn:oid:1.2.246.537.6.96|8302-2",
+                "http://loinc.org|8716-3",
+                "http://loinc.org|85354-9",
+                "http://loinc.org|8310-5",
+                "urn:oid:1.2.246.537.6.96|8867-4",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tvdinindxnlKvaoAecyilRA0",
+                "urn:oid:1.2.246.537.6.96|8462-4",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|t0nle2B9NVDaJJUDo0FtQrA0",
+                "http://loinc.org|8867-4",
+                "http://loinc.org|3141-9",
+                "http://loinc.org|72166-2",
+                "http://snomed.info/sct|365980008",
+                "http://loinc.org|57075-4",
+                "http://loinc.org|11996-6",
+                "http://loinc.org|8348-5",
+                "http://loinc.org|11638-4",
+                "http://snomed.info/sct|118215003",
+                "http://loinc.org|11977-6",
+                "http://loinc.org|11612-9",
+                "http://loinc.org|8302-2",
+                "http://loinc.org|11779-6",
+                "http://loinc.org|11614-5",
+                "http://loinc.org|11778-8",
+                "http://loinc.org|11781-2",
+                "http://loinc.org|55281-0",
+                "http://loinc.org|9274-2",
+                "http://loinc.org|76516-4",
+                "http://open.epic.com/FHIR/StructureDefinition/birth-history-component|19403",
+                "http://loinc.org|73762-7",
+                "http://loinc.org|8290-9",
+                "http://loinc.org|8339-4",
+                "http://loinc.org|89269-5",
+                "http://loinc.org|9271-8",
+                "http://loinc.org|9272-6",
+                "http://open.epic.com/FHIR/StructureDefinition/birth-history-component|19410",
+                "http://loinc.org|82810-3",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|1570010006",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|303800",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|3040102846",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tR.kko.EScFh74L.IYqelaA0",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tT55BgJEuMl9qpJWg8mKxRw0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|396000",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tYEQaOSwRhO0SSw8oZGpXNA0",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tVxfoiP7bplcXRP4qr6Y9Qw0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|3040109151",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tAmpnnHfYSj5VTN8gy92tZA0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|303750",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tSXayBLQ2yEKVCgiBAdlkGA0",
+                "http://loinc.org|57075-4",
+                "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs|diagnostic-implication",
+                "http://loinc.org|69548-6",
+                "http://ncithesaurus-stage.nci.nih.gov|C43359"
+            ]
+        },
+        "code-value-concept": {
+            "fhirpath": "On Observation:\ncode: code\nvalue-concept: valueCodeableConcept",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "code-value-date": {
+            "fhirpath": "On Observation:\ncode: code\nvalue-date: valueDateTime | valuePeriod",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "code-value-quantity": {
+            "fhirpath": "On Observation:\ncode: code\nvalue-quantity: valueQuantity",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "code-value-string": {
+            "fhirpath": "On Observation:\ncode: code\nvalue-string: valueString",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "combo-code": {
+            "fhirpath": "Observation.code | Observation.component.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://snomed.info/sct|SNOMED#41633001",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.727688|EPIC#OPH159",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.727688|EPIC#OPH161",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.727688|EPIC#OPH162",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.727688|EPIC#OPH160",
+                "http://loinc.org|777-3",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552600",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552049",
+                "http://loinc.org|6690-2",
+                "http://loinc.org|789-8",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552606",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552605",
+                "http://loinc.org|4548-4",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1577212",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1554749",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552602",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552601",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1534121",
+                "http://loinc.org|4544-3",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1537859",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|212",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552604",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1577876",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1534435",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1577116",
+                "http://loinc.org|2349-9",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1552603",
+                "http://loinc.org|718-7",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1534436",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.768282|1526664",
+                "urn:oid:1.2.246.537.6.96|29463-7",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|6",
+                "http://loinc.org|8480-6",
+                "http://loinc.org|9279-1",
+                "urn:oid:1.2.246.537.6.96|59417-6",
+                "urn:oid:1.2.246.537.6.96|8480-6",
+                "http://loinc.org|2710-2",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|8",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tkgg8UmEMvovrM.sHkZKrAQ0",
+                "http://loinc.org|55284-4",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tE05EUOPOaQ8Z1dO9K-fJSg0",
+                "http://loinc.org|8462-4",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|11",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|10",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tX9rE8TgbEPXWpgEX7kuaoQ0",
+                "urn:oid:1.2.246.537.6.96|9279-1",
+                "http://loinc.org|2708-6",
+                "http://loinc.org|29463-7",
+                "http://loinc.org|8302-2",
+                "urn:oid:1.2.246.537.6.96|8310-5",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|14",
+                "http://loinc.org|59408-5",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|t37isBRXnEf9.NUQV-lcIJQ0",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tBdNYepLeojPG60x7nUx9kQ0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|5",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|9",
+                "urn:oid:1.2.246.537.6.96|8302-2",
+                "http://loinc.org|8716-3",
+                "http://loinc.org|85354-9",
+                "http://loinc.org|8310-5",
+                "urn:oid:1.2.246.537.6.96|8867-4",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tvdinindxnlKvaoAecyilRA0",
+                "urn:oid:1.2.246.537.6.96|8462-4",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|t0nle2B9NVDaJJUDo0FtQrA0",
+                "http://loinc.org|8867-4",
+                "http://loinc.org|3141-9",
+                "http://loinc.org|88029-4",
+                "http://snomed.info/sct|266918002",
+                "http://loinc.org|72166-2",
+                "http://loinc.org|81228-9",
+                "http://snomed.info/sct|365980008",
+                "http://snomed.info/sct|401201003",
+                "http://snomed.info/sct|53661000146106",
+                "http://loinc.org|8663-7",
+                "http://loinc.org|57075-4",
+                "http://loinc.org|11996-6",
+                "http://loinc.org|8348-5",
+                "http://loinc.org|11638-4",
+                "http://snomed.info/sct|118215003",
+                "http://loinc.org|11977-6",
+                "http://loinc.org|11612-9",
+                "http://loinc.org|8302-2",
+                "http://loinc.org|11779-6",
+                "http://loinc.org|11614-5",
+                "http://loinc.org|11778-8",
+                "http://loinc.org|11781-2",
+                "http://loinc.org|8665-2",
+                "http://loinc.org|55281-0",
+                "http://loinc.org|9274-2",
+                "http://loinc.org|76516-4",
+                "http://open.epic.com/FHIR/StructureDefinition/birth-history-component|19403",
+                "http://loinc.org|73762-7",
+                "http://loinc.org|8290-9",
+                "http://loinc.org|8339-4",
+                "http://loinc.org|89269-5",
+                "http://loinc.org|9271-8",
+                "http://loinc.org|9272-6",
+                "http://open.epic.com/FHIR/StructureDefinition/birth-history-component|19410",
+                "http://loinc.org|82810-3",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|1570010006",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|3040102846",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tuzbTRyjhrzuRsorBgsEnrA0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|701",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|700",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tAmpnnHfYSj5VTN8gy92tZA0",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tLiDL58Rg8PUM4mZcCVUvKQ0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|303750",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|303800",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tUNwBwILr0JTpaxl2KWRk1g0",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tLVQkwZ.5vFWP00MWBp8xJw0",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tf-NWUqBePmhUxg7qQ3yK9w0",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tYEQaOSwRhO0SSw8oZGpXNA0",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tVxfoiP7bplcXRP4qr6Y9Qw0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|1570010000",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|303740",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tT55BgJEuMl9qpJWg8mKxRw0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|1570010003",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tUx3yDLD4DcP-Aq4OOiQuCQ0",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|t7zppoqzkKO7s0gepv.yKwA0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|1570010004",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|396060",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tSXayBLQ2yEKVCgiBAdlkGA0",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tR.kko.EScFh74L.IYqelaA0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|396000",
+                "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id|tNU1TfQQ38lrA1MV4P1PQ1g0",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|3040109151",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.707679|3040109763",
+                "http://loinc.org|57075-4",
+                "http://loinc.org|48019-4",
+                "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs|diagnostic-implication",
+                "http://loinc.org|53034-5",
+                "http://loinc.org|69548-6",
+                "http://loinc.org|48018-6",
+                "http://loinc.org|48002-0",
+                "http://loinc.org|81252-9",
+                "http://loinc.org|48004-6",
+                "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs|molecular-consequence",
+                "http://loinc.org|53037-8",
+                "http://loinc.org|81258-6",
+                "http://loinc.org|82120-7",
+                "http://ncithesaurus-stage.nci.nih.gov|C43359",
+                "http://loinc.org|51958-7"
+            ]
+        },
+        "combo-code-value-concept": {
+            "fhirpath": "On Observation | Observation.component:\ncombo-code: code\ncombo-value-concept: valueCodeableConcept",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "combo-code-value-quantity": {
+            "fhirpath": "On Observation | Observation.component:\ncombo-code: code\ncombo-value-quantity: valueQuantity",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "combo-data-absent-reason": {
+            "fhirpath": "Observation.dataAbsentReason | Observation.component.dataAbsentReason",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "combo-value-concept": {
+            "fhirpath": "(Observation.valueCodeableConcept) | (Observation.component.valueCodeableConcept)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.1600|1",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.5000|1",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.5010|200",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.1650|2",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.1260|40",
+                "http://www.ncbi.nlm.nih.gov/refseq|NM_000249",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.1240|6",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.1670|6",
+                "http://www.genenames.org/data/gene-symbol-report/|24086",
+                "http://varnomen.hgvs.org|c.1249C>T"
+            ]
+        },
+        "combo-value-quantity": {
+            "fhirpath": "(Observation.valueQuantity) | (Observation.valueSampledData) | (Observation.component.valueQuantity) | (Observation.component.valueSampledData)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "component-code": {
+            "fhirpath": "Observation.component.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "http://loinc.org|48019-4",
+                "http://loinc.org|53034-5",
+                "http://loinc.org|48002-0",
+                "http://loinc.org|48018-6",
+                "http://loinc.org|81252-9",
+                "http://loinc.org|48004-6",
+                "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs|molecular-consequence",
+                "http://loinc.org|53037-8",
+                "http://loinc.org|81258-6",
+                "http://loinc.org|82120-7",
+                "http://loinc.org|51958-7"
+            ]
+        },
+        "component-code-value-concept": {
+            "fhirpath": "On Observation.component:\ncomponent-code: code\ncomponent-value-concept: valueCodeableConcept",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "component-code-value-quantity": {
+            "fhirpath": "On Observation.component:\ncomponent-code: code\ncomponent-value-quantity: valueQuantity",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "component-data-absent-reason": {
+            "fhirpath": "Observation.component.dataAbsentReason",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "component-value-concept": {
+            "fhirpath": "(Observation.component.valueCodeableConcept)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.1600|1",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.5010|200",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.1650|2",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.1260|40",
+                "http://www.ncbi.nlm.nih.gov/refseq|NM_000249",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.1240|6",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.1670|6",
+                "http://www.genenames.org/data/gene-symbol-report/|24086",
+                "http://varnomen.hgvs.org|c.1249C>T"
+            ]
+        },
+        "component-value-quantity": {
+            "fhirpath": "(Observation.component.valueQuantity) | (Observation.component.valueSampledData)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "data-absent-reason": {
+            "fhirpath": "Observation.dataAbsentReason",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "date": {
+            "fhirpath": "Observation.effective",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "derived-from": {
+            "fhirpath": "Observation.derivedFrom",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "eAOMz-AuExpe5ADyCy6HgL0j-dYhFIErk.VTlmq2VSJA3"
+            ]
+        },
+        "device": {
+            "fhirpath": "Observation.device",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "encounter": {
+            "fhirpath": "Observation.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "focus": {
+            "fhirpath": "Observation.focus",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "has-member": {
+            "fhirpath": "Observation.hasMember",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "eWwZ1yHZK6lH32Bex3OEdhuQHFqDyXj6gdPwvwhyO5XnLffwM-XRA-yjIMgxPtF72zlnqDbXlTsLnZ.Zq-dUxTw3",
+                "eAOMz-AuExpe5ADyCy6HgL0j-dYhFIErk.VTlmq2VSJA3",
+                "eAOMz-AuExpe5ADyCy6HgL8yCOEGMc0bO-NSxx2SSRrA3"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Observation.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "method": {
+            "fhirpath": "Observation.method",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "part-of": {
+            "fhirpath": "Observation.partOf",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "Observation.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e4B610o.GNIdCMS8ycK261A3",
+                "e63wRTbPfr1p8UW81d8Seiw3",
+                "e63wRTbPfr1p8UW81d8Seiw3",
+                "e63wRTbPfr1p8UW81d8Seiw3",
+                "eAbI0d6yC.SCZGeF0ed6gGQ3",
+                "eAbI0d6yC.SCZGeF0ed6gGQ3",
+                "eBZnFnAwp8rVbEJP1yHg7rw3",
+                "eWbeXBJDWoKbzWvPH1Kv22A3",
+                "eXFljJT8WxVd2PjwvPAGR1A3",
+                "ecdB4sibVL.BVuuvsh2J0bg3",
+                "erXuFYUfucBZaryVksYEcMg3"
+            ]
+        },
+        "performer": {
+            "fhirpath": "Observation.performer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "specimen": {
+            "fhirpath": "Observation.specimen",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "Observation.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "unknown",
+                "final",
+                "final",
+                "amended",
+                "final",
+                "final",
+                "final",
+                "preliminary",
+                "final",
+                "final",
+                "final",
+                "amended",
+                "final",
+                "final"
+            ]
+        },
+        "subject": {
+            "fhirpath": "Observation.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e4B610o.GNIdCMS8ycK261A3",
+                "e63wRTbPfr1p8UW81d8Seiw3",
+                "e63wRTbPfr1p8UW81d8Seiw3",
+                "e63wRTbPfr1p8UW81d8Seiw3",
+                "eAbI0d6yC.SCZGeF0ed6gGQ3",
+                "eAbI0d6yC.SCZGeF0ed6gGQ3",
+                "eBZnFnAwp8rVbEJP1yHg7rw3",
+                "eWbeXBJDWoKbzWvPH1Kv22A3",
+                "eXFljJT8WxVd2PjwvPAGR1A3",
+                "ecdB4sibVL.BVuuvsh2J0bg3",
+                "erXuFYUfucBZaryVksYEcMg3"
+            ]
+        },
+        "value-concept": {
+            "fhirpath": "(Observation.valueCodeableConcept)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "urn:oid:1.2.840.114350.1.13.0.1.7.4.866582.5000|1"
+            ]
+        },
+        "value-date": {
+            "fhirpath": "(Observation.valuedateTime) | (Observation.valuePeriod)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "value-quantity": {
+            "fhirpath": "(Observation.valueQuantity) | (Observation.valueSampledData)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "value-string": {
+            "fhirpath": "(Observation.valueString) | (Observation.valueCodeableConcept).text",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        }
+    },
+    "Patient": {
+        "active": {
+            "fhirpath": "Patient.active",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                true
+            ]
+        },
+        "address": {
+            "fhirpath": "Patient.address",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "address-city": {
+            "fhirpath": "Patient.address.city",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "Madison"
+            ]
+        },
+        "address-country": {
+            "fhirpath": "Patient.address.country",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "US"
+            ]
+        },
+        "address-postalcode": {
+            "fhirpath": "Patient.address.postalCode",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "53703"
+            ]
+        },
+        "address-state": {
+            "fhirpath": "Patient.address.state",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "WI"
+            ]
+        },
+        "address-use": {
+            "fhirpath": "Patient.address.use",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "old",
+                "home"
+            ]
+        },
+        "birthdate": {
+            "fhirpath": "Patient.birthDate",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "1987-01-15"
+            ]
+        },
+        "death-date": {
+            "fhirpath": "(Patient.deceaseddateTime)",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "deceased": {
+            "fhirpath": "Patient.deceased.exists() and Patient.deceased != false",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                false
+            ]
+        },
+        "email": {
+            "fhirpath": "Patient.telecom.where(system='email')",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "family": {
+            "fhirpath": "Patient.name.family",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "Mychart"
+            ]
+        },
+        "gender": {
+            "fhirpath": "Patient.gender",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "female"
+            ]
+        },
+        "general-practitioner": {
+            "fhirpath": "Patient.generalPractitioner",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eM5CWtq15N0WJeuCet5bJlQ3"
+            ]
+        },
+        "given": {
+            "fhirpath": "Patient.name.given",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "Allison"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Patient.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "language": {
+            "fhirpath": "Patient.communication.language",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "link": {
+            "fhirpath": "Patient.link.other",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "name": {
+            "fhirpath": "Patient.name",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "organization": {
+            "fhirpath": "Patient.managingOrganization",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "enRyWnSP963FYDpoks4NHOA3"
+            ]
+        },
+        "phone": {
+            "fhirpath": "Patient.telecom.where(system='phone')",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "phonetic": {
+            "fhirpath": "Patient.name",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "telecom": {
+            "fhirpath": "Patient.telecom",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        }
+    },
+    "Practitioner": {
+        "active": {
+            "fhirpath": "Practitioner.active",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "address": {
+            "fhirpath": "Practitioner.address",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "address-city": {
+            "fhirpath": "Practitioner.address.city",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "address-country": {
+            "fhirpath": "Practitioner.address.country",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "address-postalcode": {
+            "fhirpath": "Practitioner.address.postalCode",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "address-state": {
+            "fhirpath": "Practitioner.address.state",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "address-use": {
+            "fhirpath": "Practitioner.address.use",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "communication": {
+            "fhirpath": "Practitioner.communication",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "email": {
+            "fhirpath": "Practitioner.telecom.where(system='email')",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "family": {
+            "fhirpath": "Practitioner.name.family",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "gender": {
+            "fhirpath": "Practitioner.gender",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "given": {
+            "fhirpath": "Practitioner.name.given",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "Practitioner.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "name": {
+            "fhirpath": "Practitioner.name",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "phone": {
+            "fhirpath": "Practitioner.telecom.where(system='phone')",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "phonetic": {
+            "fhirpath": "Practitioner.name",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "telecom": {
+            "fhirpath": "Practitioner.telecom",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "Procedure": {
+        "based-on": {
+            "fhirpath": "Procedure.basedOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "category": {
+            "fhirpath": "Procedure.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://snomed.info/sct|103693007",
+                "http://snomed.info/sct|387713003",
+                "http://snomed.info/sct|103693007"
+            ]
+        },
+        "code": {
+            "fhirpath": "Procedure.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580|89930",
+                "http://www.ama-assn.org/go/cpt|44950",
+                "http://www.ama-assn.org/go/cpt|93306"
+            ]
+        },
+        "date": {
+            "fhirpath": "Procedure.performed",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "encounter": {
+            "fhirpath": "Procedure.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eucYt0hPWgEMZqybf6t4c.g3",
+                "eGmO0h.1.UQQrExl4bfM7OQ3",
+                "ej567ARSFdaF4ooZVunIlIg3"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Procedure.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-canonical": {
+            "fhirpath": "Procedure.instantiatesCanonical",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-uri": {
+            "fhirpath": "Procedure.instantiatesUri",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "location": {
+            "fhirpath": "Procedure.location",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "el.Nc4rfzXa7Ml9v6gin1Pw3"
+            ]
+        },
+        "part-of": {
+            "fhirpath": "Procedure.partOf",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "Procedure.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e0w0LEDCYtfckT6N.CkJKCw3",
+                "erXuFYUfucBZaryVksYEcMg3"
+            ]
+        },
+        "performer": {
+            "fhirpath": "Procedure.performer.actor",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "reason-code": {
+            "fhirpath": "Procedure.reasonCode",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null,
+                "http://hl7.org/fhir/sid/icd-9-cm/diagnosis|786.50"
+            ]
+        },
+        "reason-reference": {
+            "fhirpath": "Procedure.reasonReference",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "Procedure.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "completed",
+                "completed"
+            ]
+        },
+        "subject": {
+            "fhirpath": "Procedure.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e0w0LEDCYtfckT6N.CkJKCw3",
+                "erXuFYUfucBZaryVksYEcMg3"
+            ]
+        }
+    },
+    "Questionnaire": {
+        "code": {
+            "fhirpath": "Questionnaire.item.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "context": {
+            "fhirpath": "(Questionnaire.useContext.valueCodeableConcept)",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "context-quantity": {
+            "fhirpath": "(Questionnaire.useContext.valueQuantity) | (Questionnaire.useContext.valueRange)",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "context-type": {
+            "fhirpath": "Questionnaire.useContext.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "context-type-quantity": {
+            "fhirpath": "On Questionnaire.useContext:\ncontext-type: code\ncontext-quantity: valueQuantity | valueRange",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "context-type-value": {
+            "fhirpath": "On Questionnaire.useContext:\ncontext-type: code\ncontext: valueCodeableConcept",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "date": {
+            "fhirpath": "Questionnaire.date",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "definition": {
+            "fhirpath": "Questionnaire.item.definition",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "description": {
+            "fhirpath": "Questionnaire.description",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "effective": {
+            "fhirpath": "Questionnaire.effectivePeriod",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "Questionnaire.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "jurisdiction": {
+            "fhirpath": "Questionnaire.jurisdiction",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "name": {
+            "fhirpath": "Questionnaire.name",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "publisher": {
+            "fhirpath": "Questionnaire.publisher",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "Questionnaire.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "subject-type": {
+            "fhirpath": "Questionnaire.subjectType",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "title": {
+            "fhirpath": "Questionnaire.title",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "url": {
+            "fhirpath": "Questionnaire.url",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "version": {
+            "fhirpath": "Questionnaire.version",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "QuestionnaireResponse": {
+        "author": {
+            "fhirpath": "QuestionnaireResponse.author",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "authored": {
+            "fhirpath": "QuestionnaireResponse.authored",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2021-08-30T21:08:11Z"
+            ]
+        },
+        "based-on": {
+            "fhirpath": "QuestionnaireResponse.basedOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "encounter": {
+            "fhirpath": "QuestionnaireResponse.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "et2BlG8rMcWAICw5GbF58AP2Qdnk9wkJy2jt1u7cM5Mg3"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "QuestionnaireResponse.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "part-of": {
+            "fhirpath": "QuestionnaireResponse.partOf",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "QuestionnaireResponse.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eBJiv3SI2EuZFZSbARSALJz1qvR2nrHiiztqv0dgm9yM3"
+            ]
+        },
+        "questionnaire": {
+            "fhirpath": "QuestionnaireResponse.questionnaire",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "Questionnaire/eU7pqmsZY1Mzn5Q6N3sr5CypVI-gW8oj3qZkRi4fCIS83"
+            ]
+        },
+        "source": {
+            "fhirpath": "QuestionnaireResponse.source",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eBJiv3SI2EuZFZSbARSALJz1qvR2nrHiiztqv0dgm9yM3"
+            ]
+        },
+        "status": {
+            "fhirpath": "QuestionnaireResponse.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "completed"
+            ]
+        },
+        "subject": {
+            "fhirpath": "QuestionnaireResponse.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eBJiv3SI2EuZFZSbARSALJz1qvR2nrHiiztqv0dgm9yM3"
+            ]
+        }
+    },
+    "RequestGroup": {
+        "author": {
+            "fhirpath": "RequestGroup.author",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "authored": {
+            "fhirpath": "RequestGroup.authoredOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "code": {
+            "fhirpath": "RequestGroup.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "encounter": {
+            "fhirpath": "RequestGroup.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "group-identifier": {
+            "fhirpath": "RequestGroup.groupIdentifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "RequestGroup.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "instantiates-canonical": {
+            "fhirpath": "RequestGroup.instantiatesCanonical",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "instantiates-uri": {
+            "fhirpath": "RequestGroup.instantiatesUri",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "intent": {
+            "fhirpath": "RequestGroup.intent",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "participant": {
+            "fhirpath": "RequestGroup.action.participant",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "patient": {
+            "fhirpath": "RequestGroup.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "priority": {
+            "fhirpath": "RequestGroup.priority",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "RequestGroup.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "subject": {
+            "fhirpath": "RequestGroup.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "ResearchStudy": {
+        "category": {
+            "fhirpath": "ResearchStudy.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "date": {
+            "fhirpath": "ResearchStudy.period",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "focus": {
+            "fhirpath": "ResearchStudy.focus",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "ResearchStudy.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "keyword": {
+            "fhirpath": "ResearchStudy.keyword",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "location": {
+            "fhirpath": "ResearchStudy.location",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "partof": {
+            "fhirpath": "ResearchStudy.partOf",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "principalinvestigator": {
+            "fhirpath": "ResearchStudy.principalInvestigator",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "protocol": {
+            "fhirpath": "ResearchStudy.protocol",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "site": {
+            "fhirpath": "ResearchStudy.site",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "sponsor": {
+            "fhirpath": "ResearchStudy.sponsor",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "ResearchStudy.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "title": {
+            "fhirpath": "ResearchStudy.title",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "ResearchSubject": {
+        "date": {
+            "fhirpath": "ResearchSubject.period",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "ResearchSubject.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "individual": {
+            "fhirpath": "ResearchSubject.individual",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "exXRmhbBlDmkQs7JHPE37Yw3"
+            ]
+        },
+        "patient": {
+            "fhirpath": "ResearchSubject.individual",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "exXRmhbBlDmkQs7JHPE37Yw3"
+            ]
+        },
+        "status": {
+            "fhirpath": "ResearchSubject.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "on-study"
+            ]
+        },
+        "study": {
+            "fhirpath": "ResearchSubject.study",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "enJ3eMmu-jFFkkT9sTH9Avw3"
+            ]
+        }
+    },
+    "Resource": {
+        "_id": {
+            "fhirpath": "Resource.id",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "_lastUpdated": {
+            "fhirpath": "Resource.meta.lastUpdated",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "_tag": {
+            "fhirpath": "Resource.meta.tag",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "_profile": {
+            "fhirpath": "Resource.meta.profile",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "_security": {
+            "fhirpath": "Resource.meta.security",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "_text": {
+            "fhirpath": "Resource.text",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "_content": {
+            "fhirpath": "Resource",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "_list": {
+            "fhirpath": [],
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "_has": {
+            "fhirpath": [],
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "_type": {
+            "fhirpath": [],
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "ServiceRequest": {
+        "authored": {
+            "fhirpath": "ServiceRequest.authoredOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2020-11-18T20:54:44Z",
+                "2021-01-08T19:55:08Z",
+                "2020-11-25T21:02:16Z",
+                "2020-11-03T05:11:30Z",
+                "2021-01-08T20:06:17Z",
+                "2012-11-29T22:47:27Z",
+                "2019-03-03T23:01:23Z",
+                "2014-11-14T22:28:29Z",
+                "2014-11-14T22:31:31Z",
+                "2014-11-14T22:32:02Z",
+                "2012-10-28T20:54:57Z",
+                "2014-11-14T22:30:36Z"
+            ]
+        },
+        "based-on": {
+            "fhirpath": "ServiceRequest.basedOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "body-site": {
+            "fhirpath": "ServiceRequest.bodySite",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "category": {
+            "fhirpath": "ServiceRequest.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:1.2.840.114350.1.13.861.1.7.10.798268.30|7",
+                "http://snomed.info/sct|307835004",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.30|7",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.10.798268.30|1"
+            ]
+        },
+        "code": {
+            "fhirpath": "ServiceRequest.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "urn:oid:2.16.840.1.113883.6.14|LAB1003",
+                "http://loinc.org|4548-4",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580|29837",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580|39334",
+                "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580|13960",
+                "http://snomed.info/sct|43396009"
+            ]
+        },
+        "encounter": {
+            "fhirpath": "ServiceRequest.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "enA3gZUApQ1sTHm8lJ7Fvwgzv.nNjaULUDo1F7qlXrIE3",
+                "eGBVmwcqKnjEdk.J12VxT8IrtONtqsbtHW6NEfyL8Zxk3",
+                "ePG7nFR4UtJRGLwgHO8mQhzE5m4om8-piOQvI.fuPP3A3",
+                "e3x6QTwOLvJ6YZcikk6r1sz75HUgdZXYwvWPtnHrXgZo3",
+                "eGBa8bqzKut7a4J4.Qf4V9A3",
+                "elFbUU9vJ8UYfMHz9OpTWHA3",
+                "eqDxZJc43imReA1Ykea5uAw3"
+            ]
+        },
+        "identifier": {
+            "fhirpath": "ServiceRequest.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-canonical": {
+            "fhirpath": "ServiceRequest.instantiatesCanonical",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "instantiates-uri": {
+            "fhirpath": "ServiceRequest.instantiatesUri",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "intent": {
+            "fhirpath": "ServiceRequest.intent",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "order",
+                "plan",
+                "order",
+                "filler-order"
+            ]
+        },
+        "occurrence": {
+            "fhirpath": "ServiceRequest.occurrence",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "ServiceRequest.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e2AveBQUoFNSZ6S1gdeWTqg3",
+                "enh2Q1c0oNRtWzXArnG4tKw3"
+            ]
+        },
+        "performer": {
+            "fhirpath": "ServiceRequest.performer",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "performer-type": {
+            "fhirpath": "ServiceRequest.performerType",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "priority": {
+            "fhirpath": "ServiceRequest.priority",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "replaces": {
+            "fhirpath": "ServiceRequest.replaces",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "requester": {
+            "fhirpath": "ServiceRequest.requester",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "eYfgeG--O.NMBuI8Sg5vbKA3",
+                "ectBdL9yLwfiRop1f5LsU6A3",
+                "euJOUNeZyX6mofWELWG0Ibg3",
+                "e2qocqJm-DdjHLS0Not4qjA3",
+                "eM5CWtq15N0WJeuCet5bJlQ3"
+            ]
+        },
+        "requisition": {
+            "fhirpath": "ServiceRequest.requisition",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "specimen": {
+            "fhirpath": "ServiceRequest.specimen",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "emrCHzCC.aelIks5iEC3yXg3",
+                "eW4l8cSAqDWawwT8VRedQaw3",
+                "esRSARdagzYBOrRnKH4sneA3",
+                "eGWCAyD4tOq6nyBMBYpUH7Q3"
+            ]
+        },
+        "status": {
+            "fhirpath": "ServiceRequest.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "completed",
+                "active",
+                "completed",
+                "active"
+            ]
+        },
+        "subject": {
+            "fhirpath": "ServiceRequest.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "e2AveBQUoFNSZ6S1gdeWTqg3",
+                "enh2Q1c0oNRtWzXArnG4tKw3"
+            ]
+        }
+    },
+    "Specimen": {
+        "accession": {
+            "fhirpath": "Specimen.accessionIdentifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "bodysite": {
+            "fhirpath": "Specimen.collection.bodySite",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "collected": {
+            "fhirpath": "Specimen.collection.collected",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "collector": {
+            "fhirpath": "Specimen.collection.collector",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "container": {
+            "fhirpath": "Specimen.container.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "container-id": {
+            "fhirpath": "Specimen.container.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "Specimen.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "parent": {
+            "fhirpath": "Specimen.parent",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "patient": {
+            "fhirpath": "Specimen.subject.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "Specimen.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "subject": {
+            "fhirpath": "Specimen.subject",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "type": {
+            "fhirpath": "Specimen.type",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "Substance": {
+        "category": {
+            "fhirpath": "Substance.category",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "code": {
+            "fhirpath": "Substance.code | (Substance.ingredient.substanceCodeableConcept)",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "container-identifier": {
+            "fhirpath": "Substance.instance.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "expiry": {
+            "fhirpath": "Substance.instance.expiry",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "identifier": {
+            "fhirpath": "Substance.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "quantity": {
+            "fhirpath": "Substance.instance.quantity",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "status": {
+            "fhirpath": "Substance.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        },
+        "substance-reference": {
+            "fhirpath": "(Substance.ingredient.substanceReference)",
+            "exampleValues": [],
+            "exampleTestEpicValues": []
+        }
+    },
+    "Task": {
+        "authored-on": {
+            "fhirpath": "Task.authoredOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "2022-01-10"
+            ]
+        },
+        "based-on": {
+            "fhirpath": "Task.basedOn",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "business-status": {
+            "fhirpath": "Task.businessStatus",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "code": {
+            "fhirpath": "Task.code",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "http://open.epic.com/FHIR/StructureDefinition/task-code|episode-checklist"
+            ]
+        },
+        "encounter": {
+            "fhirpath": "Task.encounter",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "focus": {
+            "fhirpath": "Task.focus",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "emOCCRZwsL0LLVprsT23yTA3"
+            ]
+        },
+        "group-identifier": {
+            "fhirpath": "Task.groupIdentifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "identifier": {
+            "fhirpath": "Task.identifier",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "intent": {
+            "fhirpath": "Task.intent",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "plan"
+            ]
+        },
+        "modified": {
+            "fhirpath": "Task.lastModified",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "owner": {
+            "fhirpath": "Task.owner",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "ePsY4S-71dMUXDyJ6Hsrr9A3"
+            ]
+        },
+        "part-of": {
+            "fhirpath": "Task.partOf",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "patient": {
+            "fhirpath": "Task.for.where(reference.startsWith('Patient'))",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "performer": {
+            "fhirpath": "Task.performerType",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "period": {
+            "fhirpath": "Task.executionPeriod",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "priority": {
+            "fhirpath": "Task.priority",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "requester": {
+            "fhirpath": "Task.requester",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        },
+        "status": {
+            "fhirpath": "Task.status",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                "completed",
+                "in-progress"
+            ]
+        },
+        "subject": {
+            "fhirpath": "Task.for",
+            "exampleValues": [],
+            "exampleTestEpicValues": [
+                null
+            ]
+        }
+    }
+}

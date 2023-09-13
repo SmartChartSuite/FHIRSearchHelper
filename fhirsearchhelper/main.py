@@ -11,6 +11,7 @@ from .helpers.capabilitystatement import get_supported_search_params, load_capab
 from .helpers.fhirfilter import filter_bundle
 from .helpers.gapanalysis import run_gap_analysis
 from .helpers.medicationhelper import expand_medication_references
+from .helpers.documenthelper import expand_document_references
 from .models.models import CustomFormatter, QuerySearchParams, SupportedSearchParams
 
 logger: logging.Logger = logging.getLogger('fhirsearchhelper')
@@ -78,9 +79,21 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
 
     new_query_response_bundle: Bundle | None = Bundle.parse_obj(new_query_response.json())
 
+    if not new_query_response_bundle.entry:
+        return new_query_response_bundle
+
+    if 'operationoutcome' in [entry.resource.resource_type.lower() for entry in new_query_response_bundle.entry]:  #type: ignore
+        new_query_response_bundle.entry = []
+
     if 'MedicationRequest' in new_query_string:
         logger.debug('Resources are of type MedicationRequest, proceeding to expand MedicationReferences')
         new_query_response_bundle = expand_medication_references(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
+        if not new_query_response_bundle:
+            return None
+
+    if 'DocumentReference' in new_query_string:
+        logger.debug('Resources are of type DocumentReference, proceeding to expand DocumentReferences')
+        new_query_response_bundle = expand_document_references(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
         if not new_query_response_bundle:
             return None
 

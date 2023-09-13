@@ -1,0 +1,78 @@
+{
+    "resourceType": "Bundle",
+    "id": "5e7c84a2-7962-4fc6-aff8-a9115e8f8b26",
+    "meta": {
+      "lastUpdated": "2023-08-09T16:24:39.889+00:00"
+    },
+    "type": "searchset",
+    "total": 1,
+    "link": [ {
+      "relation": "self",
+      "url": "https://hapi.fhir.org/baseR4/DocumentReference?_format=json&patient=632812"
+    } ],
+    "entry": [ {
+      "fullUrl": "https://hapi.fhir.org/baseR4/DocumentReference/632859",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "632859",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2020-02-29T20:40:44.501+00:00",
+          "source": "#Hi862XqztG1bTu97",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference" ]
+        },
+        "extension": [ {
+          "url": "http://hapi.fhir.org/baseR4/StructureDefinition/627194",
+          "extension": [ {
+            "url": "Practitioner/632814",
+            "valueCode": "627173"
+          } ]
+        } ],
+        "status": "superseded",
+        "type": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "34117-2",
+            "display": "History and physical note"
+          }, {
+            "system": "http://loinc.org",
+            "code": "51847-2",
+            "display": "Evaluation+Plan note"
+          } ]
+        },
+        "category": [ {
+          "coding": [ {
+            "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+            "code": "clinical-note",
+            "display": "Clinical Note"
+          } ]
+        } ],
+        "subject": {
+          "reference": "Patient/632812"
+        },
+        "date": "2001-08-14T09:31:55.601-04:00",
+        "author": [ {
+          "reference": "Practitioner/632814",
+          "display": "Dr. Ezra452 Pagac496"
+        } ],
+        "content": [ {
+          "attachment": {
+            "contentType": "text/plain",
+            "data": "CjIwMDEtMDgtMTQKCiMgQ2hpZWYgQ29tcGxhaW50Ck5vIGNvbXBsYWludHMuCgojIEhpc3Rvcnkgb2YgUHJlc2VudCBJbGxuZXNzCkNvcmFsZWU5MTEgaXMgYSA0MyB5ZWFyLW9sZCBub24taGlzcGFuaWMgd2hpdGUgZmVtYWxlLiBQYXRpZW50IGhhcyBhIGhpc3Rvcnkgb2YgdHViYWwgcHJlZ25hbmN5LgoKIyBTb2NpYWwgSGlzdG9yeQpQYXRpZW50IGlzIG1hcnJpZWQuIFBhdGllbnQgaXMgYW4gYWN0aXZlIHNtb2tlciBhbmQgaXMgYW4gYWxjb2hvbGljLiBQYXRpZW50IGlkZW50aWZpZXMgYXMgaGV0ZXJvc2V4dWFsLgoKUGF0aWVudCBjb21lcyBmcm9tIGEgaGlnaCBzb2Npb2Vjb25vbWljIGJhY2tncm91bmQuIFBhdGllbnQgaXMgYSBjb2xsZWdlIGdyYWR1YXRlLiBQYXRpZW50IGN1cnJlbnRseSBoYXMgQWV0bmEuCgojIEFsbGVyZ2llcwpObyBLbm93biBBbGxlcmdpZXMuCgojIE1lZGljYXRpb25zCjEyMCBhY3R1YXQgZmx1dGljYXNvbmUgcHJvcGlvbmF0ZSAwLjA0NCBtZy9hY3R1YXQgbWV0ZXJlZCBkb3NlIGluaGFsZXI7IG5kYTAyMDUwMyAyMDAgYWN0dWF0IGFsYnV0ZXJvbCAwLjA5IG1nL2FjdHVhdCBtZXRlcmVkIGRvc2UgaW5oYWxlcgoKIyBBc3Nlc3NtZW50IGFuZCBQbGFuCgoKIyMgUGxhbgoKVGhlIHBhdGllbnQgd2FzIHByZXNjcmliZWQgdGhlIGZvbGxvd2luZyBtZWRpY2F0aW9uczoKLSAxMjAgYWN0dWF0IGZsdXRpY2Fzb25lIHByb3Bpb25hdGUgMC4wNDQgbWcvYWN0dWF0IG1ldGVyZWQgZG9zZSBpbmhhbGVyCi0gbmRhMDIwNTAzIDIwMCBhY3R1YXQgYWxidXRlcm9sIDAuMDkgbWcvYWN0dWF0IG1ldGVyZWQgZG9zZSBpbmhhbGVyCg=="
+          }
+        } ],
+        "context": {
+          "encounter": [ {
+            "reference": "Encounter/632827"
+          } ],
+          "period": {
+            "start": "2001-08-14T09:31:55-04:00",
+            "end": "2001-08-14T09:46:55-04:00"
+          }
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    } ]
+  }
