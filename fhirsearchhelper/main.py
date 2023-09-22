@@ -6,6 +6,7 @@ import requests
 from fhir.resources.R4B.bundle import Bundle
 from fhir.resources.R4B.capabilitystatement import CapabilityStatement
 from fhir.resources.R4B.fhirtypes import Id
+from fhir.resources.R4B.operationoutcome import OperationOutcome
 
 from .helpers.capabilitystatement import get_supported_search_params, load_capability_statement
 from .helpers.fhirfilter import filter_bundle
@@ -26,7 +27,7 @@ Id.configure_constraints(max_length=256)
 
 
 def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, search_params: QuerySearchParams = None, query: str = None, # type: ignore
-                   capability_statement_file: str = None, capability_statement_url: str = None, debug: bool = False) -> Bundle | None: # type: ignore
+                   capability_statement_file: str = None, capability_statement_url: str = None, debug: bool = False) -> Bundle | OperationOutcome | None: # type: ignore
     '''
     Entry function to run FHIR query using a CapabilityStatement and returning filtered resources
     WARNING: There is currently not a way to use a CapabilityStatement out of the box. See README.md of source for details.
@@ -45,10 +46,29 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
     cap_state: CapabilityStatement = load_capability_statement(url=capability_statement_url, file_path=capability_statement_file)
     supported_search_params: list[SupportedSearchParams] = get_supported_search_params(cap_state)
 
-    logger.debug(f'Supported search parameters for this server are: {[item.dict(exclude_none=True) for item in supported_search_params]}')
+    pretty_supported_search_params = {resource_params['resourceType']: [item['name'] for item in resource_params['searchParams']]
+                                                                        for resource_params in [item.dict(exclude_none=True) for item in supported_search_params]}
+
+    logger.debug(f'Supported search parameters for this server are: {pretty_supported_search_params}')
 
     if query:
         url_res, q_search_params = query.split('?')
+        if url_res.split("/")[-1] not in pretty_supported_search_params:
+            logger.error(f'Resource {url_res.split("/")[-1]} is not supported for searching, returning empty Bundle')
+            return Bundle(**{'type': 'searchset', 'total': 0, 'link': [{'relation': 'self', 'url': url_res}]})
+        if not q_search_params:
+            logger.error('No search params, Epic does not support pulling all resources of a given type with no search parameters. Please refine your query.')
+            new_query_response = requests.get(f'{url_res}', headers=query_headers)
+            if new_query_response.status_code == 403:
+                logger.error(f'The query responded with a status code of {new_query_response.status_code}')
+                if 'WWW-Authenticate' in new_query_response.headers:
+                    logger.error(f'WWW-Authenticate Error: {new_query_response.headers["WWW-Authenticate"]}')
+                return None
+            elif new_query_response.status_code == 400:
+                return OperationOutcome(**new_query_response.json())
+            else:
+                return None
+
         base_url = '/'.join(url_res.split('/')[:-1])
         q_resource_type = url_res.split('/')[-1]
         search_params_list: list[str] = q_search_params.split('&')
@@ -75,6 +95,8 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
     new_query_response = requests.get(f'{base_url}/{new_query_string}', headers=query_headers)
     if new_query_response.status_code != 200:
         logger.error(f'The query responded with a status code of {new_query_response.status_code}')
+        if 'WWW-Authenticate' in new_query_response.headers:
+            logger.error(f'WWW-Authenticate Error: {new_query_response.headers["WWW-Authenticate"]}')
         return None
 
     new_query_response_bundle: Bundle | None = Bundle.parse_obj(new_query_response.json())
