@@ -63,7 +63,12 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
                 logger.error(f'The query responded with a status code of {new_query_response.status_code}')
                 if 'WWW-Authenticate' in new_query_response.headers:
                     logger.error(f'WWW-Authenticate Error: {new_query_response.headers["WWW-Authenticate"]}')
-                return None
+                    OO_body = {'resourceType': 'OperationOutcome', 'issue': [{'severity': 'error', 'code': 'processing',
+                                                                                              'diagnostics': f'WWW-Authenticate Error: {new_query_response.headers["WWW-Authenticate"]}'}]}
+                else:
+                    OO_body = {'resourceType': 'OperationOutcome', 'issue': [{'severity': 'error', 'code': 'processing',
+                                                                                              'diagnostics': f'The query responded with a status code of {new_query_response.status_code}'}]}
+                return OperationOutcome(**OO_body)
             elif new_query_response.status_code == 400:
                 return OperationOutcome(**new_query_response.json())
             else:
@@ -97,7 +102,11 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
         logger.error(f'The query responded with a status code of {new_query_response.status_code}')
         if 'WWW-Authenticate' in new_query_response.headers:
             logger.error(f'WWW-Authenticate Error: {new_query_response.headers["WWW-Authenticate"]}')
-        return None
+        try:
+            return new_query_response.json()
+        except requests.exceptions.JSONDecodeError:
+            logger.error('Unable to parse response as JSON body')
+            return None
 
     new_query_response_bundle: Bundle | None = Bundle.parse_obj(new_query_response.json())
 
