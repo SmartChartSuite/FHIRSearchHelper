@@ -2,7 +2,6 @@
 
 import logging
 from copy import deepcopy
-import json
 from .operationoutcomehelper import handle_operation_outcomes
 
 import requests

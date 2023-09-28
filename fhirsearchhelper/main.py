@@ -1,6 +1,7 @@
 '''Main file for entrypoint to package'''
 
 import logging
+import re
 
 import requests
 from fhir.resources.R4B.bundle import Bundle
@@ -9,10 +10,10 @@ from fhir.resources.R4B.fhirtypes import Id
 from fhir.resources.R4B.operationoutcome import OperationOutcome
 
 from .helpers.capabilitystatement import get_supported_search_params, load_capability_statement
+from .helpers.documenthelper import expand_document_references
 from .helpers.fhirfilter import filter_bundle
 from .helpers.gapanalysis import run_gap_analysis
 from .helpers.medicationhelper import expand_medication_references
-from .helpers.documenthelper import expand_document_references
 from .models.models import CustomFormatter, QuerySearchParams, SupportedSearchParams
 
 logger: logging.Logger = logging.getLogger('fhirsearchhelper')
@@ -105,8 +106,16 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
         try:
             return new_query_response.json()
         except requests.exceptions.JSONDecodeError:
+            if 'html' in new_query_response.headers['Content-Type']:
+                logger.error('Error caused HTML response')
+                title_match = re.search(r'<title>(.*?)</title>', new_query_response.text)
+                if title_match:
+                    title_content = title_match.group(1)  # Extract the content within the title tags
+                    logger.error(f'Response error from query: {title_content}')
+                    return OperationOutcome(**{'resourceType': 'OperationOutcome', 'issue': [{'severity': 'error', 'code': 'processing', 'diagnostics': 'From Epic: ' + title_content}]})
             logger.error('Unable to parse response as JSON body')
-            return None
+            return OperationOutcome(**{'resourceType': 'OperationOutcome', 'issue': [{'severity': 'error', 'code': 'processing',
+                                                                                      'diagnostics': 'Unable to parse response as JSON or HTML with a title'}]})
 
     new_query_response_bundle: Bundle | None = Bundle.parse_obj(new_query_response.json())
 
