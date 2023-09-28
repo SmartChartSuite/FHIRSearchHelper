@@ -26,6 +26,7 @@ def expand_document_references(input_bundle: Bundle, base_url: str, query_header
         for i, content in enumerate(resource['content']):
             if 'url' in content['attachment']:
                 binary_url = content['attachment']['url']
+                logger.debug(f'Querying {base_url+"/"+binary_url}')
                 binary_url_lookup = requests.get(f'{base_url}/{binary_url}', headers=query_headers)
                 if binary_url_lookup.status_code != 200:
                     logger.error(f'The query responded with a status code of {binary_url_lookup.status_code}')
@@ -33,11 +34,15 @@ def expand_document_references(input_bundle: Bundle, base_url: str, query_header
                         logger.error('The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Binary.Read.')
                         if 'WWW-Authenticate' in binary_url_lookup.headers:
                             logger.error(binary_url_lookup.headers['WWW-Authenticate'])
-                    return None
-                if 'json' in binary_url_lookup.headers['content-type']:
+                    if binary_url_lookup.status_code == 400 and 'json' in binary_url_lookup.headers['content-type']:
+                        logger.error(binary_url_lookup.json())
+                if binary_url_lookup.status_code == 200 and 'json' in binary_url_lookup.headers['content-type']:
                     content_data = binary_url_lookup.json()['data']
-                else:
+                elif binary_url_lookup.status_code == 200:
                     content_data = binary_url_lookup.text
+                else:
+                    logger.debug('Setting content of DocumentReference to empty since Binary resource could not be retrieved')
+                    content_data: str = ''
                 resource['content'][i]['attachment']['data'] = content_data
                 del resource['content'][i]['attachment']['url']
         entry['resource'] = resource

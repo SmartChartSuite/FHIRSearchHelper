@@ -33,30 +33,38 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
         logger.debug(f'Working on filtering for search parameter {filter_sp}')
         match filter_sp:
             case 'code':
-                code_sp_split: list[str] = filter_sp_value.split('%7C')
-                if len(code_sp_split) == 2: # Case when there is a | separator
-                    logger.debug('Code search parameter value has a |')
-                    code_sp_system: str = code_sp_split[0]
-                    code_sp_code: str = code_sp_split[1]
-                else:
-                    logger.debug('Code search parameter contains just the code')
-                    code_sp_system = ''
-                    code_sp_code = code_sp_split[0]
-                for entry in returned_resources:
-                    if entry.resource.resource_type == 'MedicationRequest': #type: ignore
-                        if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.medicationCodeableConcept.coding)): # type: ignore
-                            logger.debug('Found MedicationRequest that matched both system and code for code element')
-                            filtered_entries.append(entry)
-                        elif any([coding.code == code_sp_code for coding in entry.resource.medicationCodeableConcept.coding]): # type: ignore
-                            logger.debug('Found MedicationRequest that matches code (system was not provided in original query)')
-                            filtered_entries.append(entry)
+                code_sp_multiple_codes = filter_sp_value.split('%2C')
+                if len(code_sp_multiple_codes) > 1:
+                    logger.debug(f'There are a total of {len(code_sp_multiple_codes)} codes in the search parameter')
+                for code_sp_single_code in code_sp_multiple_codes:
+                    code_sp_split: list[str] = code_sp_single_code.split('%7C')
+                    if len(code_sp_split) == 2: # Case when there is a | separator
+                        code_sp_system: str = code_sp_split[0]
+                        code_sp_code: str = code_sp_split[1]
                     else:
-                        if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.code.coding)): # type: ignore
-                            logger.debug('Found resource that matched both system and code for code element')
-                            filtered_entries.append(entry)
-                        elif any([coding.code == code_sp_code for coding in entry.resource.code.coding]): # type: ignore
-                            logger.debug('Found resource that matches code (system was not provided in original query)')
-                            filtered_entries.append(entry)
+                        code_sp_system = ''
+                        code_sp_code = code_sp_split[0]
+                    for entry in returned_resources:
+                        if entry.resource.resource_type == 'MedicationRequest': #type: ignore
+                            if 'coding' not in entry.resource.code.dict(): #type: ignore
+                                logger.debug('Code does not have a coding, this MedicationRequest resource does not match')
+                                continue
+                            if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.medicationCodeableConcept.coding)): # type: ignore
+                                logger.debug('Found MedicationRequest that matched both system and code for code element')
+                                filtered_entries.append(entry)
+                            elif any([coding.code == code_sp_code for coding in entry.resource.medicationCodeableConcept.coding]): # type: ignore
+                                logger.debug('Found MedicationRequest that matches code (system was not provided in original query)')
+                                filtered_entries.append(entry)
+                        else:
+                            if 'coding' not in entry.resource.code.dict(): #type: ignore
+                                logger.debug(f'Code does not have a coding, this {entry.resource.resource_type} resource does not match') #type: ignore
+                                continue
+                            if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.code.coding)): # type: ignore
+                                logger.debug('Found resource that matched both system and code for code element')
+                                filtered_entries.append(entry)
+                            elif any([coding.code == code_sp_code for coding in entry.resource.code.coding]): # type: ignore
+                                logger.debug('Found resource that matches code (system was not provided in original query)')
+                                filtered_entries.append(entry)
             case 'category':
                 category_sp_split: list[str] = filter_sp_value.split('|')
                 if len(category_sp_split) == 2: # Case when there is a | separator
