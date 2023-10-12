@@ -120,11 +120,20 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
     if not new_query_response_bundle.entry:
         return new_query_response_bundle
 
-    if 'operationoutcome' in [entry.resource.resource_type.lower() for entry in new_query_response_bundle.entry]:  #type: ignore
-        logger.error('There was an OperationOutcome in the return Bundle. Bundle.entry will be empty. See below for collected diagnostics strings:')
-        collected_diagnostics = list(set([issue.diagnostics for entry in new_query_response_bundle.entry for issue in entry.resource.issue if issue.diagnostics])) #type: ignore
-        logger.error(collected_diagnostics)
-        new_query_response_bundle.entry = []
+    return_resource_types = [entry.resource.resource_type.lower() for entry in new_query_response_bundle.entry] #type: ignore
+
+    if 'operationoutcome' in return_resource_types:
+        if all([item == 'operationoutcome' for item in return_resource_types]):
+            logger.error('There was only OperationOutcomes in the return Bundle. Bundle.entry will be empty. See below for collected diagnostics strings:')
+            collected_diagnostics = list(set([issue.diagnostics for entry in new_query_response_bundle.entry for issue in entry.resource.issue if issue.diagnostics])) #type: ignore
+            logger.error(collected_diagnostics)
+            new_query_response_bundle.entry = []
+        else:
+            logger.warning('There was at least one OperationOutcome in the return Bundle. See below for collected diagnostics strings:')
+            oo_resources = list(filter(lambda x: x.resource_type == 'OperationOutcome', [entry.resource for entry in new_query_response_bundle.entry])) #type: ignore
+            collected_diagnostics = list(set([issue.diagnostics for entry in oo_resources for issue in entry.issue if issue.diagnostics]))
+            logger.warning(collected_diagnostics)
+            new_query_response_bundle.entry = list(filter(lambda x: x.resource.resource_type != 'OperationOutcome', new_query_response_bundle.entry)) #type: ignore
 
     if 'MedicationRequest' in new_query_string:
         logger.info('Resources are of type MedicationRequest, proceeding to expand MedicationReferences')
