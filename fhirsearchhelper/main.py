@@ -81,7 +81,7 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
         search_params_dict: dict[str, str] = {item.split('=')[0]: item.split('=')[1] for item in search_params_list}
         search_params: QuerySearchParams = QuerySearchParams(resourceType=q_resource_type, searchParams=search_params_dict)
 
-    logger.debug(f'Search parameters for this request are: {search_params}')
+    logger.info(f'Search parameters for this request are: {search_params}')
 
     gap_output: list[str] = run_gap_analysis(supported_search_params=supported_search_params, query_search_params=search_params)
 
@@ -93,11 +93,9 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
     else:
         new_query_string = search_params.resourceType
 
-    # new_query_string = new_query_string.replace('%7C', '|')
-
     logger.debug(f'New query string is {new_query_string}')
 
-    logger.debug(f'Making request to {base_url}/{new_query_string}')
+    logger.info(f'Making request to {base_url}/{new_query_string}')
     new_query_response = requests.get(f'{base_url}/{new_query_string}', headers=query_headers)
     if new_query_response.status_code != 200:
         logger.error(f'The query responded with a status code of {new_query_response.status_code}')
@@ -123,22 +121,25 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
         return new_query_response_bundle
 
     if 'operationoutcome' in [entry.resource.resource_type.lower() for entry in new_query_response_bundle.entry]:  #type: ignore
+        logger.error('There was an OperationOutcome in the return Bundle. Bundle.entry will be empty. See below for collected diagnostics strings:')
+        collected_diagnostics = list(set([issue.diagnostics for entry in new_query_response_bundle.entry for issue in entry.resource.issue if issue.diagnostics])) #type: ignore
+        logger.error(collected_diagnostics)
         new_query_response_bundle.entry = []
 
     if 'MedicationRequest' in new_query_string:
-        logger.debug('Resources are of type MedicationRequest, proceeding to expand MedicationReferences')
+        logger.info('Resources are of type MedicationRequest, proceeding to expand MedicationReferences')
         new_query_response_bundle = expand_medication_references(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
         if not new_query_response_bundle:
             return None
 
     if 'DocumentReference' in new_query_string:
-        logger.debug('Resources are of type DocumentReference, proceeding to expand DocumentReferences')
+        logger.info('Resources are of type DocumentReference, proceeding to expand DocumentReferences')
         new_query_response_bundle = expand_document_references(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
         if not new_query_response_bundle:
             return None
 
     logger.debug(f'Size of bundle before filtering is {new_query_response_bundle.total} resources')
     filtered_bundle: Bundle = filter_bundle(input_bundle=new_query_response_bundle, search_params=search_params, gap_analysis_output=gap_output)
-    logger.debug(f'Size of bundle after filtering is {filtered_bundle.total} resources')
+    logger.info(f'Size of bundle after filtering is {filtered_bundle.total} resources')
 
     return filtered_bundle
