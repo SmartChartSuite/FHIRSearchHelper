@@ -46,7 +46,7 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
                         code_sp_code = code_sp_split[0]
                     for entry in returned_resources:
                         if entry.resource.resource_type == 'MedicationRequest': #type: ignore
-                            if 'coding' not in entry.resource.code.dict(): #type: ignore
+                            if 'coding' not in entry.resource.medicationCodeableConcept.dict(): #type: ignore
                                 logger.debug('Code does not have a coding, this MedicationRequest resource does not match')
                                 continue
                             if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.medicationCodeableConcept.coding)): # type: ignore
