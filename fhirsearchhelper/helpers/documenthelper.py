@@ -1,12 +1,15 @@
 '''File to handle all operations around Medication-related Resources'''
 
+import base64
 import logging
 from copy import deepcopy
-from .operationoutcomehelper import handle_operation_outcomes
 
+import html2text
 import requests
 from fhir.resources.R4B.bundle import Bundle
 from fhir.resources.R4B.fhirtypes import BundleEntryType
+
+from .operationoutcomehelper import handle_operation_outcomes
 
 logger: logging.Logger = logging.getLogger('fhirsearchhelper.documenthelper')
 
@@ -44,6 +47,20 @@ def expand_document_references(input_bundle: Bundle, base_url: str, query_header
                     content_data: str = ''
                 resource['content'][i]['attachment']['data'] = content_data
                 del resource['content'][i]['attachment']['url']
+
+        # Convert any HTML to a plain-text entry
+        html_contents = list(filter(lambda x: x['attachment']['contentType'] == 'text/html', resource['content']))
+        converted_htmls = []
+        for content in html_contents:
+            html_blurb = content['attachment']['data']
+            text_blurb = html2text.html2text(html_blurb)
+            text_blurb_bytes = text_blurb.encode('utf-8')
+            base64_bytes = base64.b64encode(text_blurb_bytes)
+            base64_text = base64_bytes.decode('utf-8')
+            converted_htmls.append({"attachment": {"contentType": "text/plain", "data": base64_text}})
+
+        resource['content'].extend(converted_htmls)
+
         entry['resource'] = resource
         expanded_entries.append(entry)
 

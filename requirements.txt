@@ -2,3 +2,4 @@ fhir.resources==7.0.0
 fhirpathpy==0.2.2
 requests==2.31.0
 ruff==0.0.252
+html2text==2020.1.16

@@ -37,9 +37,11 @@ classifiers = [  # Optional
 dependencies = [ # Optional
   "fhir.resources==7.0.0",
   "requests==2.28.2",
+  "html2text==2020.1.16"
 ]
+
 [project.optional-dependencies] # Optional
-dev = ["ruff==0.0.252"]
+dev = ["ruff==0.0.252", "fhirpathpy==0.2.2"]
 
 [project.urls]  # Optional
 "Homepage" = "https://github.com/SmartChartSuite/FHIRSearchHelper"
