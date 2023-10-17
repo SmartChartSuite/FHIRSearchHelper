@@ -14,6 +14,7 @@ from .helpers.documenthelper import expand_document_references
 from .helpers.fhirfilter import filter_bundle
 from .helpers.gapanalysis import run_gap_analysis
 from .helpers.medicationhelper import expand_medication_references
+from .helpers.conditionhelper import expand_condition_onset_with_encounter
 from .models.models import CustomFormatter, QuerySearchParams, SupportedSearchParams
 
 logger: logging.Logger = logging.getLogger('fhirsearchhelper')
@@ -97,6 +98,11 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
 
     logger.info(f'Making request to {base_url}/{new_query_string}')
     new_query_response = requests.get(f'{base_url}/{new_query_string}', headers=query_headers)
+    if new_query_response.status_code == 400:
+        logger.warning('The query responded with a status code of 400 Bad Request. Most likely this is due to using an incorrect codesystem when searching a code on a resource. '
+                       'For example, searching CPT or HCPCS codes (Procedure codes) on an Observation. This will return an empty Bundle, but make sure to modify your queries to '
+                       'only search appropriate codes for the type of resource.')
+        return Bundle(**{"type":"searchset", "total":0, "link": [{"relation": "self", "url": f"{base_url}/{new_query_string}"}]})
     if new_query_response.status_code != 200:
         logger.error(f'The query responded with a status code of {new_query_response.status_code}')
         if 'WWW-Authenticate' in new_query_response.headers:
@@ -146,6 +152,14 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
         new_query_response_bundle = expand_document_references(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
         if not new_query_response_bundle:
             return None
+
+    if 'Condition' in new_query_string:
+        logger.info('Resources are of type Condition, checking if any are Encounter Diagnoses...')
+        if 'encounter-diagnosis' in [category.coding[0].code for res in new_query_response_bundle.entry for category in res.category]: #type: ignore
+            logger.info('Found Condition resources with category Encounter Diagnosis, proceeding to extract Encounter.period.start as Condition.onsetDateTime')
+            new_query_response_bundle = expand_condition_onset_with_encounter(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
+            if not new_query_response_bundle:
+                return None
 
     logger.debug(f'Size of bundle before filtering is {new_query_response_bundle.total} resources')
     filtered_bundle: Bundle = filter_bundle(input_bundle=new_query_response_bundle, search_params=search_params, gap_analysis_output=gap_output)

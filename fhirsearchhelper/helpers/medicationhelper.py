@@ -22,7 +22,11 @@ def expand_medication_references(input_bundle: Bundle, base_url: str, query_head
             med_ref = resource['medicationReference']['reference']
             med_lookup = requests.get(f'{base_url}/{med_ref}', headers=query_headers)
             if med_lookup.status_code != 200:
-                logger.error(f'The query responded with a status code of {med_lookup.status_code}')
+                logger.error(f'The MedicationRequest Medication query responded with a status code of {med_lookup.status_code}')
+                if med_lookup.status_code == 403:
+                    logger.error('The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Medication.Read.')
+                    if 'WWW-Authenticate' in med_lookup.headers:
+                        logger.error(med_lookup.headers['WWW-Authenticate'])
                 return None
             med_code_concept = med_lookup.json()['code']
             resource['medicationCodeableConcept'] = med_code_concept
