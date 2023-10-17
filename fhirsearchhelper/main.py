@@ -155,7 +155,7 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
 
     if 'Condition' in new_query_string:
         logger.info('Resources are of type Condition, checking if any are Encounter Diagnoses...')
-        if 'encounter-diagnosis' in [category.coding[0].code for res in new_query_response_bundle.entry for category in res.category]: #type: ignore
+        if 'encounter-diagnosis' in [category.coding[0].code for entry in new_query_response_bundle.entry for category in entry.resource.category]: #type: ignore
             logger.info('Found Condition resources with category Encounter Diagnosis, proceeding to extract Encounter.period.start as Condition.onsetDateTime')
             new_query_response_bundle = expand_condition_onset_with_encounter(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
             if not new_query_response_bundle:
