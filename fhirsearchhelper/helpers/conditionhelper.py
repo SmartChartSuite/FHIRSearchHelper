@@ -21,7 +21,7 @@ def expand_condition_onset_with_encounter(input_bundle: Bundle, base_url: str, q
         if 'onsetDateTime' in resource:
             expanded_entries.append(entry)
             continue
-        if 'encounter' in resource:
+        if 'encounter' in resource and 'reference' in resource['encounter']:
             encounter_ref = resource['encounter']['reference']
             encounter_lookup = requests.get(f'{base_url}/{encounter_ref}', headers=query_headers)
             if encounter_lookup.status_code != 200:
