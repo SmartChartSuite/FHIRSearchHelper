@@ -10,11 +10,11 @@ from fhir.resources.R4B.fhirtypes import Id
 from fhir.resources.R4B.operationoutcome import OperationOutcome
 
 from .helpers.capabilitystatement import get_supported_search_params, load_capability_statement
-from .helpers.documenthelper import expand_document_references
+from .helpers.documenthelper import expand_document_references_in_bundle
 from .helpers.fhirfilter import filter_bundle
 from .helpers.gapanalysis import run_gap_analysis
-from .helpers.medicationhelper import expand_medication_references
-from .helpers.conditionhelper import expand_condition_onset_with_encounter
+from .helpers.medicationhelper import expand_medication_references_in_bundle
+from .helpers.conditionhelper import expand_condition_onset_in_bundle
 from .models.models import CustomFormatter, QuerySearchParams, SupportedSearchParams
 
 logger: logging.Logger = logging.getLogger('fhirsearchhelper')
@@ -143,23 +143,17 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
 
     if 'MedicationRequest' in new_query_string:
         logger.info('Resources are of type MedicationRequest, proceeding to expand MedicationReferences')
-        new_query_response_bundle = expand_medication_references(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
-        if not new_query_response_bundle:
-            return None
+        new_query_response_bundle = expand_medication_references_in_bundle(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
 
     if 'DocumentReference' in new_query_string:
         logger.info('Resources are of type DocumentReference, proceeding to expand DocumentReferences')
-        new_query_response_bundle = expand_document_references(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
-        if not new_query_response_bundle:
-            return None
+        new_query_response_bundle = expand_document_references_in_bundle(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
 
     if 'Condition' in new_query_string:
         logger.info('Resources are of type Condition, checking if any are Encounter Diagnoses...')
         if 'encounter-diagnosis' in [category.coding[0].code for entry in new_query_response_bundle.entry for category in entry.resource.category]: #type: ignore
             logger.info('Found Condition resources with category Encounter Diagnosis, proceeding to extract Encounter.period.start as Condition.onsetDateTime')
-            new_query_response_bundle = expand_condition_onset_with_encounter(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
-            if not new_query_response_bundle:
-                return None
+            new_query_response_bundle = expand_condition_onset_in_bundle(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
 
     logger.debug(f'Size of bundle before filtering is {new_query_response_bundle.total} resources')
     filtered_bundle: Bundle = filter_bundle(input_bundle=new_query_response_bundle, search_params=search_params, gap_analysis_output=gap_output)
