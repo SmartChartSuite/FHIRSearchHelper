@@ -141,16 +141,18 @@ def run_fhir_query(base_url: str = None, query_headers: dict[str, str] = None, s
             logger.warning(collected_diagnostics)
             new_query_response_bundle.entry = list(filter(lambda x: x.resource.resource_type != 'OperationOutcome', new_query_response_bundle.entry)) #type: ignore
 
+    # This happens before since its searching on code which is completed by this expansion
+    if 'MedicationRequest' in new_query_string:
+        logger.info('Resources are of type MedicationRequest, proceeding to expand MedicationReferences')
+        output_bundle = expand_medication_references_in_bundle(input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
+
     logger.debug(f'Size of bundle before filtering is {new_query_response_bundle.total} resources')
     filtered_bundle: Bundle = filter_bundle(input_bundle=new_query_response_bundle, search_params=search_params, gap_analysis_output=gap_output)
     logger.info(f'Size of bundle after filtering is {filtered_bundle.total} resources')
 
     output_bundle = filtered_bundle
 
-    if 'MedicationRequest' in new_query_string:
-        logger.info('Resources are of type MedicationRequest, proceeding to expand MedicationReferences')
-        output_bundle = expand_medication_references_in_bundle(input_bundle=filtered_bundle, base_url=base_url, query_headers=query_headers)
-    elif 'DocumentReference' in new_query_string:
+    if 'DocumentReference' in new_query_string:
         logger.info('Resources are of type DocumentReference, proceeding to expand DocumentReferences')
         output_bundle = expand_document_references_in_bundle(input_bundle=filtered_bundle, base_url=base_url, query_headers=query_headers)
     elif 'Condition' in new_query_string:
