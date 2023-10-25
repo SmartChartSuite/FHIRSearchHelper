@@ -50,7 +50,7 @@ def expand_document_reference_content(resource: dict, base_url: str, query_heade
                 logger.debug('Found Binary in cached resources')
                 content_data = cached_binary_resources[base_url+"/"+binary_url]
             else:
-                logger.debug(f'Did not find Encounter in cached resources, querying {base_url + "/" + binary_url}')
+                logger.debug(f'Did not find Binary in cached resources, querying {base_url + "/" + binary_url}')
                 binary_url_lookup = requests.get(f'{base_url}/{binary_url}', headers=query_headers)
 
                 if binary_url_lookup.status_code != 200:
