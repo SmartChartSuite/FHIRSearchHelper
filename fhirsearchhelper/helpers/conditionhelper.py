@@ -12,6 +12,8 @@ from .operationoutcomehelper import handle_operation_outcomes
 
 logger: logging.Logger = logging.getLogger('fhirsearchhelper.conditionhelper')
 
+cached_condition_resources = {}
+
 def expand_condition_onset(condition: dict, base_url: str, query_headers: dict = {}) -> dict[str, Any] | None:
     """
     Add condition onset date and time information using an Encounter reference.
@@ -35,20 +37,26 @@ def expand_condition_onset(condition: dict, base_url: str, query_headers: dict =
     - If the HTTP response contains 'WWW-Authenticate' headers, they are logged to provide additional diagnostic information.
     """
 
+    global cached_condition_resources
+
     if 'onsetDateTime' in condition:
         return condition
     if 'encounter' in condition and 'reference' in condition['encounter']:
         encounter_ref = condition['encounter']['reference']
-        logger.debug(f'Querying {base_url+"/"+encounter_ref}')
-        encounter_lookup = requests.get(f'{base_url}/{encounter_ref}', headers=query_headers)
-        if encounter_lookup.status_code != 200:
-            logger.error(f'The Condition Encounter query responded with a status code of {encounter_lookup.status_code}')
-            if encounter_lookup.status_code == 403:
-                logger.error('The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Encounter.Read.')
-                if 'WWW-Authenticate' in encounter_lookup.headers:
-                    logger.error(encounter_lookup.headers['WWW-Authenticate'])
-            return None
-        encounter_json = encounter_lookup.json()
+        if base_url+"/"+encounter_ref in cached_condition_resources:
+            encounter_json = cached_condition_resources[base_url+"/"+encounter_ref]
+        else:
+            logger.debug(f'Querying {base_url+"/"+encounter_ref}')
+            encounter_lookup = requests.get(f'{base_url}/{encounter_ref}', headers=query_headers)
+            if encounter_lookup.status_code != 200:
+                logger.error(f'The Condition Encounter query responded with a status code of {encounter_lookup.status_code}')
+                if encounter_lookup.status_code == 403:
+                    logger.error('The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Encounter.Read.')
+                    if 'WWW-Authenticate' in encounter_lookup.headers:
+                        logger.error(encounter_lookup.headers['WWW-Authenticate'])
+                return None
+            encounter_json = encounter_lookup.json()
+            cached_condition_resources[base_url+"/"+encounter_ref] = encounter_json
         if 'period' in encounter_json and 'start' in encounter_json['period']:
             condition['onsetDateTime'] = encounter_json['period']['start']
     return condition
@@ -69,6 +77,7 @@ def expand_condition_onset_in_bundle(input_bundle: Bundle, base_url: str, query_
     Returns:
     - Bundle: A modified FHIR Bundle with resources expanded to include Condition.onsetDateTime, or the original input Bundle if any errors occurred when trying to GET the Encounters.
     """
+    global cached_condition_resources
 
     returned_resources: list[BundleEntryType] = input_bundle.entry
     output_bundle: dict = deepcopy(input_bundle).dict(exclude_none=True)
@@ -86,5 +95,8 @@ def expand_condition_onset_in_bundle(input_bundle: Bundle, base_url: str, query_
         expanded_entries.append(entry)
 
     output_bundle['entry'] = expanded_entries
+
+    if len(cached_condition_resources.keys()) != 0:
+        cached_condition_resources = {}
 
     return Bundle.parse_obj(output_bundle)
