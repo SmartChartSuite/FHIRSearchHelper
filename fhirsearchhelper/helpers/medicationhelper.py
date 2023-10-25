@@ -40,10 +40,10 @@ def expand_medication_reference(resource: dict, base_url: str, query_headers: di
     if 'medicationReference' in resource:
         med_ref = resource['medicationReference']['reference']
         if base_url+"/"+med_ref in cached_medication_resources:
-            logger.debug('Found Encounter in cached resources')
+            logger.debug('Found Medication in cached resources')
             med_code_concept = cached_medication_resources[base_url+"/"+med_ref]['code']
         else:
-            logger.debug(f'Querying {base_url+"/"+med_ref}')
+            logger.debug(f'Did not find Medication in cached resources, querying {base_url+"/"+med_ref}')
             med_lookup = requests.get(f'{base_url}/{med_ref}', headers=query_headers)
             if med_lookup.status_code != 200:
                 logger.error(f'The MedicationRequest Medication query responded with a status code of {med_lookup.status_code}')
