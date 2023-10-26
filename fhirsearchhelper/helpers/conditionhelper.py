@@ -47,7 +47,6 @@ def expand_condition_onset(condition: dict, base_url: str, query_headers: dict =
             logger.debug('Found Encounter in cached resources')
             encounter_json = cached_encounter_resources[base_url+"/"+encounter_ref]
         else:
-
             logger.debug(f'Did not find Encounter in cached resources, querying {base_url+"/"+encounter_ref}')
             encounter_lookup = requests.get(f'{base_url}/{encounter_ref}', headers=query_headers)
             if encounter_lookup.status_code != 200:

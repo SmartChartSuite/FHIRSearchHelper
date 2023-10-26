@@ -85,7 +85,7 @@ def expand_document_reference_content(resource: dict, base_url: str, query_heade
         base64_text = base64.b64encode(text_blurb_bytes).decode('utf-8')
         converted_htmls.append({"attachment": {"contentType": "text/plain", "data": base64_text}})
 
-    resource['content'].extend(converted_htmls)
+    resource['content'] = converted_htmls.extend(resource['content'])
 
     return resource
 
