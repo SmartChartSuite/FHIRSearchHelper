@@ -51,6 +51,10 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
                                 continue
                             if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.medicationCodeableConcept.coding)): # type: ignore
                                 logger.debug('Found MedicationRequest that matched both system and code for code element')
+                                filtered_list = [(idx, med) for idx, med in enumerate(entry.resource.medicationCodeableConcept.coding) #type: ignore
+                                                                        if med.system == code_sp_system and med.code == code_sp_code]
+                                swap_entries = entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]], entry.resource.medicationCodeableConcept.coding[0] #type: ignore
+                                entry.resource.medicationCodeableConcept.coding[0], entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]] = swap_entries #type: ignore
                                 filtered_entries.append(entry)
                             elif any([coding.code == code_sp_code for coding in entry.resource.medicationCodeableConcept.coding]): # type: ignore
                                 logger.debug('Found MedicationRequest that matches code (system was not provided in original query)')
