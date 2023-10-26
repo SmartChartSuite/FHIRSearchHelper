@@ -61,6 +61,10 @@ def expand_condition_onset(condition: dict, base_url: str, query_headers: dict =
             cached_encounter_resources[base_url+"/"+encounter_ref] = encounter_json
         if 'period' in encounter_json and 'start' in encounter_json['period']:
             condition['onsetDateTime'] = encounter_json['period']['start']
+        else:
+            condition['onsetDateTime'] = '1970-01-01'
+    else:
+        condition['onsetDateTime'] = '1970-01-01'
     return condition
 
 
