@@ -77,14 +77,21 @@ def expand_document_reference_content(resource: dict, base_url: str, query_heade
     # Convert HTML to plain text
     html_contents = list(filter(lambda x: x['attachment']['contentType'] == 'text/html', resource['content']))
     converted_htmls = []
+
     for content in html_contents:
         html_blurb = content['attachment']['data']
         text_blurb = html2text.html2text(html_blurb)
         text_blurb_bytes = text_blurb.encode('utf-8')
         base64_text = base64.b64encode(text_blurb_bytes).decode('utf-8')
         converted_htmls.append({"attachment": {"contentType": "text/plain", "data": base64_text}})
-    if converted_htmls:
-        resource['content'] = converted_htmls.extend(resource['content'])
+
+    resource['content'].extend(converted_htmls)
+
+    plain_text_content = [(idx, content) for idx, content in enumerate(resource['content']) if content['attachment']['contentType'] == 'text/plain']
+
+    swap_contents = resource['content'][plain_text_content[0][0]], resource['content'][0]
+
+    resource['content'][0], resource['content'][plain_text_content[0][0]] = swap_contents
 
     return resource
 
