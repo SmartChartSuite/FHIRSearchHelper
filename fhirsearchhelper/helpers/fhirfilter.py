@@ -58,6 +58,9 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
                                 filtered_entries.append(entry)
                             elif any([coding.code == code_sp_code for coding in entry.resource.medicationCodeableConcept.coding]): # type: ignore
                                 logger.debug('Found MedicationRequest that matches code (system was not provided in original query)')
+                                filtered_list = [(idx, med) for idx, med in enumerate(entry.resource.medicationCodeableConcept.coding) if med.code == code_sp_code] #type: ignore
+                                swap_entries = entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]], entry.resource.medicationCodeableConcept.coding[0] #type: ignore
+                                entry.resource.medicationCodeableConcept.coding[0], entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]] = swap_entries #type: ignore
                                 filtered_entries.append(entry)
                         else:
                             if 'coding' not in entry.resource.code.dict(): #type: ignore
