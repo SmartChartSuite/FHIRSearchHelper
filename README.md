@@ -30,7 +30,7 @@ To support NLP of documents, all DocumentReferences that are retrieved that cont
 All MedicationRequests that are retrieved that contain medicationReferences instead of medicationCodeableConcepts are "expanded" by retrieving the referenced Medication resource and inserting the codes of that resource into MedicationRequest.medicationCodeableConcept, and removing MedicationRequest.medicationReference.
 
 ### Encounter Diagnosis Conditions
-All Conditions that are retieved that have a Condition.category.code of encounter-diagnosis and do not have Condition.onsetDateTime, are "expanded" by retrieving the referenced Encounter in Condition.encounter and setting Condition.onsetDateTime to Encounter.period.start to indicate the beginning of a Condition.
+All Conditions that are retieved that have a Condition.category.code of encounter-diagnosis and do not have Condition.onsetDateTime, are "expanded" by retrieving the referenced Encounter in Condition.encounter and setting Condition.onsetDateTime to Encounter.period.start to indicate the beginning of a Condition. If there is no referenced Encounter or the referenced Encounter does not have a period, the onsetDateTime is set to `9999-12-31`.
 
 ## A Note on CapabilityStatements
 

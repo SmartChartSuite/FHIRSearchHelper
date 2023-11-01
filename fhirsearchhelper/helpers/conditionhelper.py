@@ -61,9 +61,9 @@ def expand_condition_onset(condition: dict, base_url: str, query_headers: dict =
         if 'period' in encounter_json and 'start' in encounter_json['period']:
             condition['onsetDateTime'] = encounter_json['period']['start']
         else:
-            condition['onsetDateTime'] = '1970-01-01'
+            condition['onsetDateTime'] = '9999-12-31'
     else:
-        condition['onsetDateTime'] = '1970-01-01'
+        condition['onsetDateTime'] = '9999-12-31'
     return condition
 
 
