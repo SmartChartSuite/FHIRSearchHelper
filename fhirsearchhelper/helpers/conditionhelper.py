@@ -1,20 +1,21 @@
-'''File to handle all operations around Condition Resources'''
+"""File to handle all operations around Condition Resources"""
 
 import logging
 from copy import deepcopy
 from typing import Any
 
-import requests
 from fhir.resources.R4B.bundle import Bundle
 from fhir.resources.R4B.fhirtypes import BundleEntryType
+from requests import Session
 
 from .operationoutcomehelper import handle_operation_outcomes
 
-logger: logging.Logger = logging.getLogger('fhirsearchhelper.conditionhelper')
+logger: logging.Logger = logging.getLogger("fhirsearchhelper.conditionhelper")
 
 cached_encounter_resources = {}
 
-def expand_condition_onset(condition: dict, base_url: str, query_headers: dict = {}) -> dict[str, Any] | None:
+
+def expand_condition_onset(session: Session, condition: dict, base_url: str, query_headers: dict = {}) -> dict[str, Any] | None:
     """
     Add condition onset date and time information using an Encounter reference.
 
@@ -39,35 +40,35 @@ def expand_condition_onset(condition: dict, base_url: str, query_headers: dict =
 
     global cached_encounter_resources
 
-    if any(onset_key in condition for onset_key in  ['onsetAge', 'onsetDateTime', 'onsetPeriod', 'onsetRange', 'onsetString']):
+    if any(onset_key in condition for onset_key in ["onsetAge", "onsetDateTime", "onsetPeriod", "onsetRange", "onsetString"]):
         return condition
-    if 'encounter' in condition and 'reference' in condition['encounter']:
-        encounter_ref = condition['encounter']['reference']
-        if base_url+"/"+encounter_ref in cached_encounter_resources:
-            logger.debug('Found Encounter in cached resources')
-            encounter_json = cached_encounter_resources[base_url+"/"+encounter_ref]
+    if "encounter" in condition and "reference" in condition["encounter"]:
+        encounter_ref = condition["encounter"]["reference"]
+        if base_url + "/" + encounter_ref in cached_encounter_resources:
+            logger.debug("Found Encounter in cached resources")
+            encounter_json = cached_encounter_resources[base_url + "/" + encounter_ref]
         else:
             logger.debug(f'Did not find Encounter in cached resources, querying {base_url+"/"+encounter_ref}')
-            encounter_lookup = requests.get(f'{base_url}/{encounter_ref}', headers=query_headers)
+            encounter_lookup = session.get(f"{base_url}/{encounter_ref}", headers=query_headers)
             if encounter_lookup.status_code != 200:
-                logger.error(f'The Condition Encounter query responded with a status code of {encounter_lookup.status_code}')
+                logger.error(f"The Condition Encounter query responded with a status code of {encounter_lookup.status_code}")
                 if encounter_lookup.status_code == 403:
-                    logger.error('The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Encounter.Read.')
-                    if 'WWW-Authenticate' in encounter_lookup.headers:
-                        logger.error(encounter_lookup.headers['WWW-Authenticate'])
+                    logger.error("The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Encounter.Read.")
+                    if "WWW-Authenticate" in encounter_lookup.headers:
+                        logger.error(encounter_lookup.headers["WWW-Authenticate"])
                 return None
             encounter_json = encounter_lookup.json()
-            cached_encounter_resources[base_url+"/"+encounter_ref] = encounter_json
-        if 'period' in encounter_json and 'start' in encounter_json['period']:
-            condition['onsetDateTime'] = encounter_json['period']['start']
+            cached_encounter_resources[base_url + "/" + encounter_ref] = encounter_json
+        if "period" in encounter_json and "start" in encounter_json["period"]:
+            condition["onsetDateTime"] = encounter_json["period"]["start"]
         else:
-            condition['onsetDateTime'] = '9999-12-31'
+            condition["onsetDateTime"] = "9999-12-31"
     else:
-        condition['onsetDateTime'] = '9999-12-31'
+        condition["onsetDateTime"] = "9999-12-31"
     return condition
 
 
-def expand_condition_onset_in_bundle(input_bundle: Bundle, base_url: str, query_headers: dict = {}) -> Bundle:
+def expand_condition_onset_in_bundle(session: Session, input_bundle: Bundle, base_url: str, query_headers: dict = {}) -> Bundle:
     """
     Expand and modify resources within a FHIR Bundle by adding Condition.onsetDateTime using referenced Encounter in Condition.encounter.
 
@@ -89,17 +90,17 @@ def expand_condition_onset_in_bundle(input_bundle: Bundle, base_url: str, query_
     expanded_entries = []
 
     for entry in returned_resources:
-        entry = entry.dict(exclude_none=True) #type: ignore
-        resource = entry['resource']
-        if resource['resourceType'] == 'OperationOutcome':
+        entry = entry.dict(exclude_none=True)  # type: ignore
+        resource = entry["resource"]
+        if resource["resourceType"] == "OperationOutcome":
             handle_operation_outcomes(resource=resource)
             continue
-        expanded_condition: dict[str, Any] | None = expand_condition_onset(condition=resource, base_url=base_url, query_headers=query_headers)
+        expanded_condition: dict[str, Any] | None = expand_condition_onset(session=session, condition=resource, base_url=base_url, query_headers=query_headers)
         if expanded_condition:
-            entry['resource'] = expanded_condition
+            entry["resource"] = expanded_condition
         expanded_entries.append(entry)
 
-    output_bundle['entry'] = expanded_entries
+    output_bundle["entry"] = expanded_entries
 
     if len(cached_encounter_resources.keys()) != 0:
         cached_encounter_resources = {}

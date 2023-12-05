@@ -1,13 +1,11 @@
+from fhir.resources.R4B.bundle import Bundle
+
 from fhirsearchhelper.helpers.fhirfilter import filter_bundle
 from fhirsearchhelper.models.models import QuerySearchParams
 
-from fhir.resources.R4B.bundle import Bundle
-
 
 def test_filter_bundle_new() -> None:
-    input_bundle: Bundle = Bundle.parse_file(
-        "./tests/resources/FHIRFilterInputBundle.json"
-    )
+    input_bundle: Bundle = Bundle.parse_file("./tests/resources/FHIRFilterInputBundle.json")
     search_params: QuerySearchParams = QuerySearchParams(
         resourceType="Condition",
         searchParams={

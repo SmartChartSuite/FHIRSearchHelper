@@ -1,20 +1,21 @@
-'''File to handle all operations around Medication-related Resources'''
+"""File to handle all operations around Medication-related Resources"""
 
 import logging
 from copy import deepcopy
 from typing import Any
 
-import requests
 from fhir.resources.R4B.bundle import Bundle
 from fhir.resources.R4B.fhirtypes import BundleEntryType
+from requests import Response, Session
 
 from .operationoutcomehelper import handle_operation_outcomes
 
-logger: logging.Logger = logging.getLogger('fhirsearchhelper.medicationhelper')
+logger: logging.Logger = logging.getLogger("fhirsearchhelper.medicationhelper")
 
 cached_medication_resources = {}
 
-def expand_medication_reference(resource: dict, base_url: str, query_headers: dict) -> dict[str, Any] | None:
+
+def expand_medication_reference(session: Session, resource: dict, base_url: str, query_headers: dict) -> dict[str, Any] | None:
     """
     Expand a MedicationReference within a MedicationRequest resource to a MedicationCodeableConcept.
 
@@ -37,30 +38,30 @@ def expand_medication_reference(resource: dict, base_url: str, query_headers: di
 
     global cached_medication_resources
 
-    if 'medicationReference' in resource:
-        med_ref = resource['medicationReference']['reference']
-        if base_url+"/"+med_ref in cached_medication_resources:
-            logger.debug('Found Medication in cached resources')
-            med_code_concept = cached_medication_resources[base_url+"/"+med_ref]['code']
+    if "medicationReference" in resource:
+        med_ref = resource["medicationReference"]["reference"]
+        if base_url + "/" + med_ref in cached_medication_resources:
+            logger.debug("Found Medication in cached resources")
+            med_code_concept = cached_medication_resources[base_url + "/" + med_ref]["code"]
         else:
             logger.debug(f'Did not find Medication in cached resources, querying {base_url+"/"+med_ref}')
-            med_lookup = requests.get(f'{base_url}/{med_ref}', headers=query_headers)
+            med_lookup: Response = session.get(f"{base_url}/{med_ref}", headers=query_headers)
             if med_lookup.status_code != 200:
-                logger.error(f'The MedicationRequest Medication query responded with a status code of {med_lookup.status_code}')
+                logger.error(f"The MedicationRequest Medication query responded with a status code of {med_lookup.status_code}")
                 if med_lookup.status_code == 403:
-                    logger.error('The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Medication.Read.')
-                    if 'WWW-Authenticate' in med_lookup.headers:
-                        logger.error(med_lookup.headers['WWW-Authenticate'])
+                    logger.error("The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Medication.Read.")
+                    if "WWW-Authenticate" in med_lookup.headers:
+                        logger.error(med_lookup.headers["WWW-Authenticate"])
                 return None
-            cached_medication_resources[base_url+"/"+med_ref] = med_lookup.json()
-            med_code_concept = med_lookup.json()['code']
-        resource['medicationCodeableConcept'] = med_code_concept
-        del resource['medicationReference']
+            cached_medication_resources[base_url + "/" + med_ref] = med_lookup.json()
+            med_code_concept = med_lookup.json()["code"]
+        resource["medicationCodeableConcept"] = med_code_concept
+        del resource["medicationReference"]
 
     return resource
 
 
-def expand_medication_references_in_bundle(input_bundle: Bundle, base_url: str, query_headers: dict = {}) -> Bundle:
+def expand_medication_references_in_bundle(session: Session, input_bundle: Bundle, base_url: str, query_headers: dict = {}) -> Bundle:
     """
     Expand MedicationReferences into MedicationCodeableConcepts for all MedicationRequest entries in a Bundle.
 
@@ -84,18 +85,18 @@ def expand_medication_references_in_bundle(input_bundle: Bundle, base_url: str, 
     expanded_entries = []
 
     for entry in returned_resources:
-        entry: dict[str, Any] = entry.dict(exclude_none=True) #type: ignore
-        resource: dict[str, Any] = entry['resource']
-        if resource['resourceType'] == 'OperationOutcome':
+        entry: dict[str, Any] = entry.dict(exclude_none=True)  # type: ignore
+        resource: dict[str, Any] = entry["resource"]
+        if resource["resourceType"] == "OperationOutcome":
             handle_operation_outcomes(resource=resource)
             continue
-        expanded_resource: dict[str, Any] | None = expand_medication_reference(resource, base_url, query_headers)
+        expanded_resource: dict[str, Any] | None = expand_medication_reference(session=session, resource=resource, base_url=base_url, query_headers=query_headers)
         if expanded_resource:
-            entry['resource'] = expanded_resource
+            entry["resource"] = expanded_resource
         expanded_entries.append(entry)
 
     if len(cached_medication_resources.keys()) != 0:
         cached_medication_resources = {}
 
-    output_bundle['entry'] = expanded_entries
+    output_bundle["entry"] = expanded_entries
     return Bundle.parse_obj(output_bundle)
