@@ -40,7 +40,7 @@ def expand_condition_onset(session: Session, condition: dict, base_url: str, que
 
     global cached_encounter_resources
 
-    if any(onset_key in condition for onset_key in ["onsetAge", "onsetDateTime", "onsetPeriod", "onsetRange", "onsetString"]):
+    if any(onset_key in condition for onset_key in ["onsetAge", "onsetDateTime", "onsetPeriod", "onsetRange", "onsetString", "recordedDate"]):
         return condition
     if "encounter" in condition and "reference" in condition["encounter"]:
         encounter_ref = condition["encounter"]["reference"]
