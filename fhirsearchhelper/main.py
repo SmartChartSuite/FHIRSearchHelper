@@ -33,7 +33,7 @@ Id.configure_constraints(max_length=256)
 
 def run_fhir_query(
     base_url: str = None,  # type: ignore
-    query_headers: dict[str, str] = None, # type: ignore
+    query_headers: dict[str, str] = None,  # type: ignore
     search_params: QuerySearchParams = None,  # type: ignore
     query: str | None = None,
     capability_statement_file: str | None = None,
@@ -129,6 +129,12 @@ def run_fhir_query(
         logger.error(f"The query responded with a status code of {new_query_response.status_code}")
         if "WWW-Authenticate" in new_query_response.headers:
             logger.error(f'WWW-Authenticate Error: {new_query_response.headers["WWW-Authenticate"]}')
+            return OperationOutcome(
+                **{
+                    "resourceType": "OperationOutcome",
+                    "issue": [{"severity": "error", "code": "processing", "diagnostics": f'WWW-Authenticate Error: {new_query_response.headers["WWW-Authenticate"]}'}],
+                }
+            )
         try:
             return new_query_response.json()
         except requests.exceptions.JSONDecodeError:
