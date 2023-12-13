@@ -152,16 +152,19 @@ def run_fhir_query(
 
     new_query_response_json: dict = new_query_response.json()
 
-    if 'entry' in new_query_response_json and len(new_query_response_json['entry']) > 0 and 'resource' in new_query_response_json['entry'][0] and new_query_response_json['entry'][0]['resource'].get('resourceType') == 'Patient':
-        # Handling for weird empty lines in Patient.address
-        if 'address' in new_query_response_json['entry'][0]['resource']:
-            new_addresses: list[dict] = []
-            for address in new_query_response_json['entry'][0]['resource']['address']:
-                address['line'] = [line for line in address['line'] if address['line']]
-                new_addresses.append(address)
-            new_query_response_json['entry'][0]['resource']['address'] = new_addresses
+    try:
+        if new_query_response_json["entry"][0]["resource"]["resourceType"] == "Patient":
+            # Handling for empty lines in Patient.address
+            if "address" in new_query_response_json["entry"][0]["resource"]:
+                new_addresses: list[dict] = []
+                for address in new_query_response_json["entry"][0]["resource"]["address"]:
+                    address["line"] = [line for line in address["line"] if line]
+                    new_addresses.append(address)
+                new_query_response_json["entry"][0]["resource"]["address"] = new_addresses
+    except (IndexError, KeyError):
+        pass
 
-    new_query_response_bundle: Bundle | None = Bundle.parse_obj(new_query_response.json())
+    new_query_response_bundle: Bundle = Bundle.parse_obj(new_query_response_json)
 
     if not new_query_response_bundle.entry:
         return new_query_response_bundle
