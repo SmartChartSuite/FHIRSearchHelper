@@ -8,7 +8,7 @@ from fhir.resources.R4B.bundle import Bundle
 from fhir.resources.R4B.capabilitystatement import CapabilityStatement
 from fhir.resources.R4B.fhirtypes import Id
 from fhir.resources.R4B.operationoutcome import OperationOutcome
-from requests import Session
+from requests import Session, Response
 from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
 
@@ -63,7 +63,7 @@ def run_fhir_query(
     cap_state: CapabilityStatement = load_capability_statement(session=session, url=capability_statement_url, file_path=capability_statement_file)
     supported_search_params: list[SupportedSearchParams] = get_supported_search_params(cap_state)
 
-    pretty_supported_search_params = {
+    pretty_supported_search_params: dict[str, list[str]] = {
         resource_params["resourceType"]: [item["name"] for item in resource_params["searchParams"]] for resource_params in [item.dict(exclude_none=True) for item in supported_search_params]
     }
 
@@ -76,7 +76,7 @@ def run_fhir_query(
             return Bundle(**{"type": "searchset", "total": 0, "link": [{"relation": "self", "url": url_res}]})
         if not q_search_params:
             logger.error("No search params, Epic does not support pulling all resources of a given type with no search parameters. Please refine your query.")
-            new_query_response = session.get(f"{url_res}", headers=query_headers)
+            new_query_response: Response = session.get(f"{url_res}", headers=query_headers)
             if new_query_response.status_code == 403:
                 logger.error(f"The query responded with a status code of {new_query_response.status_code}")
                 if "WWW-Authenticate" in new_query_response.headers:
@@ -86,7 +86,7 @@ def run_fhir_query(
                         "issue": [{"severity": "error", "code": "processing", "diagnostics": f'WWW-Authenticate Error: {new_query_response.headers["WWW-Authenticate"]}'}],
                     }
                 else:
-                    OO_body = {
+                    OO_body: dict = {
                         "resourceType": "OperationOutcome",
                         "issue": [{"severity": "error", "code": "processing", "diagnostics": f"The query responded with a status code of {new_query_response.status_code}"}],
                     }
@@ -108,9 +108,9 @@ def run_fhir_query(
 
     logger.debug(f"Gap output from these two sets of search parameters is: {gap_output}")
 
-    new_query_params_str = "&".join([f"{key}={value}" for key, value in search_params.searchParams.items() if key not in gap_output])
+    new_query_params_str: str = "&".join([f"{key}={value}" for key, value in search_params.searchParams.items() if key not in gap_output])
     if new_query_params_str:
-        new_query_string = f"{search_params.resourceType}?{new_query_params_str}"
+        new_query_string: str = f"{search_params.resourceType}?{new_query_params_str}"
     else:
         new_query_string = search_params.resourceType
 
@@ -140,7 +140,7 @@ def run_fhir_query(
         except requests.exceptions.JSONDecodeError:
             if "html" in new_query_response.headers["Content-Type"]:
                 logger.error("Error caused HTML response")
-                title_match = re.search(r"<title>(.*?)</title>", new_query_response.text)
+                title_match: re.Match[str] | None = re.search(r"<title>(.*?)</title>", new_query_response.text)
                 if title_match:
                     title_content = title_match.group(1)  # Extract the content within the title tags
                     logger.error(f"Response error from query: {title_content}")

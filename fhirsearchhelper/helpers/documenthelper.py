@@ -2,30 +2,32 @@
 
 import base64
 import logging
+from concurrent.futures import Future, ThreadPoolExecutor, as_completed
 from copy import deepcopy
+from typing import Any
 
 import html2text
 from fhir.resources.R4B.bundle import Bundle
+from fhir.resources.R4B.fhirtypes import BundleEntryType
 from requests import Response, Session
+from requests.exceptions import JSONDecodeError
 
 from .operationoutcomehelper import handle_operation_outcomes
 
 logger: logging.Logger = logging.getLogger("fhirsearchhelper.documenthelper")
 
-cached_binary_resources = {}
+cached_binary_resources: dict = {}
 
 
-def expand_document_reference_content(session: Session, resource: dict, base_url: str, query_headers: dict) -> dict:
+def expand_document_reference_content(entry_resource: dict) -> dict | None:
     """
     Expand content attachments of a DocumentReference resource into data fields.
 
-    This function takes a DocumentReference resource and, for each content attachment that has a URL,
+    This function takes a Bunlde.entry where the entry.resource is of type DocumentReference and, for each content attachment that has a URL,
     it retrieves the data from the URL using an HTTP request and updates the content to include the data.
 
     Parameters:
-    - resource (dict): A DocumentReference resource as a dictionary.
-    - base_url (str): The base URL used for making HTTP requests to resolve the content URLs.
-    - query_headers (dict): Additional headers for the HTTP request.
+    - entry_resource (dict): A Bundle.entry where resourceType is DocumentReference resource as a dictionary.
 
     Returns:
     - dict: The expanded DocumentReference resource with content data fields.
@@ -38,7 +40,8 @@ def expand_document_reference_content(session: Session, resource: dict, base_url
     This function handles HTML attachments by converting them to plain text if necessary.
     """
 
-    global cached_binary_resources
+    entry: dict[str, Any] = entry_resource.dict(exclude_none=True)  # type: ignore
+    resource: dict[str, Any] = entry["resource"]
 
     if resource["resourceType"] == "OperationOutcome":
         handle_operation_outcomes(resource=resource)
@@ -46,13 +49,13 @@ def expand_document_reference_content(session: Session, resource: dict, base_url
 
     for i, content in enumerate(resource["content"]):
         if "url" in content["attachment"]:
-            binary_url = content["attachment"]["url"]
-            if base_url + "/" + binary_url in cached_binary_resources:
+            binary_url: str = content["attachment"]["url"]
+            if g_base_url + "/" + binary_url in cached_binary_resources:
                 logger.debug("Found Binary in cached resources")
-                content_data = cached_binary_resources[base_url + "/" + binary_url]
+                content_data: str = cached_binary_resources[g_base_url + "/" + binary_url]
             else:
-                logger.debug(f'Did not find Binary in cached resources, querying {base_url + "/" + binary_url}')
-                binary_url_lookup: Response = session.get(f"{base_url}/{binary_url}", headers=query_headers)
+                logger.debug(f'Did not find Binary in cached resources, querying {g_base_url + "/" + binary_url}')
+                binary_url_lookup: Response = g_session.get(f"{g_base_url}/{binary_url}", headers=g_query_headers)
 
                 if binary_url_lookup.status_code != 200:
                     logger.error(f"The query responded with a status code of {binary_url_lookup.status_code}")
@@ -62,41 +65,49 @@ def expand_document_reference_content(session: Session, resource: dict, base_url
                             logger.error(binary_url_lookup.headers["WWW-Authenticate"])
                     if binary_url_lookup.status_code == 400 and "json" in binary_url_lookup.headers["content-type"]:
                         logger.error(binary_url_lookup.json())
-
-                if binary_url_lookup.status_code == 200 and "json" in binary_url_lookup.headers["content-type"]:
-                    content_data = binary_url_lookup.json()["data"]
-                elif binary_url_lookup.status_code == 200:
-                    content_data = binary_url_lookup.text
-                else:
-                    logger.debug("Setting content of DocumentReference to empty since Binary resource could not be retrieved")
-                    content_data: str = ""
-                cached_binary_resources[base_url + "/" + binary_url] = content_data
+                try:
+                    if binary_url_lookup.status_code == 200 and "json" in binary_url_lookup.headers["content-type"]:
+                        content_data = binary_url_lookup.json()["data"]
+                    elif binary_url_lookup.status_code == 200:
+                        content_data = binary_url_lookup.text
+                    else:
+                        logger.warning("Skipping DocumentReference since Binary resource could not be retrieved")
+                        return None
+                except JSONDecodeError:
+                    logger.warning("Skipping DocumentReference since Binary resource could not be retrieved")
+                    logger.warning(f"Response code: {binary_url_lookup.status_code}")
+                    logger.warning(f"Response text: {binary_url_lookup.content}")
+                    logger.warning(f"Response headers: {binary_url_lookup.headers}")
+                    return None
+                cached_binary_resources[g_base_url + "/" + binary_url] = content_data
 
             resource["content"][i]["attachment"]["data"] = content_data
             del resource["content"][i]["attachment"]["url"]
 
     # Convert HTML to plain text
     html_contents = list(filter(lambda x: x["attachment"]["contentType"] == "text/html", resource["content"]))
-    converted_htmls = []
+    converted_htmls: list = []
 
     for content in html_contents:
-        html_blurb = content["attachment"]["data"]
+        html_blurb: str = content["attachment"]["data"]
         text_maker = html2text.HTML2Text()
         text_maker.ignore_images = True
-        text_blurb = text_maker.handle(html_blurb)
-        text_blurb_bytes = text_blurb.encode("utf-8")
-        base64_text = base64.b64encode(text_blurb_bytes).decode("utf-8")
+        text_blurb: str = text_maker.handle(html_blurb)
+        text_blurb_bytes: bytes = text_blurb.encode("utf-8")
+        base64_text: str = base64.b64encode(text_blurb_bytes).decode("utf-8")
         converted_htmls.append({"attachment": {"contentType": "text/plain", "data": base64_text}})
 
     resource["content"].extend(converted_htmls)
 
-    plain_text_content = [(idx, content) for idx, content in enumerate(resource["content"]) if content["attachment"]["contentType"] == "text/plain"]
+    plain_text_content: list[tuple[int, Any]] = [(idx, content) for idx, content in enumerate(resource["content"]) if content["attachment"]["contentType"] == "text/plain"]
 
-    swap_contents = resource["content"][plain_text_content[0][0]], resource["content"][0]
+    swap_contents: tuple = resource["content"][plain_text_content[0][0]], resource["content"][0]
 
     resource["content"][0], resource["content"][plain_text_content[0][0]] = swap_contents
 
-    return resource
+    entry["resource"] = resource
+
+    return entry
 
 
 def expand_document_references_in_bundle(session: Session, input_bundle: Bundle, base_url: str, query_headers: dict = {}) -> Bundle:
@@ -114,21 +125,27 @@ def expand_document_references_in_bundle(session: Session, input_bundle: Bundle,
     - Bundle: A modified FHIR Bundle with expanded content data or the original input Bundle if an error occurs.
     """
 
-    global cached_binary_resources
-    returned_resources = input_bundle.entry
-    output_bundle = deepcopy(input_bundle).dict(exclude_none=True)
-    expanded_entries = []
+    global cached_binary_resources, g_session, g_base_url, g_query_headers
+    g_session: Session = session
+    g_base_url: str = base_url
+    g_query_headers: dict[str, str] = query_headers
 
-    for entry in returned_resources:
-        entry = entry.dict(exclude_none=True)  # type: ignore
-        resource = entry["resource"]
-        expanded_resource = expand_document_reference_content(session=session, resource=resource, base_url=base_url, query_headers=query_headers)
-        if expanded_resource:
-            entry["resource"] = expanded_resource
-        expanded_entries.append(entry)
+    returned_resources: list[BundleEntryType] = input_bundle.entry
+    output_bundle: dict = deepcopy(input_bundle).dict(exclude_none=True)
+
+    with ThreadPoolExecutor() as executor:
+        future_to_entry: dict[Future[dict[str, Any] | None], BundleEntryType] = {executor.submit(expand_document_reference_content, entry): entry for entry in returned_resources}
+
+        expanded_entries: list = []
+        for future in as_completed(future_to_entry):
+            entry: dict[str, Any] | None = future.result()
+            if entry:
+                expanded_entries.append(entry)
+
+    expanded_entries_clean: list[dict[str, Any]] = [entry for entry in expanded_entries if entry]
 
     if len(cached_binary_resources.keys()) != 0:
         cached_binary_resources = {}
 
-    output_bundle["entry"] = expanded_entries
+    output_bundle["entry"] = expanded_entries_clean
     return Bundle.parse_obj(output_bundle)
