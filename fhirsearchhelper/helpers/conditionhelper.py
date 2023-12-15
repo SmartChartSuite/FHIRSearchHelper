@@ -89,9 +89,7 @@ def expand_condition_onset_in_bundle(session: Session, input_bundle: Bundle, bas
     - Bundle: A modified FHIR Bundle with resources expanded to include Condition.onsetDateTime, or the original input Bundle if any errors occurred when trying to GET the Encounters.
     """
     global cached_encounter_resources, g_session, g_base_url, g_query_headers
-    g_session: Session = session
-    g_base_url: str = base_url
-    g_query_headers: dict[str, str] = query_headers
+    g_session, g_base_url, g_query_headers = session, base_url, query_headers
 
     returned_resources: list[BundleEntryType] = input_bundle.entry
     output_bundle: dict = deepcopy(input_bundle).dict(exclude_none=True)

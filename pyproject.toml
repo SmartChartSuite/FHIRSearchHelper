@@ -1,6 +1,6 @@
 [project]
 name = "fhirsearchhelper"  # Required
-version = "0.3.0"  # Required
+version = "0.3.1"  # Required
 description = "A package to help with FHIR searching when needed search parameters are not available"  # Optional
 readme = "README.md" # Optional
 requires-python = ">=3.10"

@@ -83,9 +83,7 @@ def expand_medication_references_in_bundle(session: Session, input_bundle: Bundl
     """
 
     global cached_medication_resources, g_session, g_base_url, g_query_headers
-    g_session: Session = session
-    g_base_url: str = base_url
-    g_query_headers: dict[str, str] = query_headers
+    g_session, g_base_url, g_query_headers = session, base_url, query_headers
 
     returned_resources: list[BundleEntryType] = input_bundle.entry
     output_bundle: dict = deepcopy(input_bundle).dict(exclude_none=True)
