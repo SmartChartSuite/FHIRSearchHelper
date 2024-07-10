@@ -88,6 +88,10 @@ def expand_document_reference_content(entry_resource: dict) -> dict | None:
     html_contents = list(filter(lambda x: x["attachment"]["contentType"] == "text/html", resource["content"]))
     converted_htmls: list = []
 
+    # This means the resource only has incompatible formats and needs to be removed from the returned Bundle
+    if not html_contents:
+        return None
+
     for content in html_contents:
         html_blurb: str = content["attachment"]["data"]
         text_maker = html2text.HTML2Text()
@@ -146,4 +150,5 @@ def expand_document_references_in_bundle(session: Session, input_bundle: Bundle,
         cached_binary_resources = {}
 
     output_bundle["entry"] = expanded_entries_clean
+    output_bundle["total"] = len(expanded_entries_clean)
     return Bundle.parse_obj(output_bundle)
