@@ -8,12 +8,53 @@ from typing import Any
 from fhir.resources.R4B.bundle import Bundle
 from fhir.resources.R4B.fhirtypes import BundleEntryType
 from requests import Response, Session
+from requests.adapters import HTTPAdapter
+from urllib3.util import Retry
 
 from .operationoutcomehelper import handle_operation_outcomes
 
 logger: logging.Logger = logging.getLogger("fhirsearchhelper.conditionhelper")
 
 cached_encounter_resources: dict = {}
+
+
+def expand_single_condition_onset(resource: dict, base_url: str, query_headers: dict):
+    if resource["resourceType"] == "OperationOutcome":
+        handle_operation_outcomes(resource=resource)
+        return None
+
+    session: Session = Session()
+    retries: Retry = Retry(total=5, allowed_methods={"GET", "POST", "PUT", "DELETE"}, status_forcelist=[500])
+    session.mount("https://", HTTPAdapter(max_retries=retries))
+    session.mount("http://", HTTPAdapter(max_retries=retries))
+
+    if any(onset_key in resource for onset_key in ["onsetAge", "onsetDateTime", "onsetPeriod", "onsetRange", "onsetString", "recordedDate"]):
+        return resource
+    if "encounter" in resource and "reference" in resource["encounter"]:
+        encounter_ref: str = resource["encounter"]["reference"]
+        if base_url + "/" + encounter_ref in cached_encounter_resources:
+            logger.debug("Found Encounter in cached resources")
+            encounter_json: dict = cached_encounter_resources[base_url + "/" + encounter_ref]
+        else:
+            logger.debug(f'Did not find Encounter in cached resources, querying {base_url+"/"+encounter_ref}')
+            encounter_lookup: Response = session.get(f"{base_url}/{encounter_ref}", headers=query_headers)
+            if encounter_lookup.status_code != 200:
+                logger.error(f"The Condition Encounter query responded with a status code of {encounter_lookup.status_code}")
+                if encounter_lookup.status_code == 403:
+                    logger.error("The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Encounter.Read.")
+                    if "WWW-Authenticate" in encounter_lookup.headers:
+                        logger.error(encounter_lookup.headers["WWW-Authenticate"])
+                return None
+            encounter_json = encounter_lookup.json()
+            cached_encounter_resources[base_url + "/" + encounter_ref] = encounter_json
+        if "period" in encounter_json and "start" in encounter_json["period"]:
+            resource["onsetDateTime"] = encounter_json["period"]["start"]
+        else:
+            resource["onsetDateTime"] = "9999-12-31"
+    else:
+        resource["onsetDateTime"] = "9999-12-31"
+
+    return resource
 
 
 def expand_condition_onset(entry_resource: BundleEntryType) -> dict[str, Any] | None:

@@ -10,13 +10,90 @@ import html2text
 from fhir.resources.R4B.bundle import Bundle
 from fhir.resources.R4B.fhirtypes import BundleEntryType
 from requests import Response, Session
+from requests.adapters import HTTPAdapter
 from requests.exceptions import JSONDecodeError
+from urllib3.util import Retry
 
 from .operationoutcomehelper import handle_operation_outcomes
 
 logger: logging.Logger = logging.getLogger("fhirsearchhelper.documenthelper")
 
 cached_binary_resources: dict = {}
+
+
+def expand_single_document_reference_content(resource: dict, base_url: str, query_headers: dict):
+    if resource["resourceType"] == "OperationOutcome":
+        handle_operation_outcomes(resource=resource)
+        return resource
+
+    session: Session = Session()
+    retries: Retry = Retry(total=5, allowed_methods={"GET", "POST", "PUT", "DELETE"}, status_forcelist=[500])
+    session.mount("https://", HTTPAdapter(max_retries=retries))
+    session.mount("http://", HTTPAdapter(max_retries=retries))
+
+    for i, content in enumerate(resource["content"]):
+        if "url" in content["attachment"]:
+            binary_url: str = content["attachment"]["url"]
+            if base_url + "/" + binary_url in cached_binary_resources:
+                logger.debug("Found Binary in cached resources")
+                content_data: str = cached_binary_resources[base_url + "/" + binary_url]
+            else:
+                logger.debug(f'Did not find Binary in cached resources, querying {base_url + "/" + binary_url}')
+                binary_url_lookup: Response = session.get(f"{base_url}/{binary_url}", headers=query_headers)
+
+                if binary_url_lookup.status_code != 200:
+                    logger.error(f"The query responded with a status code of {binary_url_lookup.status_code}")
+                    if binary_url_lookup.status_code == 403:
+                        logger.error("The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Binary.Read.")
+                        if "WWW-Authenticate" in binary_url_lookup.headers:
+                            logger.error(binary_url_lookup.headers["WWW-Authenticate"])
+                    if binary_url_lookup.status_code == 400 and "json" in binary_url_lookup.headers["content-type"]:
+                        logger.error(binary_url_lookup.json())
+                try:
+                    if binary_url_lookup.status_code == 200 and "json" in binary_url_lookup.headers["content-type"]:
+                        content_data = binary_url_lookup.json()["data"]
+                    elif binary_url_lookup.status_code == 200:
+                        content_data = binary_url_lookup.text
+                    else:
+                        logger.warning("Skipping DocumentReference since Binary resource could not be retrieved")
+                        return None
+                except JSONDecodeError:
+                    logger.warning("Skipping DocumentReference since Binary resource could not be retrieved")
+                    logger.warning(f"Response code: {binary_url_lookup.status_code}")
+                    logger.warning(f"Response text: {binary_url_lookup.content}")
+                    logger.warning(f"Response headers: {binary_url_lookup.headers}")
+                    return None
+                cached_binary_resources[base_url + "/" + binary_url] = content_data
+
+            resource["content"][i]["attachment"]["data"] = content_data
+            del resource["content"][i]["attachment"]["url"]
+
+    # Convert HTML to plain text
+    html_contents = list(filter(lambda x: x["attachment"]["contentType"] == "text/html", resource["content"]))
+    converted_htmls: list = []
+
+    # This means the resource only has incompatible formats and needs to be removed from the returned Bundle
+    if not html_contents:
+        return None
+
+    for content in html_contents:
+        html_blurb: str = content["attachment"]["data"]
+        text_maker = html2text.HTML2Text()
+        text_maker.ignore_images = True
+        text_blurb: str = text_maker.handle(html_blurb)
+        text_blurb_bytes: bytes = text_blurb.encode("utf-8")
+        base64_text: str = base64.b64encode(text_blurb_bytes).decode("utf-8")
+        converted_htmls.append({"attachment": {"contentType": "text/plain", "data": base64_text}})
+
+    resource["content"].extend(converted_htmls)
+
+    plain_text_content: list[tuple[int, Any]] = [(idx, content) for idx, content in enumerate(resource["content"]) if content["attachment"]["contentType"] == "text/plain"]
+
+    swap_contents: tuple = resource["content"][plain_text_content[0][0]], resource["content"][0]
+
+    resource["content"][0], resource["content"][plain_text_content[0][0]] = swap_contents
+
+    return resource
 
 
 def expand_document_reference_content(entry_resource: dict) -> dict | None:

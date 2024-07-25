@@ -8,12 +8,47 @@ from typing import Any
 from fhir.resources.R4B.bundle import Bundle
 from fhir.resources.R4B.fhirtypes import BundleEntryType
 from requests import Response, Session
+from requests.adapters import HTTPAdapter
+from urllib3.util import Retry
 
 from .operationoutcomehelper import handle_operation_outcomes
 
 logger: logging.Logger = logging.getLogger("fhirsearchhelper.medicationhelper")
 
 cached_medication_resources: dict = {}
+
+
+def expand_single_medication_reference(resource: dict, base_url: str, query_headers: dict):
+    if resource["resourceType"] == "OperationOutcome":
+        handle_operation_outcomes(resource=resource)
+        return resource
+
+    session: Session = Session()
+    retries: Retry = Retry(total=5, allowed_methods={"GET", "POST", "PUT", "DELETE"}, status_forcelist=[500])
+    session.mount("https://", HTTPAdapter(max_retries=retries))
+    session.mount("http://", HTTPAdapter(max_retries=retries))
+
+    if "medicationReference" in resource:
+        med_ref: str = resource["medicationReference"]["reference"]
+        if base_url + "/" + med_ref in cached_medication_resources:
+            logger.debug("Found Medication in cached resources")
+            med_code_concept: dict[str, list[dict]] = cached_medication_resources[base_url + "/" + med_ref]["code"]
+        else:
+            logger.debug(f'Did not find Medication in cached resources, querying {base_url+"/"+med_ref}')
+            med_lookup: Response = session.get(f"{base_url}/{med_ref}", headers=query_headers)
+            if med_lookup.status_code != 200:
+                logger.error(f"The MedicationRequest Medication query responded with a status code of {med_lookup.status_code}")
+                if med_lookup.status_code == 403:
+                    logger.error("The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Medication.Read.")
+                    if "WWW-Authenticate" in med_lookup.headers:
+                        logger.error(med_lookup.headers["WWW-Authenticate"])
+                return None
+            cached_medication_resources[base_url + "/" + med_ref] = med_lookup.json()
+            med_code_concept = med_lookup.json()["code"]
+        resource["medicationCodeableConcept"] = med_code_concept
+        del resource["medicationReference"]
+
+    return resource
 
 
 def expand_medication_reference(entry_resource: BundleEntryType) -> dict[str, Any] | None:
