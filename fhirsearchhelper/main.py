@@ -173,15 +173,15 @@ def run_fhir_query(
 
     if "operationoutcome" in return_resource_types:
         if all([item == "operationoutcome" for item in return_resource_types]):
-            logger.error("There was only OperationOutcomes in the return Bundle. Bundle.entry will be empty. See below for collected diagnostics strings:")
-            collected_diagnostics = list(set([issue.diagnostics for entry in new_query_response_bundle.entry for issue in entry.resource.issue if issue.diagnostics]))  # type: ignore
-            logger.error(collected_diagnostics)
+            logger.warning("There was only OperationOutcomes in the return Bundle. Bundle.entry will be empty. See below for collected diagnostics or details strings:")
+            collected_log_strings = list(set([(issue.diagnostics if issue.diagnostics else issue.details[0].text if issue.details and issue.details[0].text else None) for entry in new_query_response_bundle.entry for issue in entry.resource.issue])) #type: ignore
+            logger.warning(collected_log_strings)
             new_query_response_bundle.entry = []
         else:
             logger.warning("There was at least one OperationOutcome in the return Bundle. See below for collected diagnostics strings:")
             oo_resources = list(filter(lambda x: x.resource_type == "OperationOutcome", [entry.resource for entry in new_query_response_bundle.entry]))  # type: ignore
-            collected_diagnostics = list(set([issue.diagnostics for entry in oo_resources for issue in entry.issue if issue.diagnostics]))
-            logger.warning(collected_diagnostics)
+            collected_log_strings = list(set([(issue.diagnostics if issue.diagnostics else issue.details[0].text if issue.details and issue.details[0].text else None) for entry in oo_resources for issue in entry.resource.issue])) #type: ignore
+            logger.warning(collected_log_strings)
             new_query_response_bundle.entry = list(filter(lambda x: x.resource.resource_type != "OperationOutcome", new_query_response_bundle.entry))  # type: ignore
 
     # This happens before since its searching on code which is completed by this expansion
