@@ -180,7 +180,7 @@ def run_fhir_query(
         else:
             logger.warning("There was at least one OperationOutcome in the return Bundle. See below for collected diagnostics strings:")
             oo_resources = list(filter(lambda x: x.resource_type == "OperationOutcome", [entry.resource for entry in new_query_response_bundle.entry]))  # type: ignore
-            collected_log_strings = list(set([(issue.diagnostics if issue.diagnostics else issue.details.text if issue.details and issue.details.text else None) for entry in oo_resources for issue in entry.resource.issue])) #type: ignore
+            collected_log_strings = list(set([(issue.diagnostics if issue.diagnostics else issue.details.text if issue.details and issue.details.text else None) for entry in oo_resources for issue in entry.issue])) #type: ignore
             logger.warning(collected_log_strings)
             new_query_response_bundle.entry = list(filter(lambda x: x.resource.resource_type != "OperationOutcome", new_query_response_bundle.entry))  # type: ignore
 
