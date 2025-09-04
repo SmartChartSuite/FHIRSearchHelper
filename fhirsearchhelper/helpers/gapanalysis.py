@@ -15,7 +15,7 @@ def run_gap_analysis(supported_search_params: list[SupportedSearchParams], query
     resouce_supported_search_params: SupportedSearchParams = list(filter(lambda x: x.resourceType == resource_type, supported_search_params))[0]
 
     query_params_names = list(query_search_params.searchParams.keys())
-    temp_supported_params_names: list[str] = [rsc.name for rsc in resouce_supported_search_params.searchParams]
+    temp_supported_params_names: list[str] = [rsc.name for rsc in resouce_supported_search_params.searchParams if rsc.name]
 
     supported_params_names = []
     for name in temp_supported_params_names:
