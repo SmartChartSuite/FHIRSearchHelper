@@ -1,6 +1,6 @@
 [project]
 name = "fhirsearchhelper"  # Required
-version = "0.4.0"  # Required
+version = "0.4.1"  # Required
 description = "A package to help with FHIR searching when needed search parameters are not available"  # Optional
 readme = "README.md" # Optional
 requires-python = ">=3.10"
@@ -38,11 +38,12 @@ classifiers = [  # Optional
 dependencies = [ # Optional
   "fhir.resources==8.1.0",
   "httpx==0.28.1",
-  "html2text==2025.4.15"
+  "html2text==2025.4.15",
+  "fhirpathpy==2.1.0"
 ]
 
 [project.optional-dependencies] # Optional
-dev = ["ruff==0.12.11", "fhirpathpy==2.1.0", "pytest==8.4.1"]
+dev = ["ruff==0.12.11", "pytest==8.4.1"]
 
 [project.urls]  # Optional
 "Homepage" = "https://github.com/SmartChartSuite/FHIRSearchHelper"
