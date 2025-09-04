@@ -4,15 +4,15 @@ import logging
 import os
 from pathlib import Path
 
+import httpx
 from fhir.resources.R4B.capabilitystatement import CapabilityStatement
-from requests import Session
 
 from ..models.models import SupportedSearchParams
 
 logger: logging.Logger = logging.getLogger("fhirsearchhelper.capabilitystatement")
 
 
-def load_capability_statement(session: Session, url: str | None = None, file_path: str | None = None) -> CapabilityStatement:
+def load_capability_statement(client: httpx.Client, url: str | None = None, file_path: str | None = None) -> CapabilityStatement:
     """Function to load a CapabilityStatement into memory"""
 
     if url and file_path:
@@ -20,7 +20,7 @@ def load_capability_statement(session: Session, url: str | None = None, file_pat
 
     if url:
         try:
-            cap_statement: dict = session.get(url, headers={"Accept": "application/json"}).json()
+            cap_statement: dict = client.get(url, headers={"Accept": "application/json"}).json()
         except Exception as exc:
             logger.error("Something went wrong trying to access the CapabilityStatement via URL")
             raise exc

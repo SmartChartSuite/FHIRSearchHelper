@@ -6,8 +6,7 @@ from copy import deepcopy
 from pathlib import Path
 
 import fhirpathpy
-from fhir.resources.R4B.bundle import Bundle
-from fhir.resources.R4B.fhirtypes import BundleEntryType
+from fhir.resources.R4B.bundle import Bundle, BundleEntry
 
 from ..models.models import QuerySearchParams
 
@@ -22,8 +21,10 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
     if not gap_analysis_output:
         return input_bundle
 
-    returned_resources: list[BundleEntryType] = input_bundle.entry
-    filtered_entries: list[BundleEntryType] = []
+    returned_resources: list[BundleEntry] | None = input_bundle.entry
+    if not returned_resources:
+        return input_bundle
+    filtered_entries: list[BundleEntry] = []
     output_bundle: Bundle = deepcopy(input_bundle)
 
     for filter_sp in gap_analysis_output:
@@ -45,34 +46,32 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
                         code_sp_system = ""
                         code_sp_code = code_sp_split[0]
                     for entry in returned_resources:
-                        if entry.resource.resource_type == "MedicationRequest":  # type: ignore
-                            if "coding" not in entry.resource.medicationCodeableConcept.dict():  # type: ignore
+                        if not entry.resource:
+                            continue
+                        if entry.resource.__resource_type__ == "MedicationRequest":
+                            if "coding" not in entry.resource.medicationCodeableConcept.dict():
                                 logger.debug("Code does not have a coding, this MedicationRequest resource does not match")
                                 continue
-                            if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.medicationCodeableConcept.coding)):  # type: ignore
+                            if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.medicationCodeableConcept.coding)):
                                 logger.debug("Found MedicationRequest that matched both system and code for code element")
-                                filtered_list = [
-                                    (idx, med)
-                                    for idx, med in enumerate(entry.resource.medicationCodeableConcept.coding)  # type: ignore
-                                    if med.system == code_sp_system and med.code == code_sp_code
-                                ]
-                                swap_entries = entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]], entry.resource.medicationCodeableConcept.coding[0]  # type: ignore
-                                entry.resource.medicationCodeableConcept.coding[0], entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]] = swap_entries  # type: ignore
+                                filtered_list = [(idx, med) for idx, med in enumerate(entry.resource.medicationCodeableConcept.coding) if med.system == code_sp_system and med.code == code_sp_code]
+                                swap_entries = entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]], entry.resource.medicationCodeableConcept.coding[0]
+                                entry.resource.medicationCodeableConcept.coding[0], entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]] = swap_entries
                                 filtered_entries.append(entry)
-                            elif any([coding.code == code_sp_code for coding in entry.resource.medicationCodeableConcept.coding]):  # type: ignore
+                            elif any([coding.code == code_sp_code for coding in entry.resource.medicationCodeableConcept.coding]):
                                 logger.debug("Found MedicationRequest that matches code (system was not provided in original query)")
-                                filtered_list = [(idx, med) for idx, med in enumerate(entry.resource.medicationCodeableConcept.coding) if med.code == code_sp_code]  # type: ignore
-                                swap_entries = entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]], entry.resource.medicationCodeableConcept.coding[0]  # type: ignore
-                                entry.resource.medicationCodeableConcept.coding[0], entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]] = swap_entries  # type: ignore
+                                filtered_list = [(idx, med) for idx, med in enumerate(entry.resource.medicationCodeableConcept.coding) if med.code == code_sp_code]
+                                swap_entries = entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]], entry.resource.medicationCodeableConcept.coding[0]
+                                entry.resource.medicationCodeableConcept.coding[0], entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]] = swap_entries
                                 filtered_entries.append(entry)
                         else:
-                            if "coding" not in entry.resource.code.dict():  # type: ignore
-                                logger.debug(f"Code does not have a coding, this {entry.resource.resource_type} resource does not match")  # type: ignore
+                            if "coding" not in entry.resource.code.dict():
+                                logger.debug(f"Code does not have a coding, this {entry.resource.__resource_type__} resource does not match")
                                 continue
-                            if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.code.coding)):  # type: ignore
+                            if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.code.coding)):
                                 logger.debug("Found resource that matched both system and code for code element")
                                 filtered_entries.append(entry)
-                            elif any([coding.code == code_sp_code for coding in entry.resource.code.coding]):  # type: ignore
+                            elif any([coding.code == code_sp_code for coding in entry.resource.code.coding]):
                                 logger.debug("Found resource that matches code (system was not provided in original query)")
                                 filtered_entries.append(entry)
             case "category":
@@ -84,21 +83,23 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
                     category_sp_system = ""
                     category_sp_code = category_sp_split[0]
                 for entry in returned_resources:
-                    if category_sp_system and list(filter(lambda x: x.system == category_sp_system and x.code == category_sp_code, entry.resource.category)):  # type: ignore
+                    if not entry.resource:
+                        continue
+                    if category_sp_system and list(filter(lambda x: x.system == category_sp_system and x.code == category_sp_code, entry.resource.category)):
                         filtered_entries.append(entry)
-                    elif any([coding.code == category_sp_code for coding in entry.resource.category.coding]):  # type: ignore
+                    elif any([coding.code == category_sp_code for coding in entry.resource.category.coding]):
                         filtered_entries.append(entry)
             case "clinicalStatus":
                 for entry in returned_resources:
-                    if entry.dict(exclude_none=True)["resource"][filter_sp]["coding"][0]["code"] in filter_sp_value.split(","):  # type: ignore
+                    if entry.model_dump(exclude_none=True)["resource"][filter_sp]["coding"][0]["code"] in filter_sp_value.split(","):
                         filtered_entries.append(entry)
             case _:
                 for entry in returned_resources:
-                    if entry.dict(exclude_none=True)["resource"][filter_sp] == filter_sp_value:  # type: ignore
+                    if entry.model_dump(exclude_none=True)["resource"][filter_sp] == filter_sp_value:
                         filtered_entries.append(entry)
 
     output_bundle.entry = filtered_entries
-    output_bundle.total = len(filtered_entries)  # type: ignore
+    output_bundle.total = len(filtered_entries)
 
     return output_bundle
 
@@ -111,8 +112,10 @@ def filter_bundle_new(input_bundle: Bundle, search_params: QuerySearchParams, ga
     if not gap_analysis_output:
         return input_bundle
 
-    returned_resources: list[BundleEntryType] = input_bundle.entry
-    filtered_entries: list[BundleEntryType] = []
+    returned_resources: list[BundleEntry] | None = input_bundle.entry
+    if not returned_resources:
+        return input_bundle
+    filtered_entries: list[BundleEntry] = []
     output_bundle: Bundle = deepcopy(input_bundle)
 
     with open(f"{Path(__file__).parents[1]}/resources/fhir_r4_search_params.json", "r") as fin:
@@ -124,16 +127,16 @@ def filter_bundle_new(input_bundle: Bundle, search_params: QuerySearchParams, ga
         filter_sp_fhirpath = r4_sp_json[search_params.resourceType][filter_sp]["fhirpath"]
 
         for entry in returned_resources:
-            resource_sp_output = fhirpathpy.evaluate(entry.resource, filter_sp_fhirpath)  # type: ignore
+            resource_sp_output = fhirpathpy.evaluate(entry.resource, filter_sp_fhirpath)
             if isinstance(filter_sp_value, str) and "%7C" in filter_sp_value:
                 logger.debug("The filter search parameter value is of type code")
                 filter_sp_value = {"system": filter_sp_value.split("%7C")[0], "code": filter_sp_value.split("%7C")[1]}
                 logger.debug("Updated filter search parameter value to be a dictionary")
                 print(filter_sp_value)
-            if filter_sp_value in resource_sp_output:
+            if filter_sp_value in resource_sp_output:  # type: ignore for now bc this a work in progress function
                 filtered_entries.append(entry)
 
     output_bundle.entry = filtered_entries
-    output_bundle.total = len(filtered_entries)  # type: ignore
+    output_bundle.total = len(filtered_entries)
 
     return output_bundle

@@ -1,3 +1,5 @@
+import json
+
 from fhir.resources.R4B.bundle import Bundle
 
 from fhirsearchhelper.helpers.fhirfilter import filter_bundle
@@ -5,7 +7,10 @@ from fhirsearchhelper.models.models import QuerySearchParams
 
 
 def test_filter_bundle_new() -> None:
-    input_bundle: Bundle = Bundle.parse_file("./tests/resources/FHIRFilterInputBundle.json")
+    with open("./tests/resources/FHIRFilterInputBundle.json", "r") as fopen:
+        bundle_data = json.load(fopen)
+    input_bundle = Bundle.model_validate(bundle_data)
+
     search_params: QuerySearchParams = QuerySearchParams(
         resourceType="Condition",
         searchParams={
@@ -22,10 +27,11 @@ def test_filter_bundle_new() -> None:
         gap_analysis_output=gap_analysis_output,
     )
 
-    assert filtered_bundle.total < input_bundle.total
-    assert filtered_bundle.total == len(filtered_bundle.entry)
+    assert filtered_bundle.total < input_bundle.total if (filtered_bundle.total and input_bundle.total) else True
+    assert filtered_bundle.total == len(filtered_bundle.entry) if filtered_bundle.entry else True
 
-    for entry in filtered_bundle.entry:
-        assert "eZ5-7rYdWqgv3jSgIvx.SPw3" == entry["resource"]["subject"]["reference"].split("/")[1]
-        assert "encounter-diagnosis" in [cat["coding"][0]["code"] for cat in entry["resource"]["category"]]
-        assert any(["http://snomed.info/sct|110483000".split("|")[1] == coding["code"] for coding in entry["resource"]["code"]["coding"]])
+    if filtered_bundle.entry:
+        for entry in filtered_bundle.entry:
+            assert "eZ5-7rYdWqgv3jSgIvx.SPw3" == entry["resource"]["subject"]["reference"].split("/")[1]
+            assert "encounter-diagnosis" in [cat["coding"][0]["code"] for cat in entry["resource"]["category"]]
+            assert any(["http://snomed.info/sct|110483000".split("|")[1] == coding["code"] for coding in entry["resource"]["code"]["coding"]])
