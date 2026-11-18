@@ -187,7 +187,7 @@ def expand_document_reference_content(entry_resource: BundleEntry) -> dict | Non
     return entry
 
 
-def expand_document_references_in_bundle(client: httpx.Client, input_bundle: Bundle, base_url: str, query_headers: dict = {}) -> Bundle:
+def expand_document_references_in_bundle(client: httpx.Client, input_bundle: Bundle, base_url: str, query_headers: dict[str, str] | None = None) -> Bundle:
     """
     Expand content attachments of DocumentReference entries within a Bundle.
 
@@ -203,6 +203,7 @@ def expand_document_references_in_bundle(client: httpx.Client, input_bundle: Bun
     """
 
     global cached_binary_resources, g_client, g_base_url, g_query_headers
+    query_headers = {} if query_headers is None else query_headers
     g_client, g_base_url, g_query_headers = client, base_url, query_headers
 
     returned_resources: list[BundleEntry] | None = input_bundle.entry

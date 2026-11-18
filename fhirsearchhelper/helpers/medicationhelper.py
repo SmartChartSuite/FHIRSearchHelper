@@ -95,7 +95,7 @@ def expand_medication_reference(entry_resource: BundleEntry) -> dict[str, Any] |
     return entry
 
 
-def expand_medication_references_in_bundle(client: httpx.Client, input_bundle: Bundle, base_url: str, query_headers: dict = {}) -> Bundle:
+def expand_medication_references_in_bundle(client: httpx.Client, input_bundle: Bundle, base_url: str, query_headers: dict[str, str] | None = None) -> Bundle:
     """
     Expand MedicationReferences into MedicationCodeableConcepts for all MedicationRequest entries in a Bundle.
 
@@ -113,6 +113,7 @@ def expand_medication_references_in_bundle(client: httpx.Client, input_bundle: B
     """
 
     global cached_medication_resources, g_client, g_base_url, g_query_headers
+    query_headers = {} if query_headers is None else query_headers
     g_client, g_base_url, g_query_headers = client, base_url, query_headers
 
     returned_resources: list[BundleEntry] | None = input_bundle.entry

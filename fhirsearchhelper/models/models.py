@@ -1,6 +1,7 @@
 """File for custom models"""
 
 import logging
+from typing import ClassVar
 
 from fhir.resources.R4B.capabilitystatement import CapabilityStatementRestResourceSearchParam
 from pydantic import BaseModel
@@ -15,7 +16,7 @@ class CustomFormatter(logging.Formatter):
     reset: str = "\x1b[0m"
     format_str: str = "{asctime}   {levelname:8s} --- {name}: {message}"
 
-    FORMATS: dict[int, str] = {
+    FORMATS: ClassVar[dict[int, str]] = {
         logging.DEBUG: grey + format_str + reset,
         logging.INFO: green + format_str + reset,
         logging.WARNING: yellow + format_str + reset,

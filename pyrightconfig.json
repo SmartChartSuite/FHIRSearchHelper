@@ -1,0 +1,6 @@
+{
+  "include": ["fhirsearchhelper", "tests"],
+  "exclude": ["build", "dist", ".venv"],
+  "pythonVersion": "3.14",
+  "typeCheckingMode": "basic"
+}
