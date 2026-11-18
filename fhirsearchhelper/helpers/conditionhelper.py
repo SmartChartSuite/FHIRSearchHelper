@@ -109,7 +109,7 @@ def expand_condition_onset(entry_resource: BundleEntry) -> dict[str, Any] | None
     return entry
 
 
-def expand_condition_onset_in_bundle(client: httpx.Client, input_bundle: Bundle, base_url: str, query_headers: dict = {}) -> Bundle:
+def expand_condition_onset_in_bundle(client: httpx.Client, input_bundle: Bundle, base_url: str, query_headers: dict[str, str] | None = None) -> Bundle:
     """
     Expand and modify resources within a FHIR Bundle by adding Condition.onsetDateTime using referenced Encounter in Condition.encounter.
 
@@ -125,6 +125,7 @@ def expand_condition_onset_in_bundle(client: httpx.Client, input_bundle: Bundle,
     - Bundle: A modified FHIR Bundle with resources expanded to include Condition.onsetDateTime, or the original input Bundle if any errors occurred when trying to GET the Encounters.
     """
     global cached_encounter_resources, g_client, g_base_url, g_query_headers
+    query_headers = {} if query_headers is None else query_headers
     g_client, g_base_url, g_query_headers = client, base_url, query_headers
 
     returned_resources: list[BundleEntry] | None = input_bundle.entry

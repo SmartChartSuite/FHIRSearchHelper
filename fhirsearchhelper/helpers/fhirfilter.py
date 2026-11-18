@@ -4,6 +4,7 @@ import json
 import logging
 from copy import deepcopy
 from pathlib import Path
+from typing import Any, cast
 
 import fhirpathpy
 from fhir.resources.R4B.bundle import Bundle, BundleEntry
@@ -48,30 +49,31 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
                     for entry in returned_resources:
                         if not entry.resource:
                             continue
-                        if entry.resource.__resource_type__ == "MedicationRequest":
-                            if "coding" not in entry.resource.medicationCodeableConcept.dict():
+                        resource: Any = cast(Any, entry.resource)
+                        if resource.__resource_type__ == "MedicationRequest":
+                            if "coding" not in resource.medicationCodeableConcept.dict():
                                 logger.debug("Code does not have a coding, this MedicationRequest resource does not match")
                                 continue
-                            if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.medicationCodeableConcept.coding)):
+                            if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, resource.medicationCodeableConcept.coding)):
                                 logger.debug("Found MedicationRequest that matched both system and code for code element")
-                                filtered_list = [(idx, med) for idx, med in enumerate(entry.resource.medicationCodeableConcept.coding) if med.system == code_sp_system and med.code == code_sp_code]
-                                swap_entries = entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]], entry.resource.medicationCodeableConcept.coding[0]
-                                entry.resource.medicationCodeableConcept.coding[0], entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]] = swap_entries
+                                filtered_list = [(idx, med) for idx, med in enumerate(resource.medicationCodeableConcept.coding) if med.system == code_sp_system and med.code == code_sp_code]
+                                swap_entries = resource.medicationCodeableConcept.coding[filtered_list[0][0]], resource.medicationCodeableConcept.coding[0]
+                                resource.medicationCodeableConcept.coding[0], resource.medicationCodeableConcept.coding[filtered_list[0][0]] = swap_entries
                                 filtered_entries.append(entry)
-                            elif any([coding.code == code_sp_code for coding in entry.resource.medicationCodeableConcept.coding]):
+                            elif any(coding.code == code_sp_code for coding in resource.medicationCodeableConcept.coding):
                                 logger.debug("Found MedicationRequest that matches code (system was not provided in original query)")
-                                filtered_list = [(idx, med) for idx, med in enumerate(entry.resource.medicationCodeableConcept.coding) if med.code == code_sp_code]
-                                swap_entries = entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]], entry.resource.medicationCodeableConcept.coding[0]
-                                entry.resource.medicationCodeableConcept.coding[0], entry.resource.medicationCodeableConcept.coding[filtered_list[0][0]] = swap_entries
+                                filtered_list = [(idx, med) for idx, med in enumerate(resource.medicationCodeableConcept.coding) if med.code == code_sp_code]
+                                swap_entries = resource.medicationCodeableConcept.coding[filtered_list[0][0]], resource.medicationCodeableConcept.coding[0]
+                                resource.medicationCodeableConcept.coding[0], resource.medicationCodeableConcept.coding[filtered_list[0][0]] = swap_entries
                                 filtered_entries.append(entry)
                         else:
-                            if "coding" not in entry.resource.code.dict():
-                                logger.debug(f"Code does not have a coding, this {entry.resource.__resource_type__} resource does not match")
+                            if "coding" not in resource.code.dict():
+                                logger.debug(f"Code does not have a coding, this {resource.__resource_type__} resource does not match")
                                 continue
-                            if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, entry.resource.code.coding)):
+                            if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, resource.code.coding)):
                                 logger.debug("Found resource that matched both system and code for code element")
                                 filtered_entries.append(entry)
-                            elif any([coding.code == code_sp_code for coding in entry.resource.code.coding]):
+                            elif any(coding.code == code_sp_code for coding in resource.code.coding):
                                 logger.debug("Found resource that matches code (system was not provided in original query)")
                                 filtered_entries.append(entry)
             case "category":
@@ -85,9 +87,8 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
                 for entry in returned_resources:
                     if not entry.resource:
                         continue
-                    if category_sp_system and list(filter(lambda x: x.system == category_sp_system and x.code == category_sp_code, entry.resource.category)):
-                        filtered_entries.append(entry)
-                    elif any([coding.code == category_sp_code for coding in entry.resource.category.coding]):
+                    resource: Any = cast(Any, entry.resource)
+                    if (category_sp_system and list(filter(lambda x: x.system == category_sp_system and x.code == category_sp_code, resource.category))) or any(coding.code == category_sp_code for coding in resource.category.coding):
                         filtered_entries.append(entry)
             case "clinicalStatus":
                 for entry in returned_resources:
@@ -127,7 +128,9 @@ def filter_bundle_new(input_bundle: Bundle, search_params: QuerySearchParams, ga
         filter_sp_fhirpath = r4_sp_json[search_params.resourceType][filter_sp]["fhirpath"]
 
         for entry in returned_resources:
-            resource_sp_output = fhirpathpy.evaluate(entry.resource, filter_sp_fhirpath)
+            if not entry.resource:
+                continue
+            resource_sp_output = fhirpathpy.evaluate(cast(Any, entry.resource), filter_sp_fhirpath)
             if isinstance(filter_sp_value, str) and "%7C" in filter_sp_value:
                 logger.debug("The filter search parameter value is of type code")
                 filter_sp_value = {"system": filter_sp_value.split("%7C")[0], "code": filter_sp_value.split("%7C")[1]}

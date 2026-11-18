@@ -42,5 +42,5 @@ def test_get_supported_search_params_capstate() -> None:
 
     assert ssps
     assert isinstance(ssps, list)
-    assert all([isinstance(sps, SupportedSearchParams) for sps in ssps])
-    assert all([resource.type in [sps.resourceType for sps in ssps] for resource in cs.rest[0].resource if "searchParam" in resource.dict(exclude_none=True)])  # type: ignore
+    assert all(isinstance(sps, SupportedSearchParams) for sps in ssps)
+    assert all(resource.type in [sps.resourceType for sps in ssps] for resource in cs.rest[0].resource if "searchParam" in resource.dict(exclude_none=True))  # type: ignore

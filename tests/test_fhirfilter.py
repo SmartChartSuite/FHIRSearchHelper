@@ -32,6 +32,7 @@ def test_filter_bundle_new() -> None:
 
     if filtered_bundle.entry:
         for entry in filtered_bundle.entry:
-            assert "eZ5-7rYdWqgv3jSgIvx.SPw3" == entry["resource"]["subject"]["reference"].split("/")[1]
-            assert "encounter-diagnosis" in [cat["coding"][0]["code"] for cat in entry["resource"]["category"]]
-            assert any(["http://snomed.info/sct|110483000".split("|")[1] == coding["code"] for coding in entry["resource"]["code"]["coding"]])
+            entry_data = entry.model_dump(exclude_none=True)
+            assert "eZ5-7rYdWqgv3jSgIvx.SPw3" == entry_data["resource"]["subject"]["reference"].split("/")[1]
+            assert "encounter-diagnosis" in [cat["coding"][0]["code"] for cat in entry_data["resource"]["category"]]
+            assert any("110483000" == coding["code"] for coding in entry_data["resource"]["code"]["coding"])

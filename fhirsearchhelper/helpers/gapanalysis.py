@@ -12,28 +12,31 @@ logger: logging.Logger = logging.getLogger("fhirsearchhelper.gapanalysis")
 def run_gap_analysis(supported_search_params: list[SupportedSearchParams], query_search_params: QuerySearchParams) -> list[str]:
     resource_type = query_search_params.resourceType
 
-    resouce_supported_search_params: SupportedSearchParams = list(filter(lambda x: x.resourceType == resource_type, supported_search_params))[0]
+    resouce_supported_search_params: SupportedSearchParams = next(filter(lambda x: x.resourceType == resource_type, supported_search_params))
 
     query_params_names = list(query_search_params.searchParams.keys())
     temp_supported_params_names: list[str] = [rsc.name for rsc in resouce_supported_search_params.searchParams if rsc.name]
 
     supported_params_names = []
     for name in temp_supported_params_names:
-        search_param_obj: CapabilityStatementRestResourceSearchParam = list(filter(lambda x: x.name == name, resouce_supported_search_params.searchParams))[0]
+        search_param_obj: CapabilityStatementRestResourceSearchParam = next(filter(lambda x: x.name == name, resouce_supported_search_params.searchParams))
         if search_param_obj.extension:
             filtered_ext_list = list(filter(lambda x: x.url == "true-when", search_param_obj.extension))  # type: ignore
             if filtered_ext_list:
-                if "==" in filtered_ext_list[0].valueString:
-                    field, value = filtered_ext_list[0].valueString.split("==")
+                value_string = filtered_ext_list[0].valueString
+                if not value_string:
+                    continue
+                if "==" in value_string:
+                    field, value = value_string.split("==")
                     if field in query_params_names and query_search_params.searchParams[field] == value:
                         supported_params_names.append(name)
-                elif " in " in filtered_ext_list[0].valueString:
-                    field, values = filtered_ext_list[0].valueString.split(" in ")
+                elif " in " in value_string:
+                    field, values = value_string.split(" in ")
                     values = [value.strip() for value in values.strip("[").strip("]").split(",")]
                     if (
                         field in query_params_names
                         and len(query_search_params.searchParams[field].split(",")) > 1
-                        and all([sp_value in values for sp_value in query_search_params.searchParams[field].split(",")])
+                        and all(sp_value in values for sp_value in query_search_params.searchParams[field].split(","))
                     ):
                         supported_params_names.append(name)
                         continue

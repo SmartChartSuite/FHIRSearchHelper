@@ -3,6 +3,7 @@
 import json
 import logging
 import re
+from typing import Any, cast
 
 import httpx
 from fhir.resources.R4B.bundle import Bundle
@@ -65,7 +66,7 @@ def run_fhir_query(
         url_res, q_search_params = query.split("?")
         if url_res.split("/")[-1] not in pretty_supported_search_params:
             logger.error(f"Resource {url_res.split('/')[-1]} is not supported for searching, returning empty Bundle")
-            return Bundle(**{"type": "searchset", "total": 0, "link": [{"relation": "self", "url": url_res}]})
+            return Bundle.model_validate({"type": "searchset", "total": 0, "link": [{"relation": "self", "url": url_res}]})
         if not q_search_params:
             logger.error("No search params, Epic does not support pulling all resources of a given type with no search parameters. Please refine your query.")
             new_query_response: httpx.Response = client.get(f"{url_res}", headers=query_headers)
@@ -121,13 +122,13 @@ def run_fhir_query(
             "For example, searching CPT or HCPCS codes (Procedure codes) on an Observation. This will return an empty Bundle, but make sure to modify your queries to "
             "only search appropriate codes for the type of resource."
         )
-        return Bundle(**{"type": "searchset", "total": 0, "link": [{"relation": "self", "url": f"{base_url}/{new_query_string}"}]})
+        return Bundle.model_validate({"type": "searchset", "total": 0, "link": [{"relation": "self", "url": f"{base_url}/{new_query_string}"}]})
     if new_query_response.status_code != 200:
         logger.error(f"The query responded with a status code of {new_query_response.status_code}")
         if "WWW-Authenticate" in new_query_response.headers:
             logger.error(f"WWW-Authenticate Error: {new_query_response.headers['WWW-Authenticate']}")
-            return OperationOutcome(
-                **{
+            return OperationOutcome.model_validate(
+                {
                     "resourceType": "OperationOutcome",
                     "issue": [{"severity": "error", "code": "processing", "diagnostics": f"WWW-Authenticate Error: {new_query_response.headers['WWW-Authenticate']}"}],
                 }
@@ -141,23 +142,26 @@ def run_fhir_query(
                 if title_match:
                     title_content = title_match.group(1)  # Extract the content within the title tags
                     logger.error(f"Response error from query: {title_content}")
-                    return OperationOutcome(**{"resourceType": "OperationOutcome", "issue": [{"severity": "error", "code": "processing", "diagnostics": "From Epic: " + title_content}]})
+                    return OperationOutcome.model_validate({"resourceType": "OperationOutcome", "issue": [{"severity": "error", "code": "processing", "diagnostics": "From Epic: " + title_content}]})
             logger.error("Unable to parse response as JSON body")
-            return OperationOutcome(
-                **{"resourceType": "OperationOutcome", "issue": [{"severity": "error", "code": "processing", "diagnostics": "Unable to parse response as JSON or HTML with a title"}]}
+            return OperationOutcome.model_validate(
+                {
+                    "resourceType": "OperationOutcome",
+                    "issue": [{"severity": "error", "code": "processing", "diagnostics": "Unable to parse response as JSON or HTML with a title"}],
+                }
             )
 
     new_query_response_json: dict = new_query_response.json()
 
     try:
-        if new_query_response_json["entry"][0]["resource"]["resourceType"] == "Patient":
+        resource = new_query_response_json["entry"][0]["resource"]
+        if resource["resourceType"] == "Patient" and "address" in resource:
             # Handling for empty lines in Patient.address
-            if "address" in new_query_response_json["entry"][0]["resource"]:
-                new_addresses: list[dict] = []
-                for address in new_query_response_json["entry"][0]["resource"]["address"]:
-                    address["line"] = [line for line in address["line"] if line]
-                    new_addresses.append(address)
-                new_query_response_json["entry"][0]["resource"]["address"] = new_addresses
+            new_addresses: list[dict] = []
+            for address in resource["address"]:
+                address["line"] = [line for line in address["line"] if line]
+                new_addresses.append(address)
+            resource["address"] = new_addresses
     except (IndexError, KeyError):
         pass
 
@@ -166,30 +170,39 @@ def run_fhir_query(
     if not new_query_response_bundle.entry:
         return new_query_response_bundle
 
-    return_resource_types = [entry.resource.__resource_type__.lower() for entry in new_query_response_bundle.entry]
+    resource_entries = [entry for entry in new_query_response_bundle.entry if entry.resource]
+    return_resource_types = [cast(Any, entry.resource).__resource_type__.lower() for entry in resource_entries]
 
     if "operationoutcome" in return_resource_types:
-        if all([item == "operationoutcome" for item in return_resource_types]):
+        operation_outcomes = [
+            cast(OperationOutcome, entry.resource)
+            for entry in resource_entries
+            if cast(Any, entry.resource).__resource_type__ == "OperationOutcome"
+        ]
+        if all(item == "operationoutcome" for item in return_resource_types):
             logger.warning("There was only OperationOutcomes in the return Bundle. Bundle.entry will be empty. See below for collected diagnostics or details strings:")
             collected_log_strings = list(
-                set(
-                    [
-                        (issue.diagnostics if issue.diagnostics else issue.details.text if issue.details and issue.details.text else None)
-                        for entry in new_query_response_bundle.entry
-                        for issue in entry.resource.issue
-                    ]
-                )
+                {
+                    issue.diagnostics if issue.diagnostics else issue.details.text if issue.details and issue.details.text else None
+                    for outcome in operation_outcomes
+                    for issue in outcome.issue
+                }
             )
             logger.warning(collected_log_strings)
             new_query_response_bundle.entry = []
         else:
             logger.warning("There was at least one OperationOutcome in the return Bundle. See below for collected diagnostics or details strings:")
-            oo_resources = list(filter(lambda x: x.__resource_type__ == "OperationOutcome", [entry.resource for entry in new_query_response_bundle.entry]))
             collected_log_strings = list(
-                set([(issue.diagnostics if issue.diagnostics else issue.details.text if issue.details and issue.details.text else None) for entry in oo_resources for issue in entry.issue])
+                {
+                    issue.diagnostics if issue.diagnostics else issue.details.text if issue.details and issue.details.text else None
+                    for outcome in operation_outcomes
+                    for issue in outcome.issue
+                }
             )
             logger.warning(collected_log_strings)
-            new_query_response_bundle.entry = list(filter(lambda x: x.resource.__resource_type__ != "OperationOutcome", new_query_response_bundle.entry))
+            new_query_response_bundle.entry = [
+                entry for entry in resource_entries if cast(Any, entry.resource).__resource_type__ != "OperationOutcome"
+            ]
 
     # This happens before since its searching on code which is completed by this expansion
     if "MedicationRequest" in new_query_string:

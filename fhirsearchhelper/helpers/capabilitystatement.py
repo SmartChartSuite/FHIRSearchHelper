@@ -21,15 +21,15 @@ def load_capability_statement(client: httpx.Client, url: str | None = None, file
     if url:
         try:
             cap_statement: dict = client.get(url, headers={"Accept": "application/json"}).json()
-        except Exception as exc:
+        except Exception:
             logger.error("Something went wrong trying to access the CapabilityStatement via URL")
-            raise exc
+            raise
 
         try:
             cap_statement_object: CapabilityStatement = CapabilityStatement.parse_obj(cap_statement)
-        except Exception as exc:
+        except Exception:
             logger.error("Something went wrong when trying to turn the retrieved cap statement into a CapabilityStatement object")
-            raise exc
+            raise
     elif file_path:
         if os.path.isfile(f"{Path(__file__).parents[1]}/capabilitystatements/{file_path}"):
             logger.info(f"Found file {file_path} in the CapabilityStatements folder")
