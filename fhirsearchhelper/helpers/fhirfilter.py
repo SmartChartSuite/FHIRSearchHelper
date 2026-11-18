@@ -51,7 +51,7 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
                             continue
                         resource: Any = cast(Any, entry.resource)
                         if resource.__resource_type__ == "MedicationRequest":
-                            if "coding" not in resource.medicationCodeableConcept.dict():
+                            if "coding" not in resource.medicationCodeableConcept.model_dump():
                                 logger.debug("Code does not have a coding, this MedicationRequest resource does not match")
                                 continue
                             if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, resource.medicationCodeableConcept.coding)):
@@ -67,7 +67,7 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
                                 resource.medicationCodeableConcept.coding[0], resource.medicationCodeableConcept.coding[filtered_list[0][0]] = swap_entries
                                 filtered_entries.append(entry)
                         else:
-                            if "coding" not in resource.code.dict():
+                            if "coding" not in resource.code.model_dump():
                                 logger.debug(f"Code does not have a coding, this {resource.__resource_type__} resource does not match")
                                 continue
                             if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, resource.code.coding)):
