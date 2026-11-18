@@ -57,7 +57,7 @@ def run_fhir_query(
     supported_search_params: list[SupportedSearchParams] = get_supported_search_params(cap_state)
 
     pretty_supported_search_params: dict[str, list[str]] = {
-        resource_params["resourceType"]: [item["name"] for item in resource_params["searchParams"]] for resource_params in [item.dict(exclude_none=True) for item in supported_search_params]
+        resource_params["resourceType"]: [item["name"] for item in resource_params["searchParams"]] for resource_params in [item.model_dump(exclude_none=True) for item in supported_search_params]
     }
 
     logger.debug(f"Supported search parameters for this server are: {pretty_supported_search_params}")
