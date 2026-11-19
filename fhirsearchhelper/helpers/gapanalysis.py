@@ -9,12 +9,23 @@ from ..models.models import QuerySearchParams, SupportedSearchParams
 logger: logging.Logger = logging.getLogger("fhirsearchhelper.gapanalysis")
 
 
+def _base_search_parameter(name: str) -> str:
+    return name.split(":", 1)[0]
+
+
+def _search_parameter_modifier(name: str) -> str | None:
+    parts = name.split(":", 1)
+    return parts[1].lower() if len(parts) == 2 else None
+
+
 def run_gap_analysis(supported_search_params: list[SupportedSearchParams], query_search_params: QuerySearchParams) -> list[str]:
     resource_type = query_search_params.resourceType
 
     resouce_supported_search_params: SupportedSearchParams = next(filter(lambda x: x.resourceType == resource_type, supported_search_params))
 
     query_params_names = list(query_search_params.searchParams.keys())
+    query_param_base_names = [_base_search_parameter(name) for name in query_params_names]
+    query_param_values = {_base_search_parameter(name): value for name, value in query_search_params.searchParams.items()}
     temp_supported_params_names: list[str] = [rsc.name for rsc in resouce_supported_search_params.searchParams if rsc.name]
 
     supported_params_names = []
@@ -28,23 +39,25 @@ def run_gap_analysis(supported_search_params: list[SupportedSearchParams], query
                     continue
                 if "==" in value_string:
                     field, value = value_string.split("==")
-                    if field in query_params_names and query_search_params.searchParams[field] == value:
+                    if field in query_param_base_names and query_param_values[field] == value:
                         supported_params_names.append(name)
                 elif " in " in value_string:
                     field, values = value_string.split(" in ")
                     values = [value.strip() for value in values.strip("[").strip("]").split(",")]
                     if (
-                        field in query_params_names
-                        and len(query_search_params.searchParams[field].split(",")) > 1
-                        and all(sp_value in values for sp_value in query_search_params.searchParams[field].split(","))
+                        field in query_param_base_names
+                        and len(query_param_values[field].split(",")) > 1
+                        and all(sp_value in values for sp_value in query_param_values[field].split(","))
                     ):
                         supported_params_names.append(name)
                         continue
-                    if field in query_params_names and query_search_params.searchParams[field] in values:
+                    if field in query_param_base_names and query_param_values[field] in values:
                         supported_params_names.append(name)
         else:
             supported_params_names.append(name)
 
-    params_not_supported = [name for name in query_params_names if name not in supported_params_names]
+    params_not_supported = [
+        name for name in query_params_names if _search_parameter_modifier(name) == "not" or _base_search_parameter(name) not in supported_params_names
+    ]
 
     return params_not_supported

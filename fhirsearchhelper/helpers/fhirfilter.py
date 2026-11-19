@@ -2,9 +2,12 @@
 
 import json
 import logging
+import re
 from copy import deepcopy
+from functools import cache
 from pathlib import Path
 from typing import Any, cast
+from urllib.parse import unquote
 
 import fhirpathpy
 from fhir.resources.R4B.bundle import Bundle, BundleEntry
@@ -12,6 +15,68 @@ from fhir.resources.R4B.bundle import Bundle, BundleEntry
 from ..models.models import QuerySearchParams
 
 logger: logging.Logger = logging.getLogger("fhirsearchhelper.fhirfilter")
+
+
+def _base_search_parameter(name: str) -> str:
+    return name.split(":", 1)[0]
+
+
+@cache
+def _search_parameter_paths(resource_type: str) -> dict[str, str]:
+    with open(f"{Path(__file__).parents[1]}/resources/fhir_r4_search_params.json", "r") as fin:
+        definitions = json.load(fin)
+    return {name: definition["fhirpath"] for name, definition in definitions.get(resource_type, {}).items() if "fhirpath" in definition}
+
+
+def _flatten_search_values(value: Any) -> list[str]:
+    if isinstance(value, dict):
+        flattened: list[str] = []
+        if value.get("system") is not None and value.get("code") is not None:
+            flattened.append(f"{value['system']}|{value['code']}")
+        if value.get("reference") is not None:
+            flattened.append(str(value["reference"]))
+        for nested in value.values():
+            flattened.extend(_flatten_search_values(nested))
+        return flattened
+    if isinstance(value, list):
+        flattened = []
+        for nested in value:
+            flattened.extend(_flatten_search_values(nested))
+        return flattened
+    if value is None:
+        return []
+    return [str(value)]
+
+
+def _evaluate_search_parameter(resource: Any, resource_type: str, search_parameter: str) -> list[Any]:
+    fhirpath = _search_parameter_paths(resource_type).get(search_parameter)
+    if not fhirpath:
+        return []
+
+    resource_data = resource.model_dump(exclude_none=True)
+    try:
+        return fhirpathpy.evaluate(resource_data, fhirpath)
+    except Exception as exc:  # noqa: BLE001 - fhirpathpy raises generic exceptions for unsupported expressions
+        simplified_fhirpath = re.sub(r"\.where\(resolve\(\) is [^)]+\)", "", fhirpath)
+        if simplified_fhirpath == fhirpath:
+            logger.warning("Unable to evaluate FHIRPath for :not filtering (%s.%s): %s", resource_type, search_parameter, exc)
+            return []
+        try:
+            return fhirpathpy.evaluate(resource_data, simplified_fhirpath)
+        except Exception as simplified_exc:  # noqa: BLE001 - fhirpathpy raises generic exceptions for unsupported expressions
+            logger.warning("Unable to evaluate simplified FHIRPath for :not filtering (%s.%s): %s", resource_type, search_parameter, simplified_exc)
+            return []
+
+
+def _search_parameter_matches(resource: Any, resource_type: str, search_parameter: str, search_value: str) -> bool:
+    expected = unquote(search_value)
+    values = _evaluate_search_parameter(resource, resource_type, search_parameter)
+    for candidate in values:
+        for candidate_value in _flatten_search_values(candidate):
+            normalized_candidate = unquote(candidate_value)
+            if normalized_candidate == expected or normalized_candidate.endswith(f"/{expected}"):
+                return True
+    return False
 
 
 def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_analysis_output: list[str]) -> Bundle:
@@ -25,8 +90,24 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
     returned_resources: list[BundleEntry] | None = input_bundle.entry
     if not returned_resources:
         return input_bundle
+
+    not_filters = [filter_sp for filter_sp in gap_analysis_output if filter_sp.lower().endswith(":not")]
+    for filter_sp in not_filters:
+        base_search_parameter = _base_search_parameter(filter_sp)
+        search_value = search_params.searchParams[filter_sp]
+        returned_resources = [
+            entry
+            for entry in returned_resources
+            if not entry.resource or not _search_parameter_matches(entry.resource, search_params.resourceType, base_search_parameter, search_value)
+        ]
+
+    gap_analysis_output = [filter_sp for filter_sp in gap_analysis_output if filter_sp not in not_filters]
     filtered_entries: list[BundleEntry] = []
     output_bundle: Bundle = deepcopy(input_bundle)
+    if not gap_analysis_output:
+        output_bundle.entry = returned_resources
+        output_bundle.total = len(returned_resources)
+        return output_bundle
 
     for filter_sp in gap_analysis_output:
         filter_sp_value: str | int = search_params.searchParams[filter_sp]

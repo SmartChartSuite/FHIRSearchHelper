@@ -36,3 +36,26 @@ def test_filter_bundle_new() -> None:
             assert "eZ5-7rYdWqgv3jSgIvx.SPw3" == entry_data["resource"]["subject"]["reference"].split("/")[1]
             assert "encounter-diagnosis" in [cat["coding"][0]["code"] for cat in entry_data["resource"]["category"]]
             assert any("110483000" == coding["code"] for coding in entry_data["resource"]["code"]["coding"])
+
+
+def test_filter_bundle_not_modifier_excludes_matching_code() -> None:
+    input_bundle = Bundle.model_validate(
+        {
+            "resourceType": "Bundle",
+            "type": "searchset",
+            "entry": [
+                {"resource": {"resourceType": "Observation", "id": "excluded", "status": "final", "code": {"coding": [{"system": "http://loinc.org", "code": "1234-5"}]}}},
+                {"resource": {"resourceType": "Observation", "id": "kept", "status": "final", "code": {"coding": [{"system": "http://loinc.org", "code": "9999-9"}]}}},
+            ],
+        }
+    )
+    search_params = QuerySearchParams(
+        resourceType="Observation",
+        searchParams={"code:not": "http://loinc.org%7C1234-5"},
+        searchParamsList=[("code:not", "http://loinc.org%7C1234-5")],
+    )
+
+    filtered_bundle = filter_bundle(input_bundle=input_bundle, search_params=search_params, gap_analysis_output=["code:not"])
+
+    assert filtered_bundle.entry is not None
+    assert [entry.resource.id for entry in filtered_bundle.entry if entry.resource is not None] == ["kept"]
