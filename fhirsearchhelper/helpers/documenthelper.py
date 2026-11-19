@@ -1,6 +1,7 @@
 """File to handle all operations around Medication-related Resources"""
 
 import base64
+import binascii
 import json
 import logging
 from concurrent.futures import Future, ThreadPoolExecutor, as_completed
@@ -16,6 +17,17 @@ from .operationoutcomehelper import handle_operation_outcomes
 logger: logging.Logger = logging.getLogger("fhirsearchhelper.documenthelper")
 
 cached_binary_resources: dict = {}
+
+
+def _decode_attachment_data(data: str | bytes) -> str:
+    if isinstance(data, bytes):
+        return data.decode("utf-8", errors="replace")
+
+    encoded_data = "".join(data.split())
+    try:
+        return base64.b64decode(encoded_data, validate=True).decode("utf-8")
+    except (binascii.Error, UnicodeDecodeError, ValueError):
+        return data
 
 
 def expand_single_document_reference_content(resource: dict, base_url: str, query_headers: dict):
@@ -72,7 +84,7 @@ def expand_single_document_reference_content(resource: dict, base_url: str, quer
         return None
 
     for content in html_contents:
-        html_blurb: str = content["attachment"]["data"]
+        html_blurb: str = _decode_attachment_data(content["attachment"]["data"])
         text_maker = html2text.HTML2Text()
         text_maker.ignore_images = True
         text_blurb: str = text_maker.handle(html_blurb)
@@ -166,7 +178,7 @@ def expand_document_reference_content(entry_resource: BundleEntry) -> dict | Non
         return None
 
     for content in html_contents:
-        html_blurb: str = content["attachment"]["data"]
+        html_blurb: str = _decode_attachment_data(content["attachment"]["data"])
         text_maker = html2text.HTML2Text()
         text_maker.ignore_images = True
         text_blurb: str = text_maker.handle(html_blurb)
