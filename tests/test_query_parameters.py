@@ -8,12 +8,19 @@ from fhirsearchhelper.models.models import QuerySearchParams, SupportedSearchPar
 def test_parse_query_parameters_preserves_repeated_names() -> None:
     values, pairs = _parse_query_parameters("patient=123&date=ge%3C2024-01-01&date=le%3C2024-12-31")
 
-    assert values == {"patient": "123", "date": "le%3C2024-12-31"}
+    assert values == {"patient": "123", "date": "le<2024-12-31"}
     assert pairs == [
         ("patient", "123"),
         ("date", "ge%3C2024-01-01"),
         ("date", "le%3C2024-12-31"),
     ]
+
+
+def test_parse_query_parameters_decodes_modifier_names_and_values() -> None:
+    values, pairs = _parse_query_parameters("type%3Anot=http%3A%2F%2Floinc.org%7C1234-5")
+
+    assert values == {"type:not": "http://loinc.org|1234-5"}
+    assert pairs == [("type%3Anot", "http%3A%2F%2Floinc.org%7C1234-5")]
 
 
 def test_build_query_string_preserves_repeated_date_bounds() -> None:

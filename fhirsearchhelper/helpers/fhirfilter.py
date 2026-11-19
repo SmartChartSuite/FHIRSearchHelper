@@ -7,7 +7,7 @@ from copy import deepcopy
 from functools import cache
 from pathlib import Path
 from typing import Any, cast
-from urllib.parse import unquote
+from urllib.parse import unquote_plus
 
 import fhirpathpy
 from fhir.resources.R4B.bundle import Bundle, BundleEntry
@@ -69,11 +69,11 @@ def _evaluate_search_parameter(resource: Any, resource_type: str, search_paramet
 
 
 def _search_parameter_matches(resource: Any, resource_type: str, search_parameter: str, search_value: str) -> bool:
-    expected = unquote(search_value)
+    expected = unquote_plus(search_value)
     values = _evaluate_search_parameter(resource, resource_type, search_parameter)
     for candidate in values:
         for candidate_value in _flatten_search_values(candidate):
-            normalized_candidate = unquote(candidate_value)
+            normalized_candidate = unquote_plus(candidate_value)
             if normalized_candidate == expected or normalized_candidate.endswith(f"/{expected}"):
                 return True
     return False
@@ -110,17 +110,17 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
         return output_bundle
 
     for filter_sp in gap_analysis_output:
-        filter_sp_value: str | int = search_params.searchParams[filter_sp]
+        filter_sp_value: str = unquote_plus(str(search_params.searchParams[filter_sp]))
         if "-" in filter_sp:
             filter_sp = filter_sp[0].lower() + "".join(x.capitalize() for x in filter_sp.lower().split("-"))[1:]
         logger.debug(f"Working on filtering for search parameter {filter_sp}")
         match filter_sp:
             case "code":
-                code_sp_multiple_codes = filter_sp_value.split("%2C")
+                code_sp_multiple_codes = filter_sp_value.split(",")
                 if len(code_sp_multiple_codes) > 1:
                     logger.debug(f"There are a total of {len(code_sp_multiple_codes)} codes in the search parameter")
                 for code_sp_single_code in code_sp_multiple_codes:
-                    code_sp_split: list[str] = code_sp_single_code.split("%7C")
+                    code_sp_split: list[str] = code_sp_single_code.split("|")
                     if len(code_sp_split) == 2:  # Case when there is a | separator
                         code_sp_system: str = code_sp_split[0]
                         code_sp_code: str = code_sp_split[1]
@@ -205,16 +205,18 @@ def filter_bundle_new(input_bundle: Bundle, search_params: QuerySearchParams, ga
 
     for filter_sp in gap_analysis_output:
         filter_sp_value: str | int | dict = search_params.searchParams[filter_sp]
+        if isinstance(filter_sp_value, str):
+            filter_sp_value = unquote_plus(filter_sp_value)
         print("Filter sp value", filter_sp_value)
-        filter_sp_fhirpath = r4_sp_json[search_params.resourceType][filter_sp]["fhirpath"]
+        filter_sp_fhirpath = r4_sp_json[search_params.resourceType][_base_search_parameter(filter_sp)]["fhirpath"]
 
         for entry in returned_resources:
             if not entry.resource:
                 continue
             resource_sp_output = fhirpathpy.evaluate(cast(Any, entry.resource), filter_sp_fhirpath)
-            if isinstance(filter_sp_value, str) and "%7C" in filter_sp_value:
+            if isinstance(filter_sp_value, str) and "|" in filter_sp_value:
                 logger.debug("The filter search parameter value is of type code")
-                filter_sp_value = {"system": filter_sp_value.split("%7C")[0], "code": filter_sp_value.split("%7C")[1]}
+                filter_sp_value = {"system": filter_sp_value.split("|")[0], "code": filter_sp_value.split("|")[1]}
                 logger.debug("Updated filter search parameter value to be a dictionary")
                 print(filter_sp_value)
             if filter_sp_value in resource_sp_output:  # type: ignore for now bc this a work in progress function
