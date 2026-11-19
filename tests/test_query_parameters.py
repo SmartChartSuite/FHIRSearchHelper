@@ -39,6 +39,22 @@ def test_build_query_string_preserves_repeated_date_bounds() -> None:
     )
 
 
+def test_build_query_string_combines_repeated_observation_codes() -> None:
+    search_params = QuerySearchParams(
+        resourceType="Observation",
+        searchParams={"code": "http://loinc.org|9999-9"},
+        searchParamsList=[
+            ("code", "http%3A%2F%2Floinc.org%7C1234-5"),
+            ("code", "http%3A%2F%2Floinc.org%7C9999-9"),
+            ("status", "final"),
+        ],
+    )
+
+    assert _build_query_string(search_params, gap_output=[]) == (
+        "Observation?code=http%3A%2F%2Floinc.org%7C1234-5%2Chttp%3A%2F%2Floinc.org%7C9999-9&status=final"
+    )
+
+
 def test_build_query_string_falls_back_to_dict_for_programmatic_queries() -> None:
     search_params = QuerySearchParams(resourceType="Patient", searchParams={"patient": "123"})
 
