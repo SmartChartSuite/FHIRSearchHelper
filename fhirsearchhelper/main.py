@@ -26,6 +26,32 @@ ch.setFormatter(CustomFormatter())
 logger.addHandler(ch)
 
 
+def _parse_query_parameters(query_string: str) -> tuple[dict[str, str], list[tuple[str, str]]]:
+    search_params_dict: dict[str, str] = {}
+    search_params_list: list[tuple[str, str]] = []
+    for parameter in query_string.split("&"):
+        name, separator, value = parameter.partition("=")
+        if not name:
+            continue
+        if not separator:
+            value = ""
+        search_params_list.append((name, value))
+        search_params_dict[name] = value
+    return search_params_dict, search_params_list
+
+
+def _build_query_string(search_params: QuerySearchParams, gap_output: list[str]) -> str:
+    if search_params.searchParamsList is None:
+        search_params_list = list(search_params.searchParams.items())
+    else:
+        search_params_list = search_params.searchParamsList
+
+    new_query_params_str = "&".join([f"{key}={value}" for key, value in search_params_list if key not in gap_output])
+    if new_query_params_str:
+        return f"{search_params.resourceType}?{new_query_params_str}"
+    return search_params.resourceType
+
+
 def run_fhir_query(
     base_url: str | None = None,
     query_headers: dict[str, str] | None = None,
@@ -91,9 +117,8 @@ def run_fhir_query(
 
         base_url = "/".join(url_res.split("/")[:-1])
         q_resource_type = url_res.split("/")[-1]
-        search_params_list: list[str] = q_search_params.split("&")
-        search_params_dict: dict[str, str] = {item.split("=")[0]: item.split("=")[1] for item in search_params_list}
-        new_search_params: QuerySearchParams = QuerySearchParams(resourceType=q_resource_type, searchParams=search_params_dict)
+        search_params_dict, search_params_list = _parse_query_parameters(q_search_params)
+        new_search_params: QuerySearchParams = QuerySearchParams(resourceType=q_resource_type, searchParams=search_params_dict, searchParamsList=search_params_list)
     else:
         assert search_params
         new_search_params = search_params
@@ -104,11 +129,7 @@ def run_fhir_query(
 
     logger.debug(f"Gap output from these two sets of search parameters is: {gap_output}")
 
-    new_query_params_str: str = "&".join([f"{key}={value}" for key, value in new_search_params.searchParams.items() if key not in gap_output])
-    if new_query_params_str:
-        new_query_string: str = f"{new_search_params.resourceType}?{new_query_params_str}"
-    else:
-        new_query_string = new_search_params.resourceType
+    new_query_string: str = _build_query_string(search_params=new_search_params, gap_output=gap_output)
 
     logger.debug(f"New query string is {new_query_string}")
 

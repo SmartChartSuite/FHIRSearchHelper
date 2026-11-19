@@ -1,0 +1,35 @@
+from fhirsearchhelper.main import _build_query_string, _parse_query_parameters
+from fhirsearchhelper.models.models import QuerySearchParams
+
+
+def test_parse_query_parameters_preserves_repeated_names() -> None:
+    values, pairs = _parse_query_parameters("patient=123&date=ge%3C2024-01-01&date=le%3C2024-12-31")
+
+    assert values == {"patient": "123", "date": "le%3C2024-12-31"}
+    assert pairs == [
+        ("patient", "123"),
+        ("date", "ge%3C2024-01-01"),
+        ("date", "le%3C2024-12-31"),
+    ]
+
+
+def test_build_query_string_preserves_repeated_date_bounds() -> None:
+    search_params = QuerySearchParams(
+        resourceType="DocumentReference",
+        searchParams={"patient": "123", "date": "le%3C2024-12-31"},
+        searchParamsList=[
+            ("patient", "123"),
+            ("date", "ge%3C2024-01-01"),
+            ("date", "le%3C2024-12-31"),
+        ],
+    )
+
+    assert _build_query_string(search_params, gap_output=[]) == (
+        "DocumentReference?patient=123&date=ge%3C2024-01-01&date=le%3C2024-12-31"
+    )
+
+
+def test_build_query_string_falls_back_to_dict_for_programmatic_queries() -> None:
+    search_params = QuerySearchParams(resourceType="Patient", searchParams={"patient": "123"})
+
+    assert _build_query_string(search_params, gap_output=[]) == "Patient?patient=123"

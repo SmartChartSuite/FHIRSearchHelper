@@ -38,3 +38,4 @@ class SupportedSearchParams(BaseModel):
 class QuerySearchParams(BaseModel):
     resourceType: str
     searchParams: dict[str, str]
+    searchParamsList: list[tuple[str, str]] | None = None
