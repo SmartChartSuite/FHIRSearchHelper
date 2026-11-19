@@ -4,6 +4,7 @@ import json
 import logging
 import re
 from typing import Any, cast
+from urllib.parse import unquote_plus
 
 import httpx
 from fhir.resources.R4B.bundle import Bundle
@@ -30,12 +31,12 @@ def _parse_query_parameters(query_string: str) -> tuple[dict[str, str], list[tup
     search_params_dict: dict[str, str] = {}
     search_params_list: list[tuple[str, str]] = []
     for parameter in query_string.split("&"):
-        name, separator, value = parameter.partition("=")
-        if not name:
+        raw_name, separator, raw_value = parameter.partition("=")
+        if not raw_name:
             continue
-        if not separator:
-            value = ""
-        search_params_list.append((name, value))
+        name = unquote_plus(raw_name)
+        value = unquote_plus(raw_value) if separator else ""
+        search_params_list.append((raw_name, raw_value))
         search_params_dict[name] = value
     return search_params_dict, search_params_list
 
@@ -46,7 +47,7 @@ def _build_query_string(search_params: QuerySearchParams, gap_output: list[str])
     else:
         search_params_list = search_params.searchParamsList
 
-    new_query_params_str = "&".join([f"{key}={value}" for key, value in search_params_list if key not in gap_output])
+    new_query_params_str = "&".join([f"{key}={value}" for key, value in search_params_list if unquote_plus(key) not in gap_output])
     if new_query_params_str:
         return f"{search_params.resourceType}?{new_query_params_str}"
     return search_params.resourceType
