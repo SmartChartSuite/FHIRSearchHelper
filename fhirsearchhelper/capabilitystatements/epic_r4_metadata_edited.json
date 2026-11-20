@@ -640,13 +640,7 @@
                         {
                             "name": "code",
                             "type": "token",
-                            "documentation": "Search for Conditions with a specified code. This is only used when searching for infections.",
-                            "extension": [
-                                {
-                                    "url": "true-when",
-                                    "valueString": "category==infection"
-                                }
-                            ]
+                            "documentation": "Search for Conditions with a specified code. Epic supports this search across most Condition categories."
                         },
                         {
                             "name": "encounter",
