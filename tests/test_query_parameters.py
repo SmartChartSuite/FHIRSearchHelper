@@ -55,6 +55,22 @@ def test_build_query_string_combines_repeated_observation_codes() -> None:
     )
 
 
+def test_build_query_string_combines_repeated_condition_codes() -> None:
+    search_params = QuerySearchParams(
+        resourceType="Condition",
+        searchParams={"code": "http://hl7.org/fhir/sid/icd-10-cm|O14.11", "patient": "123"},
+        searchParamsList=[
+            ("code", "http%3A%2F%2Fhl7.org%2Ffhir%2Fsid%2Ficd-10-cm%7CO14.10"),
+            ("code", "http%3A%2F%2Fhl7.org%2Ffhir%2Fsid%2Ficd-10-cm%7CO14.11"),
+            ("patient", "123"),
+        ],
+    )
+
+    assert _build_query_string(search_params, gap_output=[]) == (
+        "Condition?code=http%3A%2F%2Fhl7.org%2Ffhir%2Fsid%2Ficd-10-cm%7CO14.10%2Chttp%3A%2F%2Fhl7.org%2Ffhir%2Fsid%2Ficd-10-cm%7CO14.11&patient=123"
+    )
+
+
 def test_build_query_string_falls_back_to_dict_for_programmatic_queries() -> None:
     search_params = QuerySearchParams(resourceType="Patient", searchParams={"patient": "123"})
 
