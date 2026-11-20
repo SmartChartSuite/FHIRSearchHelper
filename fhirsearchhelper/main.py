@@ -98,7 +98,6 @@ def run_fhir_query(
         logger.info("Logging level is being set to DEBUG")
         logger.setLevel(logging.DEBUG)
         ch.setLevel(logging.DEBUG)
-        logger.addHandler(ch)
 
     # Error handling
     if not base_url and not search_params and not query:
@@ -114,20 +113,18 @@ def run_fhir_query(
         resource_params["resourceType"]: [item["name"] for item in resource_params["searchParams"]] for resource_params in [item.model_dump(exclude_none=True) for item in supported_search_params]
     }
 
-    logger.debug(f"Supported search parameters for this server are: {pretty_supported_search_params}")
-
     if query:
         url_res, q_search_params = query.split("?")
         if url_res.split("/")[-1] not in pretty_supported_search_params:
-            logger.error(f"Resource {url_res.split('/')[-1]} is not supported for searching, returning empty Bundle")
+            logger.warning("Resource %s is not supported for searching, returning empty Bundle", url_res.split("/")[-1])
             return Bundle.model_validate({"type": "searchset", "total": 0, "link": [{"relation": "self", "url": url_res}]})
         if not q_search_params:
-            logger.error("No search params, Epic does not support pulling all resources of a given type with no search parameters. Please refine your query.")
+            logger.warning("No search params, Epic does not support pulling all resources of a given type with no search parameters. Please refine your query.")
             new_query_response: httpx.Response = client.get(f"{url_res}", headers=query_headers)
             if new_query_response.status_code == 403:
-                logger.error(f"The query responded with a status code of {new_query_response.status_code}")
+                logger.error("The query responded with a status code of %s", new_query_response.status_code)
                 if "WWW-Authenticate" in new_query_response.headers:
-                    logger.error(f"WWW-Authenticate Error: {new_query_response.headers['WWW-Authenticate']}")
+                    logger.error("WWW-Authenticate Error: %s", new_query_response.headers["WWW-Authenticate"])
                     OO_body = {
                         "resourceType": "OperationOutcome",
                         "issue": [{"severity": "error", "code": "processing", "diagnostics": f"WWW-Authenticate Error: {new_query_response.headers['WWW-Authenticate']}"}],
@@ -151,19 +148,19 @@ def run_fhir_query(
         assert search_params
         new_search_params = search_params
 
-    logger.info(f"Search parameters for this request are: {new_search_params}")
+    logger.info("Search parameters for this request are: %s", new_search_params)
 
     gap_output: list[str] = run_gap_analysis(supported_search_params=supported_search_params, query_search_params=new_search_params)
 
-    logger.debug(f"Gap output from these two sets of search parameters is: {gap_output}")
+    logger.debug("Gap output from these two sets of search parameters is: %s", gap_output)
 
     new_query_string: str = _build_query_string(search_params=new_search_params, gap_output=gap_output)
 
-    logger.debug(f"New query string is {new_query_string}")
+    logger.debug("New query string is %s", new_query_string)
 
     assert base_url
     assert query_headers
-    logger.info(f"Making request to {base_url}/{new_query_string}")
+    logger.info("Making request to %s/%s", base_url, new_query_string)
     new_query_response = client.get(f"{base_url}/{new_query_string}", headers=query_headers)
     if new_query_response.status_code == 400:
         logger.warning(
@@ -173,9 +170,9 @@ def run_fhir_query(
         )
         return Bundle.model_validate({"type": "searchset", "total": 0, "link": [{"relation": "self", "url": f"{base_url}/{new_query_string}"}]})
     if new_query_response.status_code != 200:
-        logger.error(f"The query responded with a status code of {new_query_response.status_code}")
+        logger.error("The query responded with a status code of %s", new_query_response.status_code)
         if "WWW-Authenticate" in new_query_response.headers:
-            logger.error(f"WWW-Authenticate Error: {new_query_response.headers['WWW-Authenticate']}")
+            logger.error("WWW-Authenticate Error: %s", new_query_response.headers["WWW-Authenticate"])
             return OperationOutcome.model_validate(
                 {
                     "resourceType": "OperationOutcome",
@@ -190,7 +187,7 @@ def run_fhir_query(
                 title_match: re.Match[str] | None = re.search(r"<title>(.*?)</title>", new_query_response.text)
                 if title_match:
                     title_content = title_match.group(1)  # Extract the content within the title tags
-                    logger.error(f"Response error from query: {title_content}")
+                    logger.error("Response error from query: %s", title_content)
                     return OperationOutcome.model_validate({"resourceType": "OperationOutcome", "issue": [{"severity": "error", "code": "processing", "diagnostics": "From Epic: " + title_content}]})
             logger.error("Unable to parse response as JSON body")
             return OperationOutcome.model_validate(
@@ -258,9 +255,8 @@ def run_fhir_query(
         logger.info("Resources are of type MedicationRequest, proceeding to expand MedicationReferences")
         new_query_response_bundle = expand_medication_references_in_bundle(client=client, input_bundle=new_query_response_bundle, base_url=base_url, query_headers=query_headers)
 
-    logger.debug(f"Size of bundle before filtering is {new_query_response_bundle.total} resources")
     filtered_bundle: Bundle = filter_bundle(input_bundle=new_query_response_bundle, search_params=new_search_params, gap_analysis_output=gap_output)
-    logger.info(f"Size of bundle after filtering is {filtered_bundle.total} resources")
+    logger.info("Filtered Bundle from %s to %s resources", new_query_response_bundle.total, filtered_bundle.total)
 
     output_bundle = filtered_bundle
 
