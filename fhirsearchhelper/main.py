@@ -41,10 +41,10 @@ def _parse_query_parameters(query_string: str) -> tuple[dict[str, str], list[tup
     return search_params_dict, search_params_list
 
 
-def _combine_observation_code_pairs(
+def _combine_code_pairs(
     resource_type: str, search_params_list: list[tuple[str, str]], gap_output: list[str]
 ) -> list[tuple[str, str]]:
-    if resource_type.casefold() != "observation" or "code" in gap_output:
+    if resource_type.casefold() not in {"observation", "condition"} or "code" in gap_output:
         return search_params_list
 
     filtered_pairs: list[tuple[str, str]] = []
@@ -73,7 +73,7 @@ def _build_query_string(search_params: QuerySearchParams, gap_output: list[str])
     else:
         search_params_list = search_params.searchParamsList
 
-    search_params_list = _combine_observation_code_pairs(search_params.resourceType, search_params_list, gap_output)
+    search_params_list = _combine_code_pairs(search_params.resourceType, search_params_list, gap_output)
     new_query_params_str = "&".join([f"{key}={value}" for key, value in search_params_list if unquote_plus(key) not in gap_output])
     if new_query_params_str:
         return f"{search_params.resourceType}?{new_query_params_str}"
