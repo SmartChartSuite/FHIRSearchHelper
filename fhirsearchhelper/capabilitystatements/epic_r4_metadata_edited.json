@@ -1197,6 +1197,11 @@
                             "name": "_count",
                             "type": "number",
                             "documentation": "Number of results per page."
+                        },
+                        {
+                            "name": "type",
+                            "type": "token",
+                            "documentation": "Specific type of encounter"
                         }
                     ]
                 },
