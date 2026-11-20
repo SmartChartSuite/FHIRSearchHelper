@@ -31,14 +31,14 @@ def expand_single_condition_onset(resource: dict, base_url: str, query_headers: 
             logger.debug("Found Encounter in cached resources")
             encounter_json: dict = cached_encounter_resources[base_url + "/" + encounter_ref]
         else:
-            logger.debug(f"Did not find Encounter in cached resources, querying {base_url + '/' + encounter_ref}")
+            logger.debug("Did not find Encounter in cached resources, querying %s", base_url + "/" + encounter_ref)
             encounter_lookup: httpx.Response = client.get(f"{base_url}/{encounter_ref}", headers=query_headers)
             if encounter_lookup.status_code != 200:
-                logger.error(f"The Condition Encounter query responded with a status code of {encounter_lookup.status_code}")
+                logger.error("The Condition Encounter query responded with a status code of %s", encounter_lookup.status_code)
                 if encounter_lookup.status_code == 403:
                     logger.error("The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Encounter.Read.")
                     if "WWW-Authenticate" in encounter_lookup.headers:
-                        logger.error(encounter_lookup.headers["WWW-Authenticate"])
+                        logger.error("WWW-Authenticate Error: %s", encounter_lookup.headers["WWW-Authenticate"])
                 return None
             encounter_json = encounter_lookup.json()
             cached_encounter_resources[base_url + "/" + encounter_ref] = encounter_json
@@ -87,14 +87,14 @@ def expand_condition_onset(entry_resource: BundleEntry) -> dict[str, Any] | None
             logger.debug("Found Encounter in cached resources")
             encounter_json: dict = cached_encounter_resources[g_base_url + "/" + encounter_ref]
         else:
-            logger.debug(f"Did not find Encounter in cached resources, querying {g_base_url + '/' + encounter_ref}")
+            logger.debug("Did not find Encounter in cached resources, querying %s", g_base_url + "/" + encounter_ref)
             encounter_lookup: httpx.Response = g_client.get(f"{g_base_url}/{encounter_ref}", headers=g_query_headers)
             if encounter_lookup.status_code != 200:
-                logger.error(f"The Condition Encounter query responded with a status code of {encounter_lookup.status_code}")
+                logger.error("The Condition Encounter query responded with a status code of %s", encounter_lookup.status_code)
                 if encounter_lookup.status_code == 403:
                     logger.error("The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Encounter.Read.")
                     if "WWW-Authenticate" in encounter_lookup.headers:
-                        logger.error(encounter_lookup.headers["WWW-Authenticate"])
+                        logger.error("WWW-Authenticate Error: %s", encounter_lookup.headers["WWW-Authenticate"])
                 return None
             encounter_json = encounter_lookup.json()
             cached_encounter_resources[g_base_url + "/" + encounter_ref] = encounter_json

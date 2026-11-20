@@ -45,17 +45,17 @@ def expand_single_document_reference_content(resource: dict, base_url: str, quer
                 logger.debug("Found Binary in cached resources")
                 content_data: str = cached_binary_resources[base_url + "/" + binary_url]
             else:
-                logger.debug(f"Did not find Binary in cached resources, querying {base_url + '/' + binary_url}")
+                logger.debug("Did not find Binary in cached resources, querying %s", base_url + "/" + binary_url)
                 binary_url_lookup: httpx.Response = client.get(f"{base_url}/{binary_url}", headers=query_headers)
 
                 if binary_url_lookup.status_code != 200:
-                    logger.error(f"The query responded with a status code of {binary_url_lookup.status_code}")
+                    logger.error("The query responded with a status code of %s", binary_url_lookup.status_code)
                     if binary_url_lookup.status_code == 403:
                         logger.error("The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Binary.Read.")
                         if "WWW-Authenticate" in binary_url_lookup.headers:
-                            logger.error(binary_url_lookup.headers["WWW-Authenticate"])
+                            logger.error("WWW-Authenticate Error: %s", binary_url_lookup.headers["WWW-Authenticate"])
                     if binary_url_lookup.status_code == 400 and "json" in binary_url_lookup.headers["content-type"]:
-                        logger.error(binary_url_lookup.json())
+                        logger.error("Binary lookup error response: %s", binary_url_lookup.json())
                 try:
                     if binary_url_lookup.status_code == 200 and "json" in binary_url_lookup.headers["content-type"]:
                         content_data = binary_url_lookup.json()["data"]
@@ -66,9 +66,9 @@ def expand_single_document_reference_content(resource: dict, base_url: str, quer
                         return None
                 except json.JSONDecodeError:
                     logger.warning("Skipping DocumentReference since Binary resource could not be retrieved")
-                    logger.warning(f"Response code: {binary_url_lookup.status_code}")
-                    logger.warning(f"Response text: {binary_url_lookup.content}")
-                    logger.warning(f"Response headers: {binary_url_lookup.headers}")
+                    logger.warning("Response code: %s", binary_url_lookup.status_code)
+                    logger.debug("Response text: %s", binary_url_lookup.content)
+                    logger.debug("Response headers: %s", binary_url_lookup.headers)
                     return None
                 cached_binary_resources[base_url + "/" + binary_url] = content_data
 
@@ -138,17 +138,17 @@ def expand_document_reference_content(entry_resource: BundleEntry) -> dict | Non
                 logger.debug("Found Binary in cached resources")
                 content_data: str = cached_binary_resources[g_base_url + "/" + binary_url]
             else:
-                logger.debug(f"Did not find Binary in cached resources, querying {g_base_url + '/' + binary_url}")
+                logger.debug("Did not find Binary in cached resources, querying %s", g_base_url + "/" + binary_url)
                 binary_url_lookup: httpx.Response = g_client.get(f"{g_base_url}/{binary_url}", headers=g_query_headers)
 
                 if binary_url_lookup.status_code != 200:
-                    logger.error(f"The query responded with a status code of {binary_url_lookup.status_code}")
+                    logger.error("The query responded with a status code of %s", binary_url_lookup.status_code)
                     if binary_url_lookup.status_code == 403:
                         logger.error("The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Binary.Read.")
                         if "WWW-Authenticate" in binary_url_lookup.headers:
-                            logger.error(binary_url_lookup.headers["WWW-Authenticate"])
+                            logger.error("WWW-Authenticate Error: %s", binary_url_lookup.headers["WWW-Authenticate"])
                     if binary_url_lookup.status_code == 400 and "json" in binary_url_lookup.headers["content-type"]:
-                        logger.error(binary_url_lookup.json())
+                        logger.error("Binary lookup error response: %s", binary_url_lookup.json())
                 try:
                     if binary_url_lookup.status_code == 200 and "json" in binary_url_lookup.headers["content-type"]:
                         content_data = binary_url_lookup.json()["data"]
@@ -159,9 +159,9 @@ def expand_document_reference_content(entry_resource: BundleEntry) -> dict | Non
                         return None
                 except json.JSONDecodeError:
                     logger.warning("Skipping DocumentReference since Binary resource could not be retrieved")
-                    logger.warning(f"Response code: {binary_url_lookup.status_code}")
-                    logger.warning(f"Response text: {binary_url_lookup.content}")
-                    logger.warning(f"Response headers: {binary_url_lookup.headers}")
+                    logger.warning("Response code: %s", binary_url_lookup.status_code)
+                    logger.debug("Response text: %s", binary_url_lookup.content)
+                    logger.debug("Response headers: %s", binary_url_lookup.headers)
                     return None
                 cached_binary_resources[g_base_url + "/" + binary_url] = content_data
 

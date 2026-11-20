@@ -113,12 +113,12 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
         filter_sp_value: str = unquote_plus(str(search_params.searchParams[filter_sp]))
         if "-" in filter_sp:
             filter_sp = filter_sp[0].lower() + "".join(x.capitalize() for x in filter_sp.lower().split("-"))[1:]
-        logger.debug(f"Working on filtering for search parameter {filter_sp}")
+        logger.debug("Working on filtering for search parameter %s", filter_sp)
         match filter_sp:
             case "code":
                 code_sp_multiple_codes = filter_sp_value.split(",")
                 if len(code_sp_multiple_codes) > 1:
-                    logger.debug(f"There are a total of {len(code_sp_multiple_codes)} codes in the search parameter")
+                    logger.debug("There are a total of %s codes in the search parameter", len(code_sp_multiple_codes))
                 for code_sp_single_code in code_sp_multiple_codes:
                     code_sp_split: list[str] = code_sp_single_code.split("|")
                     if len(code_sp_split) == 2:  # Case when there is a | separator
@@ -149,7 +149,7 @@ def filter_bundle(input_bundle: Bundle, search_params: QuerySearchParams, gap_an
                                 filtered_entries.append(entry)
                         else:
                             if "coding" not in resource.code.model_dump():
-                                logger.debug(f"Code does not have a coding, this {resource.__resource_type__} resource does not match")
+                                logger.debug("Code does not have a coding, this %s resource does not match", resource.__resource_type__)
                                 continue
                             if code_sp_system and list(filter(lambda x: x.system == code_sp_system and x.code == code_sp_code, resource.code.coding)):
                                 logger.debug("Found resource that matched both system and code for code element")

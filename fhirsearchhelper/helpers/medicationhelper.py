@@ -29,14 +29,14 @@ def expand_single_medication_reference(resource: dict, base_url: str, query_head
             logger.debug("Found Medication in cached resources")
             med_code_concept: dict[str, list[dict]] = cached_medication_resources[base_url + "/" + med_ref]["code"]
         else:
-            logger.debug(f"Did not find Medication in cached resources, querying {base_url + '/' + med_ref}")
+            logger.debug("Did not find Medication in cached resources, querying %s", base_url + "/" + med_ref)
             med_lookup: httpx.Response = client.get(f"{base_url}/{med_ref}", headers=query_headers)
             if med_lookup.status_code != 200:
-                logger.error(f"The MedicationRequest Medication query responded with a status code of {med_lookup.status_code}")
+                logger.error("The MedicationRequest Medication query responded with a status code of %s", med_lookup.status_code)
                 if med_lookup.status_code == 403:
                     logger.error("The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Medication.Read.")
                     if "WWW-Authenticate" in med_lookup.headers:
-                        logger.error(med_lookup.headers["WWW-Authenticate"])
+                        logger.error("WWW-Authenticate Error: %s", med_lookup.headers["WWW-Authenticate"])
                 return None
             cached_medication_resources[base_url + "/" + med_ref] = med_lookup.json()
             med_code_concept = med_lookup.json()["code"]
@@ -77,14 +77,14 @@ def expand_medication_reference(entry_resource: BundleEntry) -> dict[str, Any] |
             logger.debug("Found Medication in cached resources")
             med_code_concept: dict[str, list[dict]] = cached_medication_resources[g_base_url + "/" + med_ref]["code"]
         else:
-            logger.debug(f"Did not find Medication in cached resources, querying {g_base_url + '/' + med_ref}")
+            logger.debug("Did not find Medication in cached resources, querying %s", g_base_url + "/" + med_ref)
             med_lookup: httpx.Response = g_client.get(f"{g_base_url}/{med_ref}", headers=g_query_headers)
             if med_lookup.status_code != 200:
-                logger.error(f"The MedicationRequest Medication query responded with a status code of {med_lookup.status_code}")
+                logger.error("The MedicationRequest Medication query responded with a status code of %s", med_lookup.status_code)
                 if med_lookup.status_code == 403:
                     logger.error("The 403 code typically means your defined scope does not allow for retrieving this resource. Please check your scope to ensure it includes Medication.Read.")
                     if "WWW-Authenticate" in med_lookup.headers:
-                        logger.error(med_lookup.headers["WWW-Authenticate"])
+                        logger.error("WWW-Authenticate Error: %s", med_lookup.headers["WWW-Authenticate"])
                 return None
             cached_medication_resources[g_base_url + "/" + med_ref] = med_lookup.json()
             med_code_concept = med_lookup.json()["code"]

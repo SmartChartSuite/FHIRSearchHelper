@@ -32,7 +32,7 @@ def load_capability_statement(client: httpx.Client, url: str | None = None, file
             raise
     elif file_path:
         if os.path.isfile(f"{Path(__file__).parents[1]}/capabilitystatements/{file_path}"):
-            logger.info(f"Found file {file_path} in the CapabilityStatements folder")
+            logger.debug("Found file %s in the CapabilityStatements folder", file_path)
             file_path = f"{Path(__file__).parents[1]}/capabilitystatements/{file_path}"
         cap_statement_object = CapabilityStatement.model_validate_json(Path(file_path).read_text(encoding="utf-8"))
     else:
